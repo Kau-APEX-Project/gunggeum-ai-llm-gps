@@ -1,0 +1,935 @@
+{
+ "start": "place:gwanghwamun-gate",
+ "candidates": [
+  {
+   "id": "place:gwanghwamun-gate",
+   "name": "광화문",
+   "kind": "gate",
+   "members": [],
+   "natureNear": [
+    {
+     "name": "대은암천",
+     "m": 152
+    }
+   ]
+  },
+  {
+   "id": "place:geonchunmun-gate",
+   "name": "건춘문",
+   "kind": "gate",
+   "members": [],
+   "natureNear": []
+  },
+  {
+   "id": "place:yeongchumun-gate",
+   "name": "영추문",
+   "kind": "gate",
+   "members": [],
+   "natureNear": [
+    {
+     "name": "경회지",
+     "m": 172
+    }
+   ]
+  },
+  {
+   "id": "place:p-16",
+   "name": "신무문",
+   "kind": "gate",
+   "members": [],
+   "natureNear": [
+    {
+     "name": "열상진원샘",
+     "m": 122
+    },
+    {
+     "name": "향원지",
+     "m": 192
+    }
+   ]
+  },
+  {
+   "id": "place:heungnyemun-gate",
+   "name": "흥례문",
+   "kind": "gate",
+   "members": [
+    "영제교",
+    "기별청",
+    "용성문",
+    "협생문",
+    "유화문"
+   ],
+   "natureNear": [
+    {
+     "name": "대은암천",
+     "m": 38
+    }
+   ]
+  },
+  {
+   "id": "place:geunjeongjeon-hall",
+   "name": "근정전",
+   "kind": "hall",
+   "members": [
+    "근정문",
+    "근정전 조정",
+    "근정전 내부"
+   ],
+   "natureNear": [
+    {
+     "name": "대은암천",
+     "m": 140
+    },
+    {
+     "name": "경회지",
+     "m": 182
+    }
+   ]
+  },
+  {
+   "id": "place:seojeongjeon",
+   "name": "사정전",
+   "kind": "hall",
+   "members": [
+    "만춘전",
+    "천추전"
+   ],
+   "natureNear": [
+    {
+     "name": "경회지",
+     "m": 146
+    },
+    {
+     "name": "대은암천",
+     "m": 198
+    }
+   ]
+  },
+  {
+   "id": "place:gangnyeongjeon",
+   "name": "강녕전",
+   "kind": "hall",
+   "members": [
+    "경성전",
+    "응지당",
+    "연길당",
+    "연생전"
+   ],
+   "natureNear": [
+    {
+     "name": "경회지",
+     "m": 129
+    }
+   ]
+  },
+  {
+   "id": "place:gyotaejeon",
+   "name": "교태전",
+   "kind": "hall",
+   "members": [
+    "아미산",
+    "흠경각",
+    "함원전",
+    "양의문",
+    "원길헌",
+    "함홍각",
+    "건순각"
+   ],
+   "natureNear": [
+    {
+     "name": "경회지",
+     "m": 132
+    }
+   ]
+  },
+  {
+   "id": "place:jagyeongjeon",
+   "name": "자경전",
+   "kind": "hall",
+   "members": [
+    "십장생 굴뚝",
+    "꽃담",
+    "제수합"
+   ],
+   "natureNear": []
+  },
+  {
+   "id": "place:p-24",
+   "name": "동궁전",
+   "kind": "hall",
+   "members": [
+    "자선당",
+    "비현각",
+    "중광문",
+    "계조당"
+   ],
+   "natureNear": []
+  },
+  {
+   "id": "place:gyeonghoeru-pavilion",
+   "name": "경회루",
+   "kind": "hall",
+   "members": [],
+   "natureNear": [
+    {
+     "name": "경회지",
+     "m": 34
+    }
+   ]
+  },
+  {
+   "id": "place:hyangwonjeong",
+   "name": "향원정",
+   "kind": "hall",
+   "members": [],
+   "natureNear": [
+    {
+     "name": "향원지",
+     "m": 16
+    },
+    {
+     "name": "열상진원샘",
+     "m": 58
+    },
+    {
+     "name": "녹산",
+     "m": 157
+    }
+   ]
+  },
+  {
+   "id": "place:taewonjeon",
+   "name": "태원전",
+   "kind": "hall",
+   "members": [
+    "기원문",
+    "건숙문",
+    "경안문",
+    "인수문",
+    "공묵재",
+    "숙문당",
+    "건길문",
+    "영사재",
+    "보강문",
+    "홍경문",
+    "일중문"
+   ],
+   "natureNear": []
+  },
+  {
+   "id": "place:p-25",
+   "name": "건청궁",
+   "kind": "hall",
+   "members": [
+    "필성문",
+    "장안당",
+    "초양문",
+    "인유문",
+    "정시합",
+    "복수당",
+    "녹금당",
+    "곤녕합"
+   ],
+   "natureNear": [
+    {
+     "name": "열상진원샘",
+     "m": 64
+    },
+    {
+     "name": "향원지",
+     "m": 97
+    },
+    {
+     "name": "녹산",
+     "m": 141
+    }
+   ]
+  },
+  {
+   "id": "place:jibokjae",
+   "name": "집옥재",
+   "kind": "hall",
+   "members": [
+    "협길당",
+    "팔우정"
+   ],
+   "natureNear": [
+    {
+     "name": "열상진원샘",
+     "m": 89
+    },
+    {
+     "name": "향원지",
+     "m": 159
+    }
+   ]
+  },
+  {
+   "id": "place:sujeongjeon",
+   "name": "수정전",
+   "kind": "hall",
+   "members": [
+    "궐내각사 터"
+   ],
+   "natureNear": [
+    {
+     "name": "경회지",
+     "m": 91
+    }
+   ]
+  },
+  {
+   "id": "place:p-26",
+   "name": "소주방",
+   "kind": "hall",
+   "members": [],
+   "natureNear": []
+  },
+  {
+   "id": "place:heungbokjeon",
+   "name": "흥복전",
+   "kind": "hall",
+   "members": [
+    "함화당",
+    "집경당"
+   ],
+   "natureNear": [
+    {
+     "name": "향원지",
+     "m": 168
+    },
+    {
+     "name": "경회지",
+     "m": 169
+    }
+   ]
+  },
+  {
+   "id": "nature:경회지",
+   "name": "경회지",
+   "kind": "water"
+  },
+  {
+   "id": "nature:녹산",
+   "name": "녹산",
+   "kind": "wood"
+  },
+  {
+   "id": "nature:대은암천",
+   "name": "대은암천",
+   "kind": "stream"
+  },
+  {
+   "id": "nature:열상진원샘",
+   "name": "열상진원샘",
+   "kind": "spring"
+  },
+  {
+   "id": "nature:향원지",
+   "name": "향원지",
+   "kind": "water"
+  }
+ ],
+ "walkMin": {
+  "place:gwanghwamun-gate": {
+   "place:geonchunmun-gate": 6.8,
+   "place:yeongchumun-gate": 9.4,
+   "place:p-16": 15.6,
+   "place:heungnyemun-gate": 1.9,
+   "place:geunjeongjeon-hall": 4.6,
+   "place:seojeongjeon": 6.4,
+   "place:gangnyeongjeon": 7.8,
+   "place:gyotaejeon": 9.3,
+   "place:jagyeongjeon": 10.9,
+   "place:p-24": 8.1,
+   "place:gyeonghoeru-pavilion": 8.5,
+   "place:hyangwonjeong": 14.4,
+   "place:taewonjeon": 15.8,
+   "place:p-25": 16,
+   "place:jibokjae": 15.9,
+   "place:sujeongjeon": 6.7,
+   "place:p-26": 9.8,
+   "place:heungbokjeon": 11.6,
+   "nature:경회지": 8.5,
+   "nature:녹산": 15.7,
+   "nature:대은암천": 2.6,
+   "nature:열상진원샘": 14.4,
+   "nature:향원지": 12.7
+  },
+  "place:geonchunmun-gate": {
+   "place:gwanghwamun-gate": 6.8,
+   "place:yeongchumun-gate": 8.3,
+   "place:p-16": 13.3,
+   "place:heungnyemun-gate": 5.2,
+   "place:geunjeongjeon-hall": 3.5,
+   "place:seojeongjeon": 4,
+   "place:gangnyeongjeon": 4.8,
+   "place:gyotaejeon": 6,
+   "place:jagyeongjeon": 5.3,
+   "place:p-24": 2.5,
+   "place:gyeonghoeru-pavilion": 6.5,
+   "place:hyangwonjeong": 9.4,
+   "place:taewonjeon": 14.1,
+   "place:p-25": 11.4,
+   "place:jibokjae": 12.1,
+   "place:sujeongjeon": 5.6,
+   "place:p-26": 3.7,
+   "place:heungbokjeon": 8,
+   "nature:경회지": 6.5,
+   "nature:녹산": 10.7,
+   "nature:대은암천": 4.4,
+   "nature:열상진원샘": 10.6,
+   "nature:향원지": 8.2
+  },
+  "place:yeongchumun-gate": {
+   "place:gwanghwamun-gate": 9.4,
+   "place:geonchunmun-gate": 8.3,
+   "place:p-16": 11.4,
+   "place:heungnyemun-gate": 7.6,
+   "place:geunjeongjeon-hall": 5,
+   "place:seojeongjeon": 4.8,
+   "place:gangnyeongjeon": 5.6,
+   "place:gyotaejeon": 6.6,
+   "place:jagyeongjeon": 9.6,
+   "place:p-24": 7.2,
+   "place:gyeonghoeru-pavilion": 5.3,
+   "place:hyangwonjeong": 12.2,
+   "place:taewonjeon": 7.5,
+   "place:p-25": 12.5,
+   "place:jibokjae": 12.1,
+   "place:sujeongjeon": 2.7,
+   "place:p-26": 8.9,
+   "place:heungbokjeon": 10,
+   "nature:경회지": 5.3,
+   "nature:녹산": 13.8,
+   "nature:대은암천": 6.8,
+   "nature:열상진원샘": 10.9,
+   "nature:향원지": 10.6
+  },
+  "place:p-16": {
+   "place:gwanghwamun-gate": 15.6,
+   "place:geonchunmun-gate": 13.3,
+   "place:yeongchumun-gate": 11.4,
+   "place:heungnyemun-gate": 13.7,
+   "place:geunjeongjeon-hall": 11.1,
+   "place:seojeongjeon": 9.6,
+   "place:gangnyeongjeon": 9.2,
+   "place:gyotaejeon": 8.2,
+   "place:jagyeongjeon": 9.1,
+   "place:p-24": 11.4,
+   "place:gyeonghoeru-pavilion": 7.5,
+   "place:hyangwonjeong": 3.9,
+   "place:taewonjeon": 6.7,
+   "place:p-25": 4.1,
+   "place:jibokjae": 3.6,
+   "place:sujeongjeon": 9.6,
+   "place:p-26": 12.3,
+   "place:heungbokjeon": 8.5,
+   "nature:경회지": 7.5,
+   "nature:녹산": 6.4,
+   "nature:대은암천": 13,
+   "nature:열상진원샘": 2.6,
+   "nature:향원지": 5.7
+  },
+  "place:heungnyemun-gate": {
+   "place:gwanghwamun-gate": 1.9,
+   "place:geonchunmun-gate": 5.2,
+   "place:yeongchumun-gate": 7.6,
+   "place:p-16": 13.7,
+   "place:geunjeongjeon-hall": 2.8,
+   "place:seojeongjeon": 4.5,
+   "place:gangnyeongjeon": 5.9,
+   "place:gyotaejeon": 7.4,
+   "place:jagyeongjeon": 9,
+   "place:p-24": 6.2,
+   "place:gyeonghoeru-pavilion": 6.7,
+   "place:hyangwonjeong": 12.6,
+   "place:taewonjeon": 13.9,
+   "place:p-25": 14.1,
+   "place:jibokjae": 14,
+   "place:sujeongjeon": 4.9,
+   "place:p-26": 8,
+   "place:heungbokjeon": 9.8,
+   "nature:경회지": 6.7,
+   "nature:녹산": 13.9,
+   "nature:대은암천": 0.7,
+   "nature:열상진원샘": 12.6,
+   "nature:향원지": 10.8
+  },
+  "place:geunjeongjeon-hall": {
+   "place:gwanghwamun-gate": 4.6,
+   "place:geonchunmun-gate": 3.5,
+   "place:yeongchumun-gate": 5,
+   "place:p-16": 11.1,
+   "place:heungnyemun-gate": 2.8,
+   "place:seojeongjeon": 1.9,
+   "place:gangnyeongjeon": 3.3,
+   "place:gyotaejeon": 4.8,
+   "place:jagyeongjeon": 6.4,
+   "place:p-24": 3.6,
+   "place:gyeonghoeru-pavilion": 4.1,
+   "place:hyangwonjeong": 10,
+   "place:taewonjeon": 11.3,
+   "place:p-25": 11.5,
+   "place:jibokjae": 11.4,
+   "place:sujeongjeon": 2.3,
+   "place:p-26": 5.3,
+   "place:heungbokjeon": 7.2,
+   "nature:경회지": 4.1,
+   "nature:녹산": 11.2,
+   "nature:대은암천": 2,
+   "nature:열상진원샘": 10,
+   "nature:향원지": 8.2
+  },
+  "place:seojeongjeon": {
+   "place:gwanghwamun-gate": 6.4,
+   "place:geonchunmun-gate": 4,
+   "place:yeongchumun-gate": 4.8,
+   "place:p-16": 9.6,
+   "place:heungnyemun-gate": 4.5,
+   "place:geunjeongjeon-hall": 1.9,
+   "place:gangnyeongjeon": 1.4,
+   "place:gyotaejeon": 2.9,
+   "place:jagyeongjeon": 5.3,
+   "place:p-24": 2.5,
+   "place:gyeonghoeru-pavilion": 2.5,
+   "place:hyangwonjeong": 8.8,
+   "place:taewonjeon": 10.1,
+   "place:p-25": 10,
+   "place:jibokjae": 9.9,
+   "place:sujeongjeon": 2.1,
+   "place:p-26": 4.2,
+   "place:heungbokjeon": 6,
+   "nature:경회지": 2.5,
+   "nature:녹산": 10.1,
+   "nature:대은암천": 3.8,
+   "nature:열상진원샘": 8.4,
+   "nature:향원지": 7
+  },
+  "place:gangnyeongjeon": {
+   "place:gwanghwamun-gate": 7.8,
+   "place:geonchunmun-gate": 4.8,
+   "place:yeongchumun-gate": 5.6,
+   "place:p-16": 9.2,
+   "place:heungnyemun-gate": 5.9,
+   "place:geunjeongjeon-hall": 3.3,
+   "place:seojeongjeon": 1.4,
+   "place:gyotaejeon": 1.6,
+   "place:jagyeongjeon": 4.9,
+   "place:p-24": 2.6,
+   "place:gyeonghoeru-pavilion": 2.1,
+   "place:hyangwonjeong": 8,
+   "place:taewonjeon": 9.7,
+   "place:p-25": 9.6,
+   "place:jibokjae": 9.5,
+   "place:sujeongjeon": 2.9,
+   "place:p-26": 4.3,
+   "place:heungbokjeon": 5.2,
+   "nature:경회지": 2.1,
+   "nature:녹산": 9.3,
+   "nature:대은암천": 5.2,
+   "nature:열상진원샘": 8,
+   "nature:향원지": 6.3
+  },
+  "place:gyotaejeon": {
+   "place:gwanghwamun-gate": 9.3,
+   "place:geonchunmun-gate": 6,
+   "place:yeongchumun-gate": 6.6,
+   "place:p-16": 8.2,
+   "place:heungnyemun-gate": 7.4,
+   "place:geunjeongjeon-hall": 4.8,
+   "place:seojeongjeon": 2.9,
+   "place:gangnyeongjeon": 1.6,
+   "place:jagyeongjeon": 3.4,
+   "place:p-24": 3.6,
+   "place:gyeonghoeru-pavilion": 1.8,
+   "place:hyangwonjeong": 6.6,
+   "place:taewonjeon": 8.7,
+   "place:p-25": 8.6,
+   "place:jibokjae": 8.5,
+   "place:sujeongjeon": 3.9,
+   "place:p-26": 5.1,
+   "place:heungbokjeon": 3.8,
+   "nature:경회지": 1.8,
+   "nature:녹산": 7.9,
+   "nature:대은암천": 6.7,
+   "nature:열상진원샘": 7.1,
+   "nature:향원지": 4.8
+  },
+  "place:jagyeongjeon": {
+   "place:gwanghwamun-gate": 10.9,
+   "place:geonchunmun-gate": 5.3,
+   "place:yeongchumun-gate": 9.6,
+   "place:p-16": 9.1,
+   "place:heungnyemun-gate": 9,
+   "place:geunjeongjeon-hall": 6.4,
+   "place:seojeongjeon": 5.3,
+   "place:gangnyeongjeon": 4.9,
+   "place:gyotaejeon": 3.4,
+   "place:p-24": 3.7,
+   "place:gyeonghoeru-pavilion": 4.8,
+   "place:hyangwonjeong": 5.2,
+   "place:taewonjeon": 10.8,
+   "place:p-25": 7.2,
+   "place:jibokjae": 7.9,
+   "place:sujeongjeon": 6.9,
+   "place:p-26": 4.3,
+   "place:heungbokjeon": 3.3,
+   "nature:경회지": 4.8,
+   "nature:녹산": 6.5,
+   "nature:대은암천": 8.3,
+   "nature:열상진원샘": 6.5,
+   "nature:향원지": 4
+  },
+  "place:p-24": {
+   "place:gwanghwamun-gate": 8.1,
+   "place:geonchunmun-gate": 2.5,
+   "place:yeongchumun-gate": 7.2,
+   "place:p-16": 11.4,
+   "place:heungnyemun-gate": 6.2,
+   "place:geunjeongjeon-hall": 3.6,
+   "place:seojeongjeon": 2.5,
+   "place:gangnyeongjeon": 2.6,
+   "place:gyotaejeon": 3.6,
+   "place:jagyeongjeon": 3.7,
+   "place:gyeonghoeru-pavilion": 4.3,
+   "place:hyangwonjeong": 7.8,
+   "place:taewonjeon": 11.9,
+   "place:p-25": 9.8,
+   "place:jibokjae": 10.5,
+   "place:sujeongjeon": 4.5,
+   "place:p-26": 1.7,
+   "place:heungbokjeon": 5.7,
+   "nature:경회지": 4.3,
+   "nature:녹산": 9.1,
+   "nature:대은암천": 5.5,
+   "nature:열상진원샘": 9.1,
+   "nature:향원지": 6.6
+  },
+  "place:gyeonghoeru-pavilion": {
+   "place:gwanghwamun-gate": 8.5,
+   "place:geonchunmun-gate": 6.5,
+   "place:yeongchumun-gate": 5.3,
+   "place:p-16": 7.5,
+   "place:heungnyemun-gate": 6.7,
+   "place:geunjeongjeon-hall": 4.1,
+   "place:seojeongjeon": 2.5,
+   "place:gangnyeongjeon": 2.1,
+   "place:gyotaejeon": 1.8,
+   "place:jagyeongjeon": 4.8,
+   "place:p-24": 4.3,
+   "place:hyangwonjeong": 7.6,
+   "place:taewonjeon": 8,
+   "place:p-25": 8,
+   "place:jibokjae": 7.8,
+   "place:sujeongjeon": 2.6,
+   "place:p-26": 6,
+   "place:heungbokjeon": 5.2,
+   "nature:경회지": 0,
+   "nature:녹산": 9.2,
+   "nature:대은암천": 5.9,
+   "nature:열상진원샘": 6.4,
+   "nature:향원지": 6.1
+  },
+  "place:hyangwonjeong": {
+   "place:gwanghwamun-gate": 14.4,
+   "place:geonchunmun-gate": 9.4,
+   "place:yeongchumun-gate": 12.2,
+   "place:p-16": 3.9,
+   "place:heungnyemun-gate": 12.6,
+   "place:geunjeongjeon-hall": 10,
+   "place:seojeongjeon": 8.8,
+   "place:gangnyeongjeon": 8,
+   "place:gyotaejeon": 6.6,
+   "place:jagyeongjeon": 5.2,
+   "place:p-24": 7.8,
+   "place:gyeonghoeru-pavilion": 7.6,
+   "place:taewonjeon": 7.7,
+   "place:p-25": 2,
+   "place:jibokjae": 2.7,
+   "place:sujeongjeon": 9.7,
+   "place:p-26": 8.4,
+   "place:heungbokjeon": 4.7,
+   "nature:경회지": 7.6,
+   "nature:녹산": 2.5,
+   "nature:대은암천": 11.8,
+   "nature:열상진원샘": 1.2,
+   "nature:향원지": 1.9
+  },
+  "place:taewonjeon": {
+   "place:gwanghwamun-gate": 15.8,
+   "place:geonchunmun-gate": 14.1,
+   "place:yeongchumun-gate": 7.5,
+   "place:p-16": 6.7,
+   "place:heungnyemun-gate": 13.9,
+   "place:geunjeongjeon-hall": 11.3,
+   "place:seojeongjeon": 10.1,
+   "place:gangnyeongjeon": 9.7,
+   "place:gyotaejeon": 8.7,
+   "place:jagyeongjeon": 10.8,
+   "place:p-24": 11.9,
+   "place:gyeonghoeru-pavilion": 8,
+   "place:hyangwonjeong": 7.7,
+   "place:p-25": 7.9,
+   "place:jibokjae": 7.4,
+   "place:sujeongjeon": 9,
+   "place:p-26": 13.6,
+   "place:heungbokjeon": 9.6,
+   "nature:경회지": 8,
+   "nature:녹산": 10,
+   "nature:대은암천": 13.2,
+   "nature:열상진원샘": 6.4,
+   "nature:향원지": 6.8
+  },
+  "place:p-25": {
+   "place:gwanghwamun-gate": 16,
+   "place:geonchunmun-gate": 11.4,
+   "place:yeongchumun-gate": 12.5,
+   "place:p-16": 4.1,
+   "place:heungnyemun-gate": 14.1,
+   "place:geunjeongjeon-hall": 11.5,
+   "place:seojeongjeon": 10,
+   "place:gangnyeongjeon": 9.6,
+   "place:gyotaejeon": 8.6,
+   "place:jagyeongjeon": 7.2,
+   "place:p-24": 9.8,
+   "place:gyeonghoeru-pavilion": 8,
+   "place:hyangwonjeong": 2,
+   "place:taewonjeon": 7.9,
+   "place:jibokjae": 2.1,
+   "place:sujeongjeon": 10.1,
+   "place:p-26": 10.5,
+   "place:heungbokjeon": 6.7,
+   "nature:경회지": 8,
+   "nature:녹산": 4.5,
+   "nature:대은암천": 13.4,
+   "nature:열상진원샘": 1.6,
+   "nature:향원지": 3.9
+  },
+  "place:jibokjae": {
+   "place:gwanghwamun-gate": 15.9,
+   "place:geonchunmun-gate": 12.1,
+   "place:yeongchumun-gate": 12.1,
+   "place:p-16": 3.6,
+   "place:heungnyemun-gate": 14,
+   "place:geunjeongjeon-hall": 11.4,
+   "place:seojeongjeon": 9.9,
+   "place:gangnyeongjeon": 9.5,
+   "place:gyotaejeon": 8.5,
+   "place:jagyeongjeon": 7.9,
+   "place:p-24": 10.5,
+   "place:gyeonghoeru-pavilion": 7.8,
+   "place:hyangwonjeong": 2.7,
+   "place:taewonjeon": 7.4,
+   "place:p-25": 2.1,
+   "place:sujeongjeon": 9.9,
+   "place:p-26": 11.1,
+   "place:heungbokjeon": 7.3,
+   "nature:경회지": 7.8,
+   "nature:녹산": 5.2,
+   "nature:대은암천": 13.3,
+   "nature:열상진원샘": 1.5,
+   "nature:향원지": 4.5
+  },
+  "place:sujeongjeon": {
+   "place:gwanghwamun-gate": 6.7,
+   "place:geonchunmun-gate": 5.6,
+   "place:yeongchumun-gate": 2.7,
+   "place:p-16": 9.6,
+   "place:heungnyemun-gate": 4.9,
+   "place:geunjeongjeon-hall": 2.3,
+   "place:seojeongjeon": 2.1,
+   "place:gangnyeongjeon": 2.9,
+   "place:gyotaejeon": 3.9,
+   "place:jagyeongjeon": 6.9,
+   "place:p-24": 4.5,
+   "place:gyeonghoeru-pavilion": 2.6,
+   "place:hyangwonjeong": 9.7,
+   "place:taewonjeon": 9,
+   "place:p-25": 10.1,
+   "place:jibokjae": 9.9,
+   "place:p-26": 6.2,
+   "place:heungbokjeon": 7.3,
+   "nature:경회지": 2.6,
+   "nature:녹산": 11.3,
+   "nature:대은암천": 4.1,
+   "nature:열상진원샘": 8.5,
+   "nature:향원지": 8.2
+  },
+  "place:p-26": {
+   "place:gwanghwamun-gate": 9.8,
+   "place:geonchunmun-gate": 3.7,
+   "place:yeongchumun-gate": 8.9,
+   "place:p-16": 12.3,
+   "place:heungnyemun-gate": 8,
+   "place:geunjeongjeon-hall": 5.3,
+   "place:seojeongjeon": 4.2,
+   "place:gangnyeongjeon": 4.3,
+   "place:gyotaejeon": 5.1,
+   "place:jagyeongjeon": 4.3,
+   "place:p-24": 1.7,
+   "place:gyeonghoeru-pavilion": 6,
+   "place:hyangwonjeong": 8.4,
+   "place:taewonjeon": 13.6,
+   "place:p-25": 10.5,
+   "place:jibokjae": 11.1,
+   "place:sujeongjeon": 6.2,
+   "place:heungbokjeon": 7,
+   "nature:경회지": 6,
+   "nature:녹산": 9.7,
+   "nature:대은암천": 7.2,
+   "nature:열상진원샘": 9.7,
+   "nature:향원지": 7.2
+  },
+  "place:heungbokjeon": {
+   "place:gwanghwamun-gate": 11.6,
+   "place:geonchunmun-gate": 8,
+   "place:yeongchumun-gate": 10,
+   "place:p-16": 8.5,
+   "place:heungnyemun-gate": 9.8,
+   "place:geunjeongjeon-hall": 7.2,
+   "place:seojeongjeon": 6,
+   "place:gangnyeongjeon": 5.2,
+   "place:gyotaejeon": 3.8,
+   "place:jagyeongjeon": 3.3,
+   "place:p-24": 5.7,
+   "place:gyeonghoeru-pavilion": 5.2,
+   "place:hyangwonjeong": 4.7,
+   "place:taewonjeon": 9.6,
+   "place:p-25": 6.7,
+   "place:jibokjae": 7.3,
+   "place:sujeongjeon": 7.3,
+   "place:p-26": 7,
+   "nature:경회지": 5.2,
+   "nature:녹산": 6,
+   "nature:대은암천": 9.1,
+   "nature:열상진원샘": 5.9,
+   "nature:향원지": 2.8
+  },
+  "nature:경회지": {
+   "place:gwanghwamun-gate": 8.5,
+   "place:geonchunmun-gate": 6.5,
+   "place:yeongchumun-gate": 5.3,
+   "place:p-16": 7.5,
+   "place:heungnyemun-gate": 6.7,
+   "place:geunjeongjeon-hall": 4.1,
+   "place:seojeongjeon": 2.5,
+   "place:gangnyeongjeon": 2.1,
+   "place:gyotaejeon": 1.8,
+   "place:jagyeongjeon": 4.8,
+   "place:p-24": 4.3,
+   "place:gyeonghoeru-pavilion": 0,
+   "place:hyangwonjeong": 7.6,
+   "place:taewonjeon": 8,
+   "place:p-25": 8,
+   "place:jibokjae": 7.8,
+   "place:sujeongjeon": 2.6,
+   "place:p-26": 6,
+   "place:heungbokjeon": 5.2,
+   "nature:녹산": 9.2,
+   "nature:대은암천": 5.9,
+   "nature:열상진원샘": 6.4,
+   "nature:향원지": 6.1
+  },
+  "nature:녹산": {
+   "place:gwanghwamun-gate": 15.7,
+   "place:geonchunmun-gate": 10.7,
+   "place:yeongchumun-gate": 13.8,
+   "place:p-16": 6.4,
+   "place:heungnyemun-gate": 13.9,
+   "place:geunjeongjeon-hall": 11.2,
+   "place:seojeongjeon": 10.1,
+   "place:gangnyeongjeon": 9.3,
+   "place:gyotaejeon": 7.9,
+   "place:jagyeongjeon": 6.5,
+   "place:p-24": 9.1,
+   "place:gyeonghoeru-pavilion": 9.2,
+   "place:hyangwonjeong": 2.5,
+   "place:taewonjeon": 10,
+   "place:p-25": 4.5,
+   "place:jibokjae": 5.2,
+   "place:sujeongjeon": 11.3,
+   "place:p-26": 9.7,
+   "place:heungbokjeon": 6,
+   "nature:경회지": 9.2,
+   "nature:대은암천": 13.1,
+   "nature:열상진원샘": 3.7,
+   "nature:향원지": 3.2
+  },
+  "nature:대은암천": {
+   "place:gwanghwamun-gate": 2.6,
+   "place:geonchunmun-gate": 4.4,
+   "place:yeongchumun-gate": 6.8,
+   "place:p-16": 13,
+   "place:heungnyemun-gate": 0.7,
+   "place:geunjeongjeon-hall": 2,
+   "place:seojeongjeon": 3.8,
+   "place:gangnyeongjeon": 5.2,
+   "place:gyotaejeon": 6.7,
+   "place:jagyeongjeon": 8.3,
+   "place:p-24": 5.5,
+   "place:gyeonghoeru-pavilion": 5.9,
+   "place:hyangwonjeong": 11.8,
+   "place:taewonjeon": 13.2,
+   "place:p-25": 13.4,
+   "place:jibokjae": 13.3,
+   "place:sujeongjeon": 4.1,
+   "place:p-26": 7.2,
+   "place:heungbokjeon": 9.1,
+   "nature:경회지": 5.9,
+   "nature:녹산": 13.1,
+   "nature:열상진원샘": 11.8,
+   "nature:향원지": 10.1
+  },
+  "nature:열상진원샘": {
+   "place:gwanghwamun-gate": 14.4,
+   "place:geonchunmun-gate": 10.6,
+   "place:yeongchumun-gate": 10.9,
+   "place:p-16": 2.6,
+   "place:heungnyemun-gate": 12.6,
+   "place:geunjeongjeon-hall": 10,
+   "place:seojeongjeon": 8.4,
+   "place:gangnyeongjeon": 8,
+   "place:gyotaejeon": 7.1,
+   "place:jagyeongjeon": 6.5,
+   "place:p-24": 9.1,
+   "place:gyeonghoeru-pavilion": 6.4,
+   "place:hyangwonjeong": 1.2,
+   "place:taewonjeon": 6.4,
+   "place:p-25": 1.6,
+   "place:jibokjae": 1.5,
+   "place:sujeongjeon": 8.5,
+   "place:p-26": 9.7,
+   "place:heungbokjeon": 5.9,
+   "nature:경회지": 6.4,
+   "nature:녹산": 3.7,
+   "nature:대은암천": 11.8,
+   "nature:향원지": 3.1
+  },
+  "nature:향원지": {
+   "place:gwanghwamun-gate": 12.7,
+   "place:geonchunmun-gate": 8.2,
+   "place:yeongchumun-gate": 10.6,
+   "place:p-16": 5.7,
+   "place:heungnyemun-gate": 10.8,
+   "place:geunjeongjeon-hall": 8.2,
+   "place:seojeongjeon": 7,
+   "place:gangnyeongjeon": 6.3,
+   "place:gyotaejeon": 4.8,
+   "place:jagyeongjeon": 4,
+   "place:p-24": 6.6,
+   "place:gyeonghoeru-pavilion": 6.1,
+   "place:hyangwonjeong": 1.9,
+   "place:taewonjeon": 6.8,
+   "place:p-25": 3.9,
+   "place:jibokjae": 4.5,
+   "place:sujeongjeon": 8.2,
+   "place:p-26": 7.2,
+   "place:heungbokjeon": 2.8,
+   "nature:경회지": 6.1,
+   "nature:녹산": 3.2,
+   "nature:대은암천": 10.1,
+   "nature:열상진원샘": 3.1
+  }
+ }
+}

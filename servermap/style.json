@@ -1,0 +1,407 @@
+{
+  "version": 8,
+  "name": "경복궁",
+  "glyphs": "local://{fontstack}/{range}",
+  "center": [
+    126.976902,
+    37.579766
+  ],
+  "zoom": 16,
+  "sources": {
+    "bg-vec": {
+      "type": "vector",
+      "url": "pmtiles://tiles/palace.pmtiles",
+      "attribution": "지도·데이터 © OpenStreetMap 기여자"
+    },
+    "palace-mask": {
+      "type": "geojson",
+      "data": "data/mask.geojson"
+    },
+    "palace-boundary": {
+      "type": "geojson",
+      "data": "data/boundary.geojson"
+    },
+    "osm-ways": {
+      "type": "geojson",
+      "data": "data/paths.geojson"
+    },
+    "palace-places": {
+      "type": "geojson",
+      "data": "data/places.geojson"
+    },
+    "user-pins": {
+      "type": "geojson",
+      "data": "data/pins.geojson"
+    }
+  },
+  "layers": [
+    {
+      "id": "ground",
+      "type": "background",
+      "paint": {
+        "background-color": "#f4f2ee"
+      }
+    },
+    {
+      "id": "bg-landuse",
+      "type": "fill",
+      "source": "bg-vec",
+      "source-layer": "landuse",
+      "paint": {
+        "fill-color": [
+          "match",
+          [
+            "get",
+            "kind"
+          ],
+          [
+            "wood",
+            "forest",
+            "scrub",
+            "grass",
+            "grassland",
+            "meadow",
+            "park",
+            "garden",
+            "nature_reserve"
+          ],
+          "#dee7d3",
+          [
+            "parking"
+          ],
+          "#e8e3d8",
+          "#e8e6dc"
+        ],
+        "fill-opacity": 0.9
+      }
+    },
+    {
+      "id": "bg-water",
+      "type": "fill",
+      "source": "bg-vec",
+      "source-layer": "water",
+      "paint": {
+        "fill-color": "#c4d9e4"
+      }
+    },
+    {
+      "id": "bg-waterway",
+      "type": "line",
+      "source": "bg-vec",
+      "source-layer": "waterway",
+      "layout": {
+        "line-cap": "round"
+      },
+      "paint": {
+        "line-color": "#c4d9e4",
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          15,
+          1,
+          20,
+          3
+        ]
+      }
+    },
+    {
+      "id": "bg-road",
+      "type": "line",
+      "source": "bg-vec",
+      "source-layer": "road",
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#ece4d4",
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          15,
+          1.5,
+          18,
+          4,
+          20,
+          8
+        ]
+      }
+    },
+    {
+      "id": "bg-path",
+      "type": "line",
+      "source": "bg-vec",
+      "source-layer": "path",
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#e1d9c8",
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          15,
+          0.6,
+          20,
+          2.5
+        ]
+      }
+    },
+    {
+      "id": "bg-building",
+      "type": "fill",
+      "source": "bg-vec",
+      "source-layer": "building",
+      "paint": {
+        "fill-color": "#e4dccb",
+        "fill-outline-color": "#d2c8b2"
+      }
+    },
+    {
+      "id": "bg-barrier",
+      "type": "line",
+      "source": "bg-vec",
+      "source-layer": "barrier",
+      "paint": {
+        "line-color": "#c8b696",
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          15,
+          0.8,
+          20,
+          2.2
+        ]
+      }
+    },
+    {
+      "id": "palace-mask-fill",
+      "type": "fill",
+      "source": "palace-mask",
+      "paint": {
+        "fill-color": "#dedae0",
+        "fill-opacity": 1
+      }
+    },
+    {
+      "id": "palace-boundary-line",
+      "type": "line",
+      "source": "palace-boundary",
+      "paint": {
+        "line-color": "#8a7f74",
+        "line-width": 2,
+        "line-dasharray": [
+          3,
+          2
+        ]
+      }
+    },
+    {
+      "id": "osm-ways-line",
+      "type": "line",
+      "source": "osm-ways",
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round"
+      },
+      "paint": {
+        "line-color": [
+          "case",
+          [
+            "boolean",
+            [
+              "feature-state",
+              "selected"
+            ],
+            false
+          ],
+          "#e8590c",
+          [
+            "==",
+            [
+              "get",
+              "highway"
+            ],
+            "steps"
+          ],
+          "#b0653f",
+          "#3f6cb0"
+        ],
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          15,
+          [
+            "case",
+            [
+              "boolean",
+              [
+                "feature-state",
+                "selected"
+              ],
+              false
+            ],
+            3,
+            1.5
+          ],
+          18,
+          [
+            "case",
+            [
+              "boolean",
+              [
+                "feature-state",
+                "selected"
+              ],
+              false
+            ],
+            5,
+            3
+          ],
+          20,
+          [
+            "case",
+            [
+              "boolean",
+              [
+                "feature-state",
+                "selected"
+              ],
+              false
+            ],
+            8,
+            5
+          ]
+        ]
+      }
+    },
+    {
+      "id": "palace-places-label",
+      "type": "symbol",
+      "source": "palace-places",
+      "layout": {
+        "text-field": [
+          "get",
+          "name"
+        ],
+        "text-font": [
+          "Regular"
+        ],
+        "text-size": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          15,
+          11,
+          19,
+          14
+        ],
+        "text-max-width": 8,
+        "text-anchor": "top",
+        "text-offset": [
+          0,
+          0.6
+        ]
+      },
+      "paint": {
+        "text-color": "#5c4a36",
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "user-pins-circle",
+      "type": "circle",
+      "source": "user-pins",
+      "paint": {
+        "circle-radius": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          15,
+          [
+            "case",
+            [
+              "!=",
+              [
+                "get",
+                "icon"
+              ],
+              ""
+            ],
+            8,
+            5
+          ],
+          18,
+          [
+            "case",
+            [
+              "!=",
+              [
+                "get",
+                "icon"
+              ],
+              ""
+            ],
+            11,
+            7
+          ],
+          20,
+          [
+            "case",
+            [
+              "!=",
+              [
+                "get",
+                "icon"
+              ],
+              ""
+            ],
+            14,
+            10
+          ]
+        ],
+        "circle-color": [
+          "get",
+          "color"
+        ],
+        "circle-stroke-color": "#ffffff",
+        "circle-stroke-width": 2
+      }
+    }
+  ]
+}

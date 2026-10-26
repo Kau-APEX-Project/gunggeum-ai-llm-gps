@@ -1,0 +1,1242 @@
+[
+ {
+  "id": "place:gwanghwamun-gate",
+  "name": "광화문",
+  "category": "gate",
+  "pin": [
+   126.976816,
+   37.575928
+  ],
+  "zoneIds": [
+   "gate:gwanghwamun-gate"
+  ],
+  "approachNodes": [
+   "3851613769"
+  ],
+  "serial": 151,
+  "group": "광화문"
+ },
+ {
+  "id": "place:geonchunmun-gate",
+  "name": "건춘문",
+  "category": "gate",
+  "pin": [
+   126.97934,
+   37.578136
+  ],
+  "zoneIds": [
+   "gate:geonchunmun-gate"
+  ],
+  "approachNodes": [
+   "4448593688"
+  ],
+  "serial": 152,
+  "group": "건춘문"
+ },
+ {
+  "id": "place:yeongchumun-gate",
+  "name": "영추문",
+  "category": "gate",
+  "pin": [
+   126.974066,
+   37.578762
+  ],
+  "zoneIds": [
+   "gate:yeongchumun-gate"
+  ],
+  "approachNodes": [
+   "4440442958"
+  ],
+  "serial": 153,
+  "group": "영추문"
+ },
+ {
+  "id": "place:p-16",
+  "name": "신무문",
+  "category": "gate",
+  "pin": [
+   126.97552,
+   37.58345
+  ],
+  "zoneIds": [
+   "gate:p-16"
+  ],
+  "approachNodes": [
+   "4440376195"
+  ],
+  "serial": 154,
+  "group": "신무문"
+ },
+ {
+  "id": "place:heungnyemun-gate",
+  "name": "흥례문",
+  "category": "gate",
+  "pin": [
+   126.976905,
+   37.576953
+  ],
+  "zoneIds": [
+   "gate:heungnyemun-gate",
+   "yard:p-17"
+  ],
+  "approachNodes": [
+   "3851613783"
+  ],
+  "serial": 155,
+  "group": "흥례문"
+ },
+ {
+  "id": "place:p-17",
+  "name": "영제교",
+  "category": "hall",
+  "pin": [
+   126.976985,
+   37.577288
+  ],
+  "zoneIds": [
+   "yard:p-17"
+  ],
+  "approachNodes": [
+   "2841460906"
+  ],
+  "serial": 156,
+  "group": "흥례문"
+ },
+ {
+  "id": "place:p-18",
+  "name": "기별청",
+  "category": "hall",
+  "pin": [
+   126.976905,
+   37.576953
+  ],
+  "zoneIds": [
+   "gate:heungnyemun-gate",
+   "yard:p-17"
+  ],
+  "approachNodes": [
+   "3851613783"
+  ],
+  "serial": 157,
+  "group": "흥례문"
+ },
+ {
+  "id": "place:geunjeongmun-gate",
+  "name": "근정문",
+  "category": "gate",
+  "pin": [
+   126.976946,
+   37.577728
+  ],
+  "zoneIds": [
+   "gate:geunjeongmun-gate"
+  ],
+  "approachNodes": [
+   "3792104656"
+  ],
+  "serial": 158,
+  "group": "근정전"
+ },
+ {
+  "id": "place:p-19",
+  "name": "근정전 조정",
+  "category": "hall",
+  "pin": [
+   126.976992,
+   37.578546
+  ],
+  "zoneIds": [
+   "yard:geunjeongjeon-hall"
+  ],
+  "approachNodes": [
+   "4439965646"
+  ],
+  "serial": 159,
+  "group": "근정전"
+ },
+ {
+  "id": "place:geunjeongjeon-hall",
+  "name": "근정전",
+  "category": "hall",
+  "pin": [
+   126.976992,
+   37.578546
+  ],
+  "zoneIds": [
+   "yard:geunjeongjeon-hall"
+  ],
+  "approachNodes": [
+   "4439965646"
+  ],
+  "serial": 160,
+  "group": "근정전"
+ },
+ {
+  "id": "place:p-20",
+  "name": "근정전 내부",
+  "category": "hall",
+  "pin": [
+   126.976992,
+   37.578546
+  ],
+  "zoneIds": [
+   "yard:geunjeongjeon-hall"
+  ],
+  "approachNodes": [
+   "4439965646"
+  ],
+  "serial": 161,
+  "group": "근정전"
+ },
+ {
+  "id": "place:seojeongjeon",
+  "name": "사정전",
+  "category": "hall",
+  "pin": [
+   126.977004,
+   37.579067
+  ],
+  "zoneIds": [
+   "yard:seojeongjeon"
+  ],
+  "approachNodes": [
+   "3792105189"
+  ],
+  "serial": 162,
+  "group": "사정전"
+ },
+ {
+  "id": "place:gangnyeongjeon",
+  "name": "강녕전",
+  "category": "hall",
+  "pin": [
+   126.977024,
+   37.57953
+  ],
+  "zoneIds": [
+   "yard:gangnyeongjeon"
+  ],
+  "approachNodes": [
+   "4439989975"
+  ],
+  "serial": 163,
+  "group": "강녕전"
+ },
+ {
+  "id": "place:gyotaejeon",
+  "name": "교태전",
+  "category": "hall",
+  "pin": [
+   126.977058,
+   37.579916
+  ],
+  "zoneIds": [
+   "yard:gyotaejeon",
+   "yard:p-21",
+   "yard:heumgyeonggak"
+  ],
+  "approachNodes": [
+   "4440001251"
+  ],
+  "serial": 164,
+  "group": "교태전"
+ },
+ {
+  "id": "place:p-21",
+  "name": "아미산",
+  "category": "hall",
+  "pin": [
+   126.976896,
+   37.580152
+  ],
+  "zoneIds": [
+   "yard:p-21"
+  ],
+  "approachNodes": [
+   "4440041870"
+  ],
+  "serial": 165,
+  "group": "교태전"
+ },
+ {
+  "id": "place:heumgyeonggak",
+  "name": "흠경각",
+  "category": "hall",
+  "pin": [
+   126.976606,
+   37.579733
+  ],
+  "zoneIds": [
+   "yard:heumgyeonggak"
+  ],
+  "approachNodes": [
+   "4440041784"
+  ],
+  "serial": 166,
+  "group": "교태전"
+ },
+ {
+  "id": "place:hamwonjeon",
+  "name": "함원전",
+  "category": "hall",
+  "pin": [
+   126.976618,
+   37.579974
+  ],
+  "zoneIds": [
+   "yard:heumgyeonggak"
+  ],
+  "approachNodes": [
+   "4440041784"
+  ],
+  "serial": 167,
+  "group": "교태전"
+ },
+ {
+  "id": "place:jagyeongjeon",
+  "name": "자경전",
+  "category": "hall",
+  "pin": [
+   126.9781,
+   37.580314
+  ],
+  "zoneIds": [
+   "yard:jagyeongjeon",
+   "yard:p-35"
+  ],
+  "approachNodes": [
+   "-347"
+  ],
+  "serial": 169,
+  "group": "자경전"
+ },
+ {
+  "id": "place:p-22",
+  "name": "십장생 굴뚝",
+  "category": "hall",
+  "pin": [
+   126.97819,
+   37.580422
+  ],
+  "zoneIds": [
+   "yard:jagyeongjeon"
+  ],
+  "approachNodes": [
+   "-347"
+  ],
+  "serial": 170,
+  "group": "자경전"
+ },
+ {
+  "id": "place:p-23",
+  "name": "꽃담",
+  "category": "hall",
+  "pin": [
+   126.9781,
+   37.580314
+  ],
+  "zoneIds": [
+   "yard:jagyeongjeon",
+   "yard:p-35"
+  ],
+  "approachNodes": [
+   "-347"
+  ],
+  "serial": 171,
+  "group": "자경전"
+ },
+ {
+  "id": "place:p-24",
+  "name": "동궁전",
+  "category": "hall",
+  "pin": [
+   126.978169,
+   37.579015
+  ],
+  "zoneIds": [
+   "yard:p-24",
+   "yard:jaseondang",
+   "yard:bihyeongak",
+   "yard:gyejodang"
+  ],
+  "approachNodes": [
+   "4448593955"
+  ],
+  "serial": 172,
+  "group": "동궁전"
+ },
+ {
+  "id": "place:gyeonghoeru-pavilion",
+  "name": "경회루",
+  "category": "hall",
+  "pin": [
+   126.975967,
+   37.57975
+  ],
+  "zoneIds": [
+   "yard:gyeonghoeru-pavilion"
+  ],
+  "approachNodes": [
+   "3851615913"
+  ],
+  "serial": 173,
+  "group": "경회루"
+ },
+ {
+  "id": "place:hyangwonjeong",
+  "name": "향원정",
+  "category": "hall",
+  "pin": [
+   126.97705,
+   37.58238
+  ],
+  "zoneIds": [
+   "yard:hyangwonjeong"
+  ],
+  "approachNodes": [
+   "2320913966"
+  ],
+  "serial": 174,
+  "group": "향원정"
+ },
+ {
+  "id": "place:taewonjeon",
+  "name": "태원전",
+  "category": "hall",
+  "pin": [
+   126.974155,
+   37.582579
+  ],
+  "zoneIds": [
+   "yard:taewonjeon",
+   "yard:gongbukjae",
+   "yard:sungmundang",
+   "yard:yeongsajae"
+  ],
+  "approachNodes": [
+   "4440199113"
+  ],
+  "serial": 175,
+  "group": "태원전"
+ },
+ {
+  "id": "place:p-25",
+  "name": "건청궁",
+  "category": "hall",
+  "pin": [
+   126.977093,
+   37.583115
+  ],
+  "zoneIds": [
+   "yard:p-25",
+   "yard:jangandang",
+   "yard:p-31",
+   "yard:boksudang"
+  ],
+  "approachNodes": [
+   "4440633295"
+  ],
+  "serial": 176,
+  "group": "건청궁"
+ },
+ {
+  "id": "place:jibokjae",
+  "name": "집옥재",
+  "category": "hall",
+  "pin": [
+   126.976086,
+   37.583431
+  ],
+  "zoneIds": [
+   "yard:jibokjae",
+   "yard:hyeopgildang"
+  ],
+  "approachNodes": [
+   "3792105238"
+  ],
+  "serial": 177,
+  "group": "집옥재"
+ },
+ {
+  "id": "place:sujeongjeon",
+  "name": "수정전",
+  "category": "hall",
+  "pin": [
+   126.975951,
+   37.578972
+  ],
+  "zoneIds": [
+   "yard:sujeongjeon"
+  ],
+  "approachNodes": [
+   "3973210118"
+  ],
+  "serial": 178,
+  "group": "수정전"
+ },
+ {
+  "id": "place:p-26",
+  "name": "소주방",
+  "category": "hall",
+  "pin": [
+   126.978267,
+   37.57953
+  ],
+  "zoneIds": [
+   "yard:p-26"
+  ],
+  "approachNodes": [
+   "4448594039"
+  ],
+  "serial": 183,
+  "group": "소주방"
+ },
+ {
+  "id": "place:p-27",
+  "name": "궐내각사 터",
+  "category": "hall",
+  "pin": [
+   126.975951,
+   37.578972
+  ],
+  "zoneIds": [
+   "yard:sujeongjeon"
+  ],
+  "approachNodes": [
+   "3973210118"
+  ],
+  "serial": 185,
+  "group": "수정전"
+ },
+ {
+  "id": "place:p-3",
+  "name": "기원문",
+  "category": "gate",
+  "pin": [
+   126.973995,
+   37.582046
+  ],
+  "zoneIds": [
+   "gate:p-3"
+  ],
+  "approachNodes": [
+   "4440177392"
+  ],
+  "serial": 186,
+  "group": "태원전"
+ },
+ {
+  "id": "place:geonsukmun-gate",
+  "name": "건숙문",
+  "category": "gate",
+  "pin": [
+   126.974352,
+   37.582111
+  ],
+  "zoneIds": [
+   "gate:geonsukmun-gate"
+  ],
+  "approachNodes": [
+   "4440199105"
+  ],
+  "serial": 187,
+  "group": "태원전"
+ },
+ {
+  "id": "place:gyeonganmun-gate",
+  "name": "경안문",
+  "category": "gate",
+  "pin": [
+   126.974255,
+   37.582339
+  ],
+  "zoneIds": [
+   "gate:gyeonganmun-gate"
+  ],
+  "approachNodes": [
+   "4440199110"
+  ],
+  "serial": 188,
+  "group": "태원전"
+ },
+ {
+  "id": "place:p-8",
+  "name": "인수문",
+  "category": "gate",
+  "pin": [
+   126.974049,
+   37.582239
+  ],
+  "zoneIds": [
+   "gate:p-8"
+  ],
+  "approachNodes": [
+   "4440177407"
+  ],
+  "serial": 189,
+  "group": "태원전"
+ },
+ {
+  "id": "place:gongbukjae",
+  "name": "공묵재",
+  "category": "hall",
+  "pin": [
+   126.974478,
+   37.58231
+  ],
+  "zoneIds": [
+   "yard:gongbukjae"
+  ],
+  "approachNodes": [
+   "4440377888"
+  ],
+  "serial": 190,
+  "group": "태원전"
+ },
+ {
+  "id": "place:sungmundang",
+  "name": "숙문당",
+  "category": "hall",
+  "pin": [
+   126.973875,
+   37.582686
+  ],
+  "zoneIds": [
+   "yard:sungmundang"
+  ],
+  "approachNodes": [
+   "4440213537"
+  ],
+  "serial": 191,
+  "group": "태원전"
+ },
+ {
+  "id": "place:p-2",
+  "name": "건길문",
+  "category": "gate",
+  "pin": [
+   126.974443,
+   37.582598
+  ],
+  "zoneIds": [
+   "gate:p-2"
+  ],
+  "approachNodes": [
+   "4440363067"
+  ],
+  "serial": 192,
+  "group": "태원전"
+ },
+ {
+  "id": "place:yeongsajae",
+  "name": "영사재",
+  "category": "hall",
+  "pin": [
+   126.974386,
+   37.582669
+  ],
+  "zoneIds": [
+   "yard:yeongsajae"
+  ],
+  "approachNodes": [
+   "4440363067"
+  ],
+  "serial": 193,
+  "group": "태원전"
+ },
+ {
+  "id": "place:p-28",
+  "name": "보강문",
+  "category": "gate",
+  "pin": [
+   126.974155,
+   37.582579
+  ],
+  "zoneIds": [
+   "yard:taewonjeon",
+   "yard:gongbukjae",
+   "yard:sungmundang",
+   "yard:yeongsajae"
+  ],
+  "approachNodes": [
+   "4440199113"
+  ],
+  "serial": 194,
+  "group": "태원전"
+ },
+ {
+  "id": "place:honggyeongmun",
+  "name": "홍경문",
+  "category": "gate",
+  "pin": [
+   126.974588,
+   37.582231
+  ],
+  "zoneIds": [
+   "gate:honggyeongmun"
+  ],
+  "approachNodes": [
+   "4440363039"
+  ],
+  "serial": 195,
+  "group": "태원전"
+ },
+ {
+  "id": "place:iljungmun-gate",
+  "name": "일중문",
+  "category": "gate",
+  "pin": [
+   126.975047,
+   37.582045
+  ],
+  "zoneIds": [
+   "gate:iljungmun-gate"
+  ],
+  "approachNodes": [
+   "11013468191"
+  ],
+  "serial": 196,
+  "group": "태원전"
+ },
+ {
+  "id": "place:p-29",
+  "name": "필성문",
+  "category": "gate",
+  "pin": [
+   126.977093,
+   37.583115
+  ],
+  "zoneIds": [
+   "yard:p-25",
+   "yard:jangandang",
+   "yard:p-31",
+   "yard:boksudang"
+  ],
+  "approachNodes": [
+   "4440633295"
+  ],
+  "serial": 197,
+  "group": "건청궁"
+ },
+ {
+  "id": "place:jangandang",
+  "name": "장안당",
+  "category": "hall",
+  "pin": [
+   126.976964,
+   37.583055
+  ],
+  "zoneIds": [
+   "yard:jangandang"
+  ],
+  "approachNodes": [
+   "4440633323"
+  ],
+  "serial": 198,
+  "group": "건청궁"
+ },
+ {
+  "id": "place:p-11",
+  "name": "초양문",
+  "category": "gate",
+  "pin": [
+   126.977191,
+   37.582916
+  ],
+  "zoneIds": [
+   "gate:p-11"
+  ],
+  "approachNodes": [
+   "4440673353"
+  ],
+  "serial": 199,
+  "group": "건청궁"
+ },
+ {
+  "id": "place:p-30",
+  "name": "인유문",
+  "category": "gate",
+  "pin": [
+   126.977093,
+   37.583115
+  ],
+  "zoneIds": [
+   "yard:p-25",
+   "yard:jangandang",
+   "yard:p-31",
+   "yard:boksudang"
+  ],
+  "approachNodes": [
+   "4440633295"
+  ],
+  "serial": 200,
+  "group": "건청궁"
+ },
+ {
+  "id": "place:p-31",
+  "name": "정시합",
+  "category": "hall",
+  "pin": [
+   126.977223,
+   37.583175
+  ],
+  "zoneIds": [
+   "yard:p-31"
+  ],
+  "approachNodes": [
+   "4440633300"
+  ],
+  "serial": 201,
+  "group": "건청궁"
+ },
+ {
+  "id": "place:boksudang",
+  "name": "복수당",
+  "category": "hall",
+  "pin": [
+   126.977229,
+   37.583383
+  ],
+  "zoneIds": [
+   "yard:boksudang"
+  ],
+  "approachNodes": [
+   "4440633314"
+  ],
+  "serial": 202,
+  "group": "건청궁"
+ },
+ {
+  "id": "place:p-32",
+  "name": "녹금당",
+  "category": "hall",
+  "pin": [
+   126.977229,
+   37.583383
+  ],
+  "zoneIds": [
+   "yard:boksudang"
+  ],
+  "approachNodes": [
+   "4440633314"
+  ],
+  "serial": 203,
+  "group": "건청궁"
+ },
+ {
+  "id": "place:gonnyeonghap",
+  "name": "곤녕합",
+  "category": "hall",
+  "pin": [
+   126.977223,
+   37.583175
+  ],
+  "zoneIds": [
+   "yard:p-31"
+  ],
+  "approachNodes": [
+   "4440633300"
+  ],
+  "serial": 204,
+  "group": "건청궁"
+ },
+ {
+  "id": "place:hyeopgildang",
+  "name": "협길당",
+  "category": "hall",
+  "pin": [
+   126.976317,
+   37.583472
+  ],
+  "zoneIds": [
+   "yard:hyeopgildang"
+  ],
+  "approachNodes": [
+   "4440376195"
+  ],
+  "serial": 205,
+  "group": "집옥재"
+ },
+ {
+  "id": "place:hamhwadang",
+  "name": "함화당",
+  "category": "hall",
+  "pin": [
+   126.976608,
+   37.581624
+  ],
+  "zoneIds": [
+   "yard:hamhwadang"
+  ],
+  "approachNodes": [
+   "-270"
+  ],
+  "serial": 206,
+  "group": "흥복전"
+ },
+ {
+  "id": "place:heungbokjeon",
+  "name": "흥복전",
+  "category": "hall",
+  "pin": [
+   126.977043,
+   37.580729
+  ],
+  "zoneIds": [
+   "yard:heungbokjeon",
+   "yard:hamhwadang",
+   "yard:jipgyeongdang"
+  ],
+  "approachNodes": [
+   "-287"
+  ],
+  "serial": 207,
+  "group": "흥복전"
+ },
+ {
+  "id": "place:yongseongmun-gate",
+  "name": "용성문",
+  "category": "gate",
+  "pin": [
+   126.976218,
+   37.576531
+  ],
+  "zoneIds": [
+   "gate:yongseongmun-gate"
+  ],
+  "approachNodes": [
+   "4439097978"
+  ],
+  "serial": 208,
+  "group": "흥례문"
+ },
+ {
+  "id": "place:hyupsaengmun-gate",
+  "name": "협생문",
+  "category": "gate",
+  "pin": [
+   126.97752,
+   37.576498
+  ],
+  "zoneIds": [
+   "gate:hyupsaengmun-gate"
+  ],
+  "approachNodes": [
+   "4440442956"
+  ],
+  "serial": 209,
+  "group": "흥례문"
+ },
+ {
+  "id": "place:yuhwamun-gate",
+  "name": "유화문",
+  "category": "gate",
+  "pin": [
+   126.976326,
+   37.577563
+  ],
+  "zoneIds": [
+   "gate:yuhwamun-gate"
+  ],
+  "approachNodes": [
+   "-306"
+  ],
+  "serial": 210,
+  "group": "흥례문"
+ },
+ {
+  "id": "place:p-33",
+  "name": "양의문",
+  "category": "gate",
+  "pin": [
+   126.977058,
+   37.579916
+  ],
+  "zoneIds": [
+   "yard:gyotaejeon",
+   "yard:p-21",
+   "yard:heumgyeonggak"
+  ],
+  "approachNodes": [
+   "4440001251"
+  ],
+  "serial": 211,
+  "group": "교태전"
+ },
+ {
+  "id": "place:gyeongseongjeon",
+  "name": "경성전",
+  "category": "hall",
+  "pin": [
+   126.976652,
+   37.579407
+  ],
+  "zoneIds": [
+   "yard:gangnyeongjeon"
+  ],
+  "approachNodes": [
+   "4439989972"
+  ],
+  "serial": 212,
+  "group": "강녕전"
+ },
+ {
+  "id": "place:eungjidang",
+  "name": "응지당",
+  "category": "hall",
+  "pin": [
+   126.976724,
+   37.579579
+  ],
+  "zoneIds": [
+   "yard:gangnyeongjeon"
+  ],
+  "approachNodes": [
+   "4439989975"
+  ],
+  "serial": 213,
+  "group": "강녕전"
+ },
+ {
+  "id": "place:manchunjeon",
+  "name": "만춘전",
+  "category": "hall",
+  "pin": [
+   126.977351,
+   37.579069
+  ],
+  "zoneIds": [
+   "yard:seojeongjeon"
+  ],
+  "approachNodes": [
+   "3792105192"
+  ],
+  "serial": 214,
+  "group": "사정전"
+ },
+ {
+  "id": "place:yeongildang",
+  "name": "연길당",
+  "category": "hall",
+  "pin": [
+   126.977377,
+   37.579549
+  ],
+  "zoneIds": [
+   "yard:gangnyeongjeon"
+  ],
+  "approachNodes": [
+   "4440001234"
+  ],
+  "serial": 215,
+  "group": "강녕전"
+ },
+ {
+  "id": "place:yeonsaengjeon",
+  "name": "연생전",
+  "category": "hall",
+  "pin": [
+   126.977391,
+   37.579382
+  ],
+  "zoneIds": [
+   "yard:gangnyeongjeon"
+  ],
+  "approachNodes": [
+   "4439989966"
+  ],
+  "serial": 216,
+  "group": "강녕전"
+ },
+ {
+  "id": "place:cheonchujeon",
+  "name": "천추전",
+  "category": "hall",
+  "pin": [
+   126.976656,
+   37.579091
+  ],
+  "zoneIds": [
+   "yard:seojeongjeon"
+  ],
+  "approachNodes": [
+   "4439989955"
+  ],
+  "serial": 217,
+  "group": "사정전"
+ },
+ {
+  "id": "place:jaseondang",
+  "name": "자선당",
+  "category": "hall",
+  "pin": [
+   126.977936,
+   37.57902
+  ],
+  "zoneIds": [
+   "yard:jaseondang"
+  ],
+  "approachNodes": [
+   "4448593943"
+  ],
+  "serial": 218,
+  "group": "동궁전"
+ },
+ {
+  "id": "place:bihyeongak",
+  "name": "비현각",
+  "category": "hall",
+  "pin": [
+   126.978401,
+   37.579011
+  ],
+  "zoneIds": [
+   "yard:bihyeongak"
+  ],
+  "approachNodes": [
+   "4448593941"
+  ],
+  "serial": 219,
+  "group": "동궁전"
+ },
+ {
+  "id": "place:p-34",
+  "name": "중광문",
+  "category": "gate",
+  "pin": [
+   126.977936,
+   37.57902
+  ],
+  "zoneIds": [
+   "gate:p-34"
+  ],
+  "approachNodes": [
+   "4448593943"
+  ],
+  "serial": 220,
+  "group": "동궁전"
+ },
+ {
+  "id": "place:jipgyeongdang",
+  "name": "집경당",
+  "category": "hall",
+  "pin": [
+   126.976929,
+   37.581588
+  ],
+  "zoneIds": [
+   "yard:jipgyeongdang"
+  ],
+  "approachNodes": [
+   "-273"
+  ],
+  "serial": 221,
+  "group": "흥복전"
+ },
+ {
+  "id": "place:p-35",
+  "name": "제수합",
+  "category": "hall",
+  "pin": [
+   126.9786,
+   37.580643
+  ],
+  "zoneIds": [
+   "yard:p-35"
+  ],
+  "approachNodes": [
+   "3739926883"
+  ],
+  "serial": 222,
+  "group": "자경전"
+ },
+ {
+  "id": "place:gyejodang",
+  "name": "계조당",
+  "category": "hall",
+  "pin": [
+   126.977882,
+   37.577871
+  ],
+  "zoneIds": [
+   "yard:gyejodang"
+  ],
+  "approachNodes": [
+   "-311"
+  ],
+  "serial": 223,
+  "group": "동궁전"
+ },
+ {
+  "id": "place:p-36",
+  "name": "원길헌",
+  "category": "hall",
+  "pin": [
+   126.977058,
+   37.579916
+  ],
+  "zoneIds": [
+   "yard:gyotaejeon",
+   "yard:p-21",
+   "yard:heumgyeonggak"
+  ],
+  "approachNodes": [
+   "4440001251"
+  ],
+  "serial": 224,
+  "group": "교태전"
+ },
+ {
+  "id": "place:parujeong",
+  "name": "팔우정",
+  "category": "hall",
+  "pin": [
+   126.975839,
+   37.583437
+  ],
+  "zoneIds": [
+   "yard:jibokjae"
+  ],
+  "approachNodes": [
+   "3792105238"
+  ],
+  "serial": 225,
+  "group": "집옥재"
+ },
+ {
+  "id": "place:p-13",
+  "name": "함홍각",
+  "category": "hall",
+  "pin": [
+   126.976861,
+   37.579913
+  ],
+  "zoneIds": [
+   "yard:gyotaejeon"
+  ],
+  "approachNodes": [
+   "4440001251"
+  ],
+  "serial": 226,
+  "group": "교태전"
+ },
+ {
+  "id": "place:p-37",
+  "name": "건순각",
+  "category": "hall",
+  "pin": [
+   126.977058,
+   37.579916
+  ],
+  "zoneIds": [
+   "yard:gyotaejeon",
+   "yard:p-21",
+   "yard:heumgyeonggak"
+  ],
+  "approachNodes": [
+   "4440001251"
+  ],
+  "serial": 227,
+  "group": "교태전"
+ }
+]

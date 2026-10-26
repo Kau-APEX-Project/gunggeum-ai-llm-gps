@@ -1,0 +1,19 @@
+# 宮今 컨테이너. 지금은 db 만 — api(server/)·nginx 는 정식 서버 만들 때 추가.
+#   docker compose -f deploy/docker-compose.yml up -d db
+# db 는 처음 뜰 때(볼륨이 비어 있을 때)만 db/ 의 00-vector.sql → docs.sql.gz 를 읽어 채움.
+# docs.sql.gz 가 바뀌면: docker compose -f deploy/docker-compose.yml down -v && ... up -d db
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_DB: gbg
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-gbg}
+    ports:
+      - "127.0.0.1:5433:5432" # 이 PC(서버) 안에서만. DATABASE_URL=postgresql://postgres:gbg@127.0.0.1:5433/gbg
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d:ro
+      - db:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  db:

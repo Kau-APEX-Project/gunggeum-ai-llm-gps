@@ -1,0 +1,2273 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:gangnyeongjeon",
+        "kind": "building",
+        "name": "강녕전",
+        "name:ko": "강녕전",
+        "name:en": "Gangnyeongjeon (King’s Bedchamber)",
+        "name:th": "คังนยองจอน (พระตำหนักบรรทมกษัตริย์)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977024,
+          37.57953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-2",
+        "kind": "yes",
+        "name": "건길문",
+        "name:ko": "건길문",
+        "name:en": "Geongilmun (Gate to Yeongsajae)",
+        "name:th": "คอนกิลมุน (ประตูสู่ยองซาแจ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974443,
+          37.582598
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:geonsukmun-gate",
+        "kind": "gatehouse",
+        "name": "건숙문",
+        "name:ko": "건숙문",
+        "name:en": "Geonsungmun (Outer Gate)",
+        "name:th": "คอนซุงมุน (ประตูชั้นนอก)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974352,
+          37.582111
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:geonchunmun-gate",
+        "kind": "yes",
+        "name": "건춘문",
+        "name:ko": "건춘문",
+        "name:en": "Geonchunmun (Palace Gate)",
+        "name:th": "คอนชุนมุน (ประตูพระราชวัง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97934,
+          37.578136
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:gyeongbokgung-janggo",
+        "kind": "archaeological_site",
+        "name": "경복궁 장고",
+        "name:ko": "경복궁 장고",
+        "name:en": "Gyeongbokgung Janggo",
+        "name:th": "คยองบกกุง จังโก (ลานโอ่งเครื่องปรุง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97605,
+          37.58168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:gyeongbok-palace-parking-lot",
+        "kind": "parking",
+        "name": "경복궁 주차장",
+        "name:ko": "경복궁 주차장",
+        "name:en": "Gyeongbok Palace Parking Lot",
+        "name:th": "ลานจอดรถพระราชวังคยองบกกุง"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.978927,
+          37.577318
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:gyeongsahap",
+        "kind": "yes",
+        "name": "경사합",
+        "name:ko": "경사합",
+        "name:en": "Gyeongsahap",
+        "name:th": "คยองซาฮับ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974403,
+          37.582371
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:gyeongseongjeon",
+        "kind": "yes",
+        "name": "경성전",
+        "name:ko": "경성전",
+        "name:en": "Gyeongseongjeon (Bedchamber)",
+        "name:th": "คยองซองจอน (ห้องบรรทม)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976652,
+          37.579407
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:gyeonganmun-gate",
+        "kind": "gatehouse",
+        "name": "경안문",
+        "name:ko": "경안문",
+        "name:en": "Gyeonganmun (Inner Gate)",
+        "name:th": "คยองอันมุน (ประตูชั้นใน)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974255,
+          37.582339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:gyeonghoeru-pavilion",
+        "kind": "building",
+        "name": "경회루",
+        "name:ko": "경회루",
+        "name:en": "Gyeonghoeru (Banquet Pavilion)",
+        "name:th": "คยองฮเวรู (พลับพลาจัดงานเลี้ยง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.975967,
+          37.57975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:gyeonghoeji-pond",
+        "kind": "water",
+        "name": "경회지",
+        "name:ko": "경회지",
+        "name:en": "Gyeonghoeji Pond",
+        "name:th": "คยองฮเวจี (สระน้ำ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.975582,
+          37.57974
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:gyejodang",
+        "kind": "yes",
+        "name": "계조당",
+        "name:ko": "계조당",
+        "name:en": "Gyejodang (Crown Prince’s Audience Hall)",
+        "name:th": "คเยโจดัง (ท้องพระโรงองค์รัชทายาท)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977882,
+          37.577871
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:gonnyeonghap",
+        "kind": "yes",
+        "name": "곤녕합",
+        "name:ko": "곤녕합",
+        "name:en": "Gonnyeonghap (Queen’s Residence)",
+        "name:th": "คน-นยองฮับ (ตำหนักพระมเหสี)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977223,
+          37.583175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:gongbukjae",
+        "kind": "yes",
+        "name": "공묵재",
+        "name:ko": "공묵재",
+        "name:en": "Gongmukjae (Royal Mourning Residence)",
+        "name:th": "คงมุกแจ (ที่ประทับหลวงช่วงไว้ทุกข์)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974478,
+          37.58231
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:gwanghwamun-gate",
+        "kind": "gatehouse",
+        "name": "광화문",
+        "name:ko": "광화문",
+        "name:en": "Gwanghwamun (Palace Gate)",
+        "name:th": "ควังฮวามุน (ประตูพระราชวัง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976816,
+          37.575928
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:gyotaejeon",
+        "kind": "building",
+        "name": "교태전",
+        "name:ko": "교태전",
+        "name:en": "Gyotaejeon (Queen’s Bedchamber)",
+        "name:th": "คโยแทจอน (พระตำหนักบรรทมราชินี)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977058,
+          37.579916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:national-palace-museum-of-korea",
+        "kind": "museum",
+        "name": "국립고궁박물관",
+        "name:ko": "국립고궁박물관",
+        "name:en": "National Palace Museum of Korea",
+        "name:th": "พิพิธภัณฑ์พระราชวังแห่งชาติเกาหลี"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974975,
+          37.576587
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:national-folk-museum-of-korea",
+        "kind": "museum",
+        "name": "국립민속박물관",
+        "name:ko": "국립민속박물관",
+        "name:en": "National Folk Museum of Korea",
+        "name:th": "พิพิธภัณฑ์พื้นบ้านแห่งชาติเกาหลี"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.978983,
+          37.580931
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:national-folk-museum-of-korea-2",
+        "kind": "museum",
+        "name": "국립민속박물관",
+        "name:ko": "국립민속박물관",
+        "name:en": "National Folk Museum of Korea",
+        "name:th": "พิพิธภัณฑ์พื้นบ้านแห่งชาติเกาหลี"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.979058,
+          37.581588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:national-folk-museum-of-korea-children-s-museum",
+        "kind": "museum",
+        "name": "국립민속박물관 어린이박물관",
+        "name:ko": "국립민속박물관 어린이박물관",
+        "name:en": "National Folk Museum of Korea Children’s Museum",
+        "name:th": "พิพิธภัณฑ์เด็ก พิพิธภัณฑ์พื้นบ้านแห่งชาติเกาหลี"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.978765,
+          37.581905
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:seoul-national-research-institute-of-cultural-heriage",
+        "kind": "yes",
+        "name": "국립서울문화재연구소",
+        "name:ko": "국립서울문화재연구소",
+        "name:en": "Seoul National Research Institute of Cultural Heriage",
+        "name:th": "สถาบันวิจัยมรดกวัฒนธรรมแห่งชาติโซล"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974419,
+          37.577928
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:geunjeongmun-gate",
+        "kind": "gatehouse",
+        "name": "근정문",
+        "name:ko": "근정문",
+        "name:en": "Geunjeongmun (Palace Gate)",
+        "name:th": "คึนจองมุน (ประตูพระราชวัง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976946,
+          37.577728
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:geunjeongjeon-hall",
+        "kind": "building",
+        "name": "근정전",
+        "name:ko": "근정전",
+        "name:en": "Geunjeongjeon (Throne Hall)",
+        "name:th": "คึนจองจอน (ท้องพระโรง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976992,
+          37.578546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:gyeongbokgung-souvenir-shop",
+        "kind": "yes",
+        "name": "기념품점",
+        "name:ko": "기념품점",
+        "name:en": "Gyeongbokgung Souvenir shop",
+        "name:th": "ร้านขายของที่ระลึก"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.975721,
+          37.578551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-3",
+        "kind": "roof",
+        "name": "기원문",
+        "name:ko": "기원문",
+        "name:en": "Giwonmun (Gate to Laundry Quarters)",
+        "name:th": "คีวอนมุน (ประตูสู่ตำหนักซักรีด)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.973995,
+          37.582046
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:naesojubang",
+        "kind": "building",
+        "name": "내소주방",
+        "name:ko": "내소주방",
+        "name:en": "Naesojubang",
+        "name:th": "แนโซจูบัง (ห้องเครื่องฝ่ายใน)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.978052,
+          37.579451
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:noksan",
+        "kind": "wood",
+        "name": "녹산",
+        "name:ko": "녹산",
+        "name:en": "Noksan",
+        "name:th": "นกซัน (เนินป่า)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.978681,
+          37.582938
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:daeeunamcheon-steam",
+        "kind": "stream",
+        "name": "대은암천",
+        "name:ko": "대은암천",
+        "name:en": "Daeeunamcheon Steam",
+        "name:th": "แดอึนัมชอน (ลำธาร)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976985,
+          37.577288
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:dongjeongmun-gate",
+        "kind": "entrance",
+        "name": "동정문",
+        "name:ko": "동정문",
+        "name:en": "Dongjeongmun Gate",
+        "name:th": "ทงจองมุน (ประตู)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.978137,
+          37.577975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:manchunjeon",
+        "kind": "yes",
+        "name": "만춘전",
+        "name:ko": "만춘전",
+        "name:en": "Manchunjeon (Royal Study Hall)",
+        "name:th": "มันชุนจอน (ท้องพระโรงทรงงาน)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977351,
+          37.579069
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:ticket-office-1",
+        "kind": "yes",
+        "name": "매표소 1",
+        "name:ko": "매표소 1",
+        "name:en": "Ticket Office 1",
+        "name:th": "จุดจำหน่ายบัตร 1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977459,
+          37.576318
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:gyeongbokgung-office-of-cultural-heritage-administration",
+        "kind": "ranger_station",
+        "name": "문화재청 경복궁관리소",
+        "name:ko": "문화재청 경복궁관리소",
+        "name:en": "Gyeongbokgung Office of Cultural Heritage Administration",
+        "name:th": "สำนักงานบริหารพระราชวังคยองบกกุง"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.979223,
+          37.578906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-4",
+        "kind": "yes",
+        "name": "밀레아트",
+        "name:ko": "밀레아트",
+        "name:en": "Mille Art",
+        "name:th": "มิลเลอาร์ต"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976796,
+          37.579487
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:boksudang",
+        "kind": "yes",
+        "name": "복수당",
+        "name:ko": "복수당",
+        "name:en": "Boksudang (Residence Hall)",
+        "name:th": "พกซูดัง (เรือนพัก)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977229,
+          37.583383
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:bihyeongak",
+        "kind": "yes",
+        "name": "비현각",
+        "name:ko": "비현각",
+        "name:en": "Bihyeongak (Crown Prince’s Study)",
+        "name:th": "บีฮยองกัก (ห้องทรงงานองค์รัชทายาท)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.978401,
+          37.579011
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:sajeongmun-gate",
+        "kind": "building",
+        "name": "사정문",
+        "name:ko": "사정문",
+        "name:en": "Sajeongmun Gate",
+        "name:th": "ซาจองมุน (ประตู)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977,
+          37.578876
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:seojeongjeon",
+        "kind": "yes",
+        "name": "사정전",
+        "name:ko": "사정전",
+        "name:en": "Sajeongjeon (Royal Council Hall)",
+        "name:th": "ซาจองจอน (ท้องพระโรงทรงงาน)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977004,
+          37.579067
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:saengmulbang",
+        "kind": "building",
+        "name": "생물방",
+        "name:ko": "생물방",
+        "name:en": "Saengmulbang",
+        "name:th": "แซงมุลบัง (ห้องเครื่องว่าง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.978278,
+          37.579639
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:sumunjangcheong",
+        "kind": "yes",
+        "name": "수문장청",
+        "name:ko": "수문장청",
+        "name:en": "Sumunjangcheong",
+        "name:th": "ซูมุนจังชอง (ที่ทำการหัวหน้าทหารรักษาประตู)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976485,
+          37.57611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:sumunjangcheong-2",
+        "kind": "yes",
+        "name": "수문장청",
+        "name:ko": "수문장청",
+        "name:en": "Sumunjangcheong",
+        "name:th": "ซูมุนจังชอง (ที่ทำการหัวหน้าทหารรักษาประตู)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97717,
+          37.576052
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:sujeongjeon",
+        "kind": "building",
+        "name": "수정전",
+        "name:ko": "수정전",
+        "name:en": "Sujeongjeon (Royal Hall)",
+        "name:th": "ซูจองจอน (ตำหนักหลวง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.975951,
+          37.578972
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:supyo",
+        "kind": "yes",
+        "name": "수표",
+        "name:ko": "수표",
+        "name:en": "Supyo",
+        "name:th": "ซูพโย (หลักวัดระดับน้ำ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.979046,
+          37.580021
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:sungmundang",
+        "kind": "yes",
+        "name": "숙문당",
+        "name:ko": "숙문당",
+        "name:en": "Sungmundang (Royal Hall)",
+        "name:th": "ซุงมุนดัง (ตำหนักหลวง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.973875,
+          37.582686
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:twelve-zodiac-symbols",
+        "kind": "attraction",
+        "name": "십이지상",
+        "name:ko": "십이지상",
+        "name:en": "Twelve Zodiac Symbols",
+        "name:th": "รูปสลักสิบสองนักษัตร"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.978217,
+          37.581165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:chimney-with-ten-symbols-of-longevity-in-relief",
+        "kind": "archaeological_site",
+        "name": "십장생굴뚝",
+        "name:ko": "십장생굴뚝",
+        "name:en": "Chimney with Ten Symbols of Longevity in Relief",
+        "name:th": "ชิบจังแซง คุลตุก (ปล่องไฟประดับ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97819,
+          37.580422
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-5",
+        "kind": "archaeological_site",
+        "name": "아미산굴뚝",
+        "name:ko": "아미산굴뚝",
+        "name:en": "Amisan Chimneys",
+        "name:th": "ปล่องไฟอามีซัน"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976896,
+          37.580152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:national-folk-museum-of-korea-3",
+        "kind": "museum",
+        "name": "어린이민속박물관",
+        "name:ko": "어린이민속박물관",
+        "name:en": "National Folk Museum of Korea",
+        "name:th": "พิพิธภัณฑ์พื้นบ้านสำหรับเด็ก"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.979058,
+          37.581588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:yeongildang",
+        "kind": "yes",
+        "name": "연길당",
+        "name:ko": "연길당",
+        "name:en": "Yeongildang (Auxiliary Hall)",
+        "name:th": "ยอนกิลดัง (อาคารเสริม)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977377,
+          37.579549
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:yeonsaengjeon",
+        "kind": "yes",
+        "name": "연생전",
+        "name:ko": "연생전",
+        "name:en": "Yeonsaengjeon (Royal Bedchamber Hall)",
+        "name:th": "ยอนแซงจอน (ห้องบรรทมกษัตริย์)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977391,
+          37.579382
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:yeolsangjinwon-spring",
+        "kind": "spring",
+        "name": "열상진원샘",
+        "name:ko": "열상진원샘",
+        "name:en": "Yeolsangjinwon Spring",
+        "name:th": "บ่อน้ำพุยอลซังจินวอน"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976556,
+          37.582721
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-6",
+        "kind": "yes",
+        "name": "영군직소",
+        "name:ko": "영군직소",
+        "name:en": "Yeonggunjikso (Guard Post)",
+        "name:th": "ยองกุนจิกโซ (ป้อมยาม)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977833,
+          37.575992
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:yeongsajae",
+        "kind": "yes",
+        "name": "영사재",
+        "name:ko": "영사재",
+        "name:en": "Yeongsajae (Inner Mourning Residence)",
+        "name:th": "ยองซาแจ (ที่ประทับฝ่ายในช่วงไว้ทุกข์)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974386,
+          37.582669
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:yeongchumun-gate",
+        "kind": "yes",
+        "name": "영추문",
+        "name:ko": "영추문",
+        "name:en": "Yeongchumun (Palace Gate)",
+        "name:th": "ยองชุมุน (ประตูพระราชวัง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974066,
+          37.578762
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:yeonghundang-and-electric-power-station",
+        "kind": "museum",
+        "name": "영혼당과 등소",
+        "name:ko": "영혼당과 등소",
+        "name:en": "Yeonghundang and Electric Power Station",
+        "name:th": "ยองฮุนดังและโรงไฟฟ้า"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977869,
+          37.581682
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:restoration-area-of-the-yeonghundang",
+        "kind": "construction",
+        "name": "영훈당 복원구역",
+        "name:ko": "영훈당 복원구역",
+        "name:en": "Restoration area of the Yeonghundang",
+        "name:th": "พื้นที่บูรณะยองฮุนดัง"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977161,
+          37.581424
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-7",
+        "kind": "yes",
+        "name": "예성문",
+        "name:ko": "예성문",
+        "name:en": "Yeseongmun Gate",
+        "name:th": "เยซองมุน (ประตู)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976211,
+          37.581694
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:ochondaek",
+        "kind": "yes",
+        "name": "오촌댁",
+        "name:ko": "오촌댁",
+        "name:en": "Ochondaek",
+        "name:th": "โอชนแดก (บ้านโบราณ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.979053,
+          37.580644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:okhoru",
+        "kind": "yes",
+        "name": "옥호루",
+        "name:ko": "옥호루",
+        "name:en": "Okhoru",
+        "name:th": "อกโฮรู (หอพลับพลา)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977308,
+          37.58317
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:oesojubang",
+        "kind": "yes",
+        "name": "외소주방",
+        "name:ko": "외소주방",
+        "name:en": "Oesojubang",
+        "name:th": "เวโซจูบัง (ห้องเครื่องฝ่ายนอก)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97847,
+          37.579499
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:yongseongmun-gate",
+        "kind": "gatehouse",
+        "name": "용성문",
+        "name:ko": "용성문",
+        "name:en": "Yongseongmun (Gate)",
+        "name:th": "ยงซองมุน (ประตู)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976218,
+          37.576531
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:ujago",
+        "kind": "yes",
+        "name": "우자고",
+        "name:ko": "우자고",
+        "name:en": "Ujago",
+        "name:th": "อูจาโก (คลังเก็บของ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976895,
+          37.578921
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:yuhyeongmun-gate",
+        "kind": "gate",
+        "name": "유형문",
+        "name:ko": "유형문",
+        "name:en": "Yuhyeongmun Gate",
+        "name:th": "ยูฮยองมุน (ประตู)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.975779,
+          37.582111
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:yuhwamun-gate",
+        "kind": "yes",
+        "name": "유화문",
+        "name:ko": "유화문",
+        "name:en": "Yuhwamun (Gate)",
+        "name:th": "ยูฮวามุน (ประตู)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976326,
+          37.577563
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:eungjidang",
+        "kind": "yes",
+        "name": "응지당",
+        "name:ko": "응지당",
+        "name:en": "Eungjidang (Auxiliary Hall)",
+        "name:th": "อึงจีดัง (อาคารเสริม)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976724,
+          37.579579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:ediya-coffee",
+        "kind": "cafe",
+        "name": "이디야커피",
+        "name:ko": "이디야커피",
+        "name:en": "Ediya Coffee",
+        "name:th": "อีดียา คอฟฟี่"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974925,
+          37.576625
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-8",
+        "kind": "gatehouse",
+        "name": "인수문",
+        "name:ko": "인수문",
+        "name:en": "Insumun (Courtyard Gate)",
+        "name:th": "อินซูมุน (ประตูสู่ลาน)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974049,
+          37.582239
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:iljungmun-gate",
+        "kind": "yes",
+        "name": "일중문",
+        "name:ko": "일중문",
+        "name:en": "Iljungmun (Gate)",
+        "name:th": "อิลจุงมุน (ประตู)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.975047,
+          37.582045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-9",
+        "kind": "yes",
+        "name": "입구",
+        "name:ko": "입구",
+        "name:en": "Entrance",
+        "name:th": "ทางเข้า"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.979325,
+          37.57962
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:jagyeongjeon",
+        "kind": "building",
+        "name": "자경전",
+        "name:ko": "자경전",
+        "name:en": "Jagyeongjeon (Queen Dowager’s Residence)",
+        "name:th": "จากยองจอน (ตำหนักพระพันปีหลวง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9781,
+          37.580314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:jaseondang",
+        "kind": "yes",
+        "name": "자선당",
+        "name:ko": "자선당",
+        "name:en": "Jaseondang (Crown Prince’s Residence)",
+        "name:th": "จาซอนดัง (ที่ประทับองค์รัชทายาท)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977936,
+          37.57902
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:jaseondang-2",
+        "kind": "yes",
+        "name": "자선당유구",
+        "name:ko": "자선당유구",
+        "name:en": "Jaseondang",
+        "name:th": "ซากฐานจาซอนดัง"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977583,
+          37.583239
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-10",
+        "kind": "wall",
+        "name": "장고지",
+        "name:ko": "장고지",
+        "name:en": "Janggoji",
+        "name:th": "จังโกจี"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976041,
+          37.581678
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:jangandang",
+        "kind": "yes",
+        "name": "장안당",
+        "name:ko": "장안당",
+        "name:en": "Jangandang (Residence Hall)",
+        "name:th": "จังอันดัง (เรือนประทับ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976964,
+          37.583055
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:jeasuhap",
+        "kind": "yes",
+        "name": "재수합",
+        "name:ko": "재수합",
+        "name:en": "Jeasuhap",
+        "name:th": "เจซูฮับ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9786,
+          37.580643
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:traditional-culture-learning-studio",
+        "kind": "attraction",
+        "name": "전통문화체험스튜디오",
+        "name:ko": "전통문화체험스튜디오",
+        "name:en": "Traditional Culture Learning Studio",
+        "name:th": "สตูดิโอประสบการณ์วัฒนธรรมดั้งเดิม"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.979444,
+          37.580443
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:jijago",
+        "kind": "yes",
+        "name": "지자고",
+        "name:ko": "지자고",
+        "name:en": "Jijago",
+        "name:th": "จีจาโก (คลังเก็บของ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976602,
+          37.578932
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:jipgyeongdang",
+        "kind": "yes",
+        "name": "집경당",
+        "name:ko": "집경당",
+        "name:en": "Jipgyeongdang (Royal Bedchamber Hall)",
+        "name:th": "จิบคยองดัง (ห้องบรรทมหลวง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976929,
+          37.581588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:jibokjae",
+        "kind": "yes",
+        "name": "집옥재",
+        "name:ko": "집옥재",
+        "name:en": "Jibokjae (Royal Library)",
+        "name:th": "ชิบกแจ (หอพระสมุดหลวง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976086,
+          37.583431
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:cheonjago",
+        "kind": "yes",
+        "name": "천자고",
+        "name:ko": "천자고",
+        "name:en": "Cheonjago",
+        "name:th": "ชอนจาโก (คลังเก็บของ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976504,
+          37.578935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:cheonchujeon",
+        "kind": "yes",
+        "name": "천추전",
+        "name:ko": "천추전",
+        "name:en": "Cheonchujeon (Royal Council Hall)",
+        "name:th": "ชอนชูจอน (ท้องพระโรงว่าราชการ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976656,
+          37.579091
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:chogwanchoso",
+        "kind": "yes",
+        "name": "초관처소",
+        "name:ko": "초관처소",
+        "name:en": "Chogwanchoso",
+        "name:th": "โชกวันชอโซ (ที่พักนายทหาร)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977679,
+          37.57599
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-11",
+        "kind": "roof",
+        "name": "초양문",
+        "name:ko": "초양문",
+        "name:en": "Choyangmun (Gate)",
+        "name:th": "โชยังมุน (ประตู)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977191,
+          37.582916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:chusubuyongnu",
+        "kind": "yes",
+        "name": "추수부용루",
+        "name:ko": "추수부용루",
+        "name:en": "Chusubuyongnu",
+        "name:th": "ชูซูบูยงรู (ศาลาริมสระ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976883,
+          37.582978
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:memories-road",
+        "kind": "attraction",
+        "name": "추억의거리",
+        "name:ko": "추억의거리",
+        "name:en": "Memories road",
+        "name:th": "ถนนแห่งความทรงจำ"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.979785,
+          37.580976
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-12",
+        "kind": "archaeological_site",
+        "name": "취향교터",
+        "name:ko": "취향교터",
+        "name:en": "Site of Chwihyanggyo Bridge",
+        "name:th": "ที่ตั้งเดิมสะพานชวีฮยังกโย"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977084,
+          37.582424
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:taewonjeon",
+        "kind": "yes",
+        "name": "태원전",
+        "name:ko": "태원전",
+        "name:en": "Taewonjeon (Funeral Hall)",
+        "name:th": "แทวอนจอน (ตำหนักประดิษฐานพระศพ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974155,
+          37.582579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:parujeong",
+        "kind": "yes",
+        "name": "팔우정",
+        "name:ko": "팔우정",
+        "name:en": "Parujeong (Octagonal Pavilion)",
+        "name:th": "พารูจอง (ศาลาแปดเหลี่ยม)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.975839,
+          37.583437
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:hahyangjeong",
+        "kind": "yes",
+        "name": "하향정",
+        "name:ko": "하향정",
+        "name:en": "Hahyangjeong",
+        "name:th": "ฮาฮยังจอง (ศาลา)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.975323,
+          37.580223
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:hamgwangmun",
+        "kind": "yes",
+        "name": "함광문",
+        "name:ko": "함광문",
+        "name:en": "Hamgwangmun",
+        "name:th": "ฮัมกวังมุน (ประตู)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977301,
+          37.583036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:hamwonjeon",
+        "kind": "building",
+        "name": "함원전",
+        "name:ko": "함원전",
+        "name:en": "Hamwonjeon (Buddhist Ritual Hall)",
+        "name:th": "ฮัมวอนจอน (ศาลาประกอบพิธีพุทธ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976618,
+          37.579974
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-13",
+        "kind": "yes",
+        "name": "함홍각",
+        "name:ko": "함홍각",
+        "name:en": "Hamhonggak (Royal Annex)",
+        "name:th": "ฮัมฮงกัก (อาคารประกอบพระตำหนัก)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976861,
+          37.579913
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:hamhwadang",
+        "kind": "yes",
+        "name": "함화당",
+        "name:ko": "함화당",
+        "name:en": "Hamhwadang (Bedchamber)",
+        "name:th": "ฮัมฮวาดัง (ห้องบรรทม)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976608,
+          37.581624
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:hyangwonjeong",
+        "kind": "shelter",
+        "name": "향원정",
+        "name:ko": "향원정",
+        "name:en": "Hyangwonjeong (Pond Pavilion)",
+        "name:th": "ฮยังวอนจอง (พลับพลากลางสระ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97705,
+          37.58238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-14",
+        "kind": "water",
+        "name": "향원지",
+        "name:ko": "향원지",
+        "name:en": "Hyangwonji Pond",
+        "name:th": "สระฮยังวอนจี"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977084,
+          37.582242
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:hyeonjago",
+        "kind": "yes",
+        "name": "현자고",
+        "name:ko": "현자고",
+        "name:en": "Hyeonjago",
+        "name:th": "ฮยอนจาโก (คลังเก็บของ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9767,
+          37.578928
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:hyeopgildang",
+        "kind": "yes",
+        "name": "협길당",
+        "name:ko": "협길당",
+        "name:en": "Hyeopgildang (Residence Hall)",
+        "name:th": "ฮยอบกิลดัง (เรือนประทับ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976317,
+          37.583472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:hyupsaengmun-gate",
+        "kind": "gatehouse",
+        "name": "협생문",
+        "name:ko": "협생문",
+        "name:en": "Hyeopsaengmun (Gate)",
+        "name:th": "ฮยอบแซงมุน (ประตู)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97752,
+          37.576498
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:honggyeongmun",
+        "kind": "yes",
+        "name": "홍경문",
+        "name:ko": "홍경문",
+        "name:en": "Honggyeongmun (Gate to Gongmukjae)",
+        "name:th": "ฮงคยองมุน (ประตูสู่คงมุกแจ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974588,
+          37.582231
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:hwangjago",
+        "kind": "yes",
+        "name": "황자고",
+        "name:ko": "황자고",
+        "name:en": "Hwangjago",
+        "name:th": "ฮวังจาโก (คลังเก็บของ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976797,
+          37.578925
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:hyojagak",
+        "kind": "attraction",
+        "name": "효자각",
+        "name:ko": "효자각",
+        "name:en": "Hyojagak",
+        "name:th": "ฮโยจากัก (ศาลาเชิดชูความกตัญญู)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.979213,
+          37.579964
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:heumgyeonggak",
+        "kind": "yes",
+        "name": "흠경각",
+        "name:ko": "흠경각",
+        "name:en": "Heumgyeonggak (Astronomical Clock Pavilion)",
+        "name:th": "ฮึมกยองกัก (หอนาฬิกาดาราศาสตร์)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976606,
+          37.579733
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:heungnyemun-gate",
+        "kind": "gatehouse",
+        "name": "흥례문",
+        "name:ko": "흥례문",
+        "name:en": "Heungnyemun (Palace Gate)",
+        "name:th": "ฮึงนเยมุน (ประตูพระราชวัง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976905,
+          37.576953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:heungbokjeon",
+        "kind": "yes",
+        "name": "흥복전",
+        "name:ko": "흥복전",
+        "name:en": "Heungbokjeon (Bedchamber)",
+        "name:th": "ฮึงบกจอน (ห้องบรรทม)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977043,
+          37.580729
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-15",
+        "kind": "yes",
+        "name": "매표소 2",
+        "name:ko": "매표소 2",
+        "name:en": "Ticket Office 2",
+        "name:th": "จุดจำหน่ายบัตร 2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.978782,
+          37.579614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-16",
+        "kind": "gate",
+        "name": "신무문",
+        "name:ko": "신무문",
+        "name:en": "Sinmumun (Palace Gate)",
+        "name:th": "ชินมุมุน (ประตูพระราชวัง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97552,
+          37.58345
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-17",
+        "kind": "hall",
+        "name": "영제교",
+        "name:ko": "영제교",
+        "name:en": "Yeongjegyo (Stone Bridge)",
+        "name:th": "ยองเจกโย (สะพานหิน)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976985,
+          37.577288
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-18",
+        "kind": "hall",
+        "name": "기별청",
+        "name:ko": "기별청",
+        "name:en": "Gibyeolcheong (News Office)",
+        "name:th": "คีบยอลชอง (สำนักงานข่าว)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976905,
+          37.576953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-19",
+        "kind": "hall",
+        "name": "근정전 조정",
+        "name:ko": "근정전 조정",
+        "name:en": "Geunjeongjeon Jojeong (Ceremonial Courtyard)",
+        "name:th": "คึนจองจอน โจจอง (ลานประกอบพิธี)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976992,
+          37.578546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-20",
+        "kind": "hall",
+        "name": "근정전 내부",
+        "name:ko": "근정전 내부",
+        "name:en": "Geunjeongjeon Naebu (Hall Interior)",
+        "name:th": "คึนจองจอน แนบู (ภายในท้องพระโรง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976992,
+          37.578546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-21",
+        "kind": "hall",
+        "name": "아미산",
+        "name:ko": "아미산",
+        "name:en": "Amisan (Artificial Hill)",
+        "name:th": "อามีซัน (เนินเขาจำลอง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976896,
+          37.580152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-22",
+        "kind": "hall",
+        "name": "십장생 굴뚝",
+        "name:ko": "십장생 굴뚝",
+        "name:en": "Sipjangsaeng Gulttuk (Decorative Chimney)",
+        "name:th": "ชิบจังแซง คุลตุก (ปล่องไฟประดับ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97819,
+          37.580422
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-23",
+        "kind": "hall",
+        "name": "꽃담",
+        "name:ko": "꽃담",
+        "name:en": "Kkotdam (Decorative Brick Wall)",
+        "name:th": "กดตัม (กำแพงอิฐประดับ)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9781,
+          37.580314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-24",
+        "kind": "hall",
+        "name": "동궁전",
+        "name:ko": "동궁전",
+        "name:en": "Donggungjeon (Crown Prince’s Residence)",
+        "name:th": "ทงกุงจอน (ที่ประทับมกุฎราชกุมาร)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.978169,
+          37.579015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-25",
+        "kind": "hall",
+        "name": "건청궁",
+        "name:ko": "건청궁",
+        "name:en": "Geoncheonggung (Royal Residence)",
+        "name:th": "คอนชองกุง (ที่ประทับหลวง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977093,
+          37.583115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-26",
+        "kind": "hall",
+        "name": "소주방",
+        "name:ko": "소주방",
+        "name:en": "Sojubang (Royal Kitchen)",
+        "name:th": "โซจูบัง (ห้องเครื่องหลวง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.978267,
+          37.57953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-27",
+        "kind": "hall",
+        "name": "궐내각사 터",
+        "name:ko": "궐내각사 터",
+        "name:en": "Gwollaegaksa Teo (Site of Palace Offices)",
+        "name:th": "ควอลแรกักซา ทอ (ที่ตั้งหน่วยงานในพระราชวัง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.975951,
+          37.578972
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-28",
+        "kind": "gate",
+        "name": "보강문",
+        "name:ko": "보강문",
+        "name:en": "Bogangmun (Wall Gate)",
+        "name:th": "โพกังมุน (ประตูช่องกำแพง)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974155,
+          37.582579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-29",
+        "kind": "gate",
+        "name": "필성문",
+        "name:ko": "필성문",
+        "name:en": "Pilseongmun (Gate)",
+        "name:th": "พิลซองมุน (ประตู)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977093,
+          37.583115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-30",
+        "kind": "gate",
+        "name": "인유문",
+        "name:ko": "인유문",
+        "name:en": "Inyumun (Gate)",
+        "name:th": "อินยูมุน (ประตู)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977093,
+          37.583115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-31",
+        "kind": "hall",
+        "name": "정시합",
+        "name:ko": "정시합",
+        "name:en": "Jeongsihap (Bedchamber)",
+        "name:th": "จองซีฮับ (ห้องบรรทม)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977223,
+          37.583175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-32",
+        "kind": "hall",
+        "name": "녹금당",
+        "name:ko": "녹금당",
+        "name:en": "Nokgeumdang (Residence Hall)",
+        "name:th": "นกกึมดัง (เรือนพัก)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977229,
+          37.583383
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-33",
+        "kind": "gate",
+        "name": "양의문",
+        "name:ko": "양의문",
+        "name:en": "Yanguimun (Gate)",
+        "name:th": "ยังอึยมุน (ประตู)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977058,
+          37.579916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-34",
+        "kind": "gate",
+        "name": "중광문",
+        "name:ko": "중광문",
+        "name:en": "Junggwangmun (Gate)",
+        "name:th": "จุงกวังมุน (ประตู)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977936,
+          37.57902
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-35",
+        "kind": "hall",
+        "name": "제수합",
+        "name:ko": "제수합",
+        "name:en": "Jesuhap (Royal Annex)",
+        "name:th": "เจซูฮับ (อาคารประกอบเขตพระราชฐาน)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9786,
+          37.580643
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-36",
+        "kind": "hall",
+        "name": "원길헌",
+        "name:ko": "원길헌",
+        "name:en": "Wongilheon (Royal Annex)",
+        "name:th": "วอนกิลฮอน (อาคารประกอบพระตำหนัก)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977058,
+          37.579916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "place:p-37",
+        "kind": "hall",
+        "name": "건순각",
+        "name:ko": "건순각",
+        "name:en": "Geonsungak (Royal Annex)",
+        "name:th": "คอนซุนกัก (อาคารประกอบพระตำหนัก)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977058,
+          37.579916
+        ]
+      }
+    }
+  ]
+}

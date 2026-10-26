@@ -1,0 +1,45 @@
+{
+  "name": "경복궁 지도",
+  "generatedAt": "2026-10-09T07:43:59.703Z",
+  "attribution": "지도·데이터 © OpenStreetMap 기여자",
+  "languages": [
+    "ko",
+    "en",
+    "th"
+  ],
+  "center": [
+    126.976902,
+    37.579766
+  ],
+  "bbox": [
+    126.973755,
+    37.575865,
+    126.980049,
+    37.583667
+  ],
+  "minZoom": 15,
+  "maxZoom": 20,
+  "counts": {
+    "paths": 357,
+    "pins": 112,
+    "places": 126,
+    "pinsByCategory": {
+      "gate": 22,
+      "hall": 49,
+      "event": 3,
+      "water": 2,
+      "restroom": 8,
+      "bench": 28
+    }
+  },
+  "files": {
+    "style": "style.json",
+    "tiles": "tiles/palace.pmtiles",
+    "boundary": "data/boundary.geojson",
+    "mask": "data/mask.geojson",
+    "paths": "data/paths.geojson",
+    "pins": "data/pins.geojson",
+    "places": "data/places.geojson",
+    "workbook": "경복궁_지도.xlsx"
+  }
+}

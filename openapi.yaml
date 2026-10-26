@@ -1,0 +1,179 @@
+# 宮今 서버 API — 사람용 설명은 API.md (근거·화면 흐름·정적 파일·폰 모듈). 여기는 서버 엔드포인트 4개만.
+# 보기: https://editor.swagger.io 에 붙여 넣기 · 목 서버: npx @stoplight/prism-cli mock openapi.yaml
+openapi: 3.1.0
+info:
+  title: 宮今 API
+  version: 0.1.0
+  description: 경복궁 해설 질문·길 묻기·카드·테마 코스. 판정·길 계산은 폰(visit/judge.mjs·route.mjs)에서 함. 서버는 아직 구현 전.
+security: []  # 인증 없음 (비용 보호는 Nginx 속도 제한)
+servers:
+  - url: /api
+    description: CloudFront → EC2 Nginx → Docker
+  - url: http://localhost:8001/api
+    description: 개발 (server/course.py 임시 서버)
+paths:
+  /ask:
+    post:
+      operationId: ask
+      summary: 질문 — 설명 · 길 묻기(action route) · 근처 편의시설(action amenity)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [question]
+              properties:
+                question: {type: string, minLength: 1, maxLength: 300, example: "교태전 어떻게 가?"}
+      responses:
+        '200':
+          description: 답변
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/AskResponse'}
+              examples:
+                question:
+                  value: {answer: '[강녕전](card:b-163)은 왕이 일상을 보내던 침전입니다.', language: 한국어, action: null}
+                route:
+                  value: {answer: '[교태전](card:b-164)은 왕비의 침전으로, 뒤뜰에 [아미산](card:b-165)이 있습니다.', language: 한국어,
+                          action: {type: route, to: 'place:gyotaejeon'}}
+                amenity:
+                  value: {answer: Showing the nearest restrooms on the map., language: English,
+                          action: {type: amenity, category: restroom}}
+        '400': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '504': {$ref: '#/components/responses/Error'}
+  /card:
+    get:
+      operationId: getCard
+      summary: 카드 한 장 (답변 속 card:<id> 링크)
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema: {type: string, pattern: '^(b|t)-\d+$', example: b-160}
+          description: b-<serial> 전각 (pois.json 의 serial) · t-<no> 용어
+      responses:
+        '200':
+          description: 카드
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Card'}
+        '400': {$ref: '#/components/responses/Error'}
+        '404': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+  /course:
+    post:
+      operationId: makeCourse
+      summary: 테마 코스 — 설명(answer) + 들를 곳 순서(course). 실제 길·시간은 폰 fitCourse
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [request]
+              properties:
+                request: {type: string, minLength: 1, maxLength: 300, example: 왕비 이야기 위주로 40분}
+      responses:
+        '200':
+          description: 코스
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/CourseResponse'}
+        '400': {$ref: '#/components/responses/Error'}
+        '429': {$ref: '#/components/responses/Error'}
+        '500': {$ref: '#/components/responses/Error'}
+        '504': {$ref: '#/components/responses/Error'}
+  /health:
+    get:
+      operationId: health
+      summary: 상태 확인 (DB·LLM 안 부름)
+      responses:
+        '200':
+          description: 켜져 있음
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [ok]
+                properties:
+                  ok: {type: boolean, const: true}
+components:
+  schemas:
+    Language:
+      type: string
+      enum: [한국어, English, ภาษาไทย]
+    Answer:
+      type: string
+      description: 마크다운 문단. 전각·용어 이름은 처음 한 번 [이름](card:<id>) 링크. 넣은 DB 문서의 사실만.
+    AskResponse:
+      type: object
+      required: [answer, language, action]
+      properties:
+        answer: {$ref: '#/components/schemas/Answer'}
+        language: {$ref: '#/components/schemas/Language'}
+        action:
+          description: 폰이 할 일. 일반 질문이면 null
+          oneOf:
+            - type: 'null'
+            - type: object
+              required: [type, to]
+              properties:
+                type: {const: route}
+                to: {type: string, description: 'pois.json 의 id (nameId)', example: 'place:gyotaejeon'}
+            - type: object
+              required: [type, category]
+              properties:
+                type: {const: amenity}
+                category: {type: string, enum: [restroom, bench, water], description: pins.geojson 의 category}
+    Card:
+      type: object
+      required: [id, type, name, text, photo]
+      properties:
+        id: {type: string, example: b-160}
+        type: {type: string, enum: [building, term]}
+        name: {type: string, example: 근정전}
+        name_en: {type: [string, 'null'], example: Geunjeongjeon (Throne Hall)}
+        name_th: {type: [string, 'null']}
+        text: {type: string, description: 한국어 설명 (전각은 문단 합침)}
+        text_en: {type: [string, 'null'], description: 영어 설명 (생성 번역). 없으면 null → text}
+        text_th: {type: [string, 'null'], description: 태국어 설명 (생성 번역). 없으면 null → text}
+        category: {type: [string, 'null'], description: 용어 분류 (전각은 null)}
+        photo: {type: [string, 'null'], example: /photos/160.jpg, description: S3 photos/<serial>.jpg. 없으면 null}
+        photo_license: {type: [string, 'null'], description: 사진 쓰면 같이 표시}
+        photo_source: {type: [string, 'null'], description: 사진 쓰면 같이 표시}
+    CourseResponse:
+      type: object
+      required: [answer, language, course]
+      properties:
+        answer:
+          allOf: [{$ref: '#/components/schemas/Answer'}]
+          description: 코스를 왜 이렇게 짰는지 + 순서대로 곳마다 볼 것. 시간·거리 숫자 없음
+        language: {$ref: '#/components/schemas/Language'}
+        course:
+          type: object
+          required: [minutes, stops]
+          properties:
+            minutes: {type: integer, example: 40, description: 요청에서 읽은 제한 시간 (없으면 60)}
+            stops:
+              type: array
+              description: LLM 이 정한 순서. 광화문 출발·도착 기준
+              items:
+                type: object
+                required: [id, stayMin]
+                properties:
+                  id: {type: string, example: 'place:gyotaejeon', description: 'pois.json id 또는 nature:<places.geojson name>'}
+                  stayMin: {type: integer, example: 8}
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error: {type: string}
+  responses:
+    Error:
+      description: 에러 (400 잘못된 요청 · 404 없음 · 429 속도 제한 · 500 LLM/DB 실패 · 504 60초 넘김)
+      content:
+        application/json:
+          schema: {$ref: '#/components/schemas/Error'}

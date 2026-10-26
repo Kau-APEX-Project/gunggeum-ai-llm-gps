@@ -1,0 +1,3 @@
+# 비밀 키 — .env 는 각자 만듦 (양식 .env.example)
+.env
+__pycache__/

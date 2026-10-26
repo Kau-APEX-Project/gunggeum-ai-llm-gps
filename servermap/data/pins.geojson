@@ -1,0 +1,2723 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-2",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:gwanghwamun-gate",
+        "serial": 151,
+        "group": "광화문",
+        "name": "광화문",
+        "name:ko": "광화문",
+        "name:en": "Gwanghwamun (Palace Gate)",
+        "name:th": "ควังฮวามุน (ประตูพระราชวัง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976816,
+          37.575928
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-4",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:geonchunmun-gate",
+        "serial": 152,
+        "group": "건춘문",
+        "name": "건춘문",
+        "name:ko": "건춘문",
+        "name:en": "Geonchunmun (Palace Gate)",
+        "name:th": "คอนชุนมุน (ประตูพระราชวัง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97934,
+          37.578136
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-6",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:yeongchumun-gate",
+        "serial": 153,
+        "group": "영추문",
+        "name": "영추문",
+        "name:ko": "영추문",
+        "name:en": "Yeongchumun (Palace Gate)",
+        "name:th": "ยองชุมุน (ประตูพระราชวัง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974066,
+          37.578762
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-8",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-16",
+        "serial": 154,
+        "group": "신무문",
+        "name": "신무문",
+        "name:ko": "신무문",
+        "name:en": "Sinmumun (Palace Gate)",
+        "name:th": "ชินมุมุน (ประตูพระราชวัง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97552,
+          37.58345
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-10",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:heungnyemun-gate",
+        "serial": 155,
+        "group": "흥례문",
+        "name": "흥례문",
+        "name:ko": "흥례문",
+        "name:en": "Heungnyemun (Palace Gate)",
+        "name:th": "ฮึงนเยมุน (ประตูพระราชวัง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976905,
+          37.576953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-12",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-17",
+        "serial": 156,
+        "group": "흥례문",
+        "name": "영제교",
+        "name:ko": "영제교",
+        "name:en": "Yeongjegyo (Stone Bridge)",
+        "name:th": "ยองเจกโย (สะพานหิน)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976985,
+          37.577288
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-14",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-18",
+        "serial": 157,
+        "group": "흥례문",
+        "name": "기별청",
+        "name:ko": "기별청",
+        "name:en": "Gibyeolcheong (News Office)",
+        "name:th": "คีบยอลชอง (สำนักงานข่าว)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976905,
+          37.576953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-16",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:geunjeongmun-gate",
+        "serial": 158,
+        "group": "근정전",
+        "name": "근정문",
+        "name:ko": "근정문",
+        "name:en": "Geunjeongmun (Palace Gate)",
+        "name:th": "คึนจองมุน (ประตูพระราชวัง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976946,
+          37.577728
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-18",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-19",
+        "serial": 159,
+        "group": "근정전",
+        "name": "근정전 조정",
+        "name:ko": "근정전 조정",
+        "name:en": "Geunjeongjeon Jojeong (Ceremonial Courtyard)",
+        "name:th": "คึนจองจอน โจจอง (ลานประกอบพิธี)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976992,
+          37.578546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-20",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:geunjeongjeon-hall",
+        "serial": 160,
+        "group": "근정전",
+        "name": "근정전",
+        "name:ko": "근정전",
+        "name:en": "Geunjeongjeon (Throne Hall)",
+        "name:th": "คึนจองจอน (ท้องพระโรง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976992,
+          37.578546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-22",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-20",
+        "serial": 161,
+        "group": "근정전",
+        "name": "근정전 내부",
+        "name:ko": "근정전 내부",
+        "name:en": "Geunjeongjeon Naebu (Hall Interior)",
+        "name:th": "คึนจองจอน แนบู (ภายในท้องพระโรง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976992,
+          37.578546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-24",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:seojeongjeon",
+        "serial": 162,
+        "group": "사정전",
+        "name": "사정전",
+        "name:ko": "사정전",
+        "name:en": "Sajeongjeon (Royal Council Hall)",
+        "name:th": "ซาจองจอน (ท้องพระโรงทรงงาน)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977004,
+          37.579067
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-26",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:gangnyeongjeon",
+        "serial": 163,
+        "group": "강녕전",
+        "name": "강녕전",
+        "name:ko": "강녕전",
+        "name:en": "Gangnyeongjeon (King’s Bedchamber)",
+        "name:th": "คังนยองจอน (พระตำหนักบรรทมกษัตริย์)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977024,
+          37.57953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-28",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:gyotaejeon",
+        "serial": 164,
+        "group": "교태전",
+        "name": "교태전",
+        "name:ko": "교태전",
+        "name:en": "Gyotaejeon (Queen’s Bedchamber)",
+        "name:th": "คโยแทจอน (พระตำหนักบรรทมราชินี)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977058,
+          37.579916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-30",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-21",
+        "serial": 165,
+        "group": "교태전",
+        "name": "아미산",
+        "name:ko": "아미산",
+        "name:en": "Amisan (Artificial Hill)",
+        "name:th": "อามีซัน (เนินเขาจำลอง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976896,
+          37.580152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-32",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:heumgyeonggak",
+        "serial": 166,
+        "group": "교태전",
+        "name": "흠경각",
+        "name:ko": "흠경각",
+        "name:en": "Heumgyeonggak (Astronomical Clock Pavilion)",
+        "name:th": "ฮึมกยองกัก (หอนาฬิกาดาราศาสตร์)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976606,
+          37.579733
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-34",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:hamwonjeon",
+        "serial": 167,
+        "group": "교태전",
+        "name": "함원전",
+        "name:ko": "함원전",
+        "name:en": "Hamwonjeon (Buddhist Ritual Hall)",
+        "name:th": "ฮัมวอนจอน (ศาลาประกอบพิธีพุทธ)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976618,
+          37.579974
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-36",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:jagyeongjeon",
+        "serial": 169,
+        "group": "자경전",
+        "name": "자경전",
+        "name:ko": "자경전",
+        "name:en": "Jagyeongjeon (Queen Dowager’s Residence)",
+        "name:th": "จากยองจอน (ตำหนักพระพันปีหลวง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9781,
+          37.580314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-38",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-22",
+        "serial": 170,
+        "group": "자경전",
+        "name": "십장생 굴뚝",
+        "name:ko": "십장생 굴뚝",
+        "name:en": "Sipjangsaeng Gulttuk (Decorative Chimney)",
+        "name:th": "ชิบจังแซง คุลตุก (ปล่องไฟประดับ)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97819,
+          37.580422
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-40",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-23",
+        "serial": 171,
+        "group": "자경전",
+        "name": "꽃담",
+        "name:ko": "꽃담",
+        "name:en": "Kkotdam (Decorative Brick Wall)",
+        "name:th": "กดตัม (กำแพงอิฐประดับ)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9781,
+          37.580314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-42",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-24",
+        "serial": 172,
+        "group": "동궁전",
+        "name": "동궁전",
+        "name:ko": "동궁전",
+        "name:en": "Donggungjeon (Crown Prince’s Residence)",
+        "name:th": "ทงกุงจอน (ที่ประทับมกุฎราชกุมาร)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.978169,
+          37.579015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-44",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:gyeonghoeru-pavilion",
+        "serial": 173,
+        "group": "경회루",
+        "name": "경회루",
+        "name:ko": "경회루",
+        "name:en": "Gyeonghoeru (Banquet Pavilion)",
+        "name:th": "คยองฮเวรู (พลับพลาจัดงานเลี้ยง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.975967,
+          37.57975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-46",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:hyangwonjeong",
+        "serial": 174,
+        "group": "향원정",
+        "name": "향원정",
+        "name:ko": "향원정",
+        "name:en": "Hyangwonjeong (Pond Pavilion)",
+        "name:th": "ฮยังวอนจอง (พลับพลากลางสระ)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97705,
+          37.58238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-48",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:taewonjeon",
+        "serial": 175,
+        "group": "태원전",
+        "name": "태원전",
+        "name:ko": "태원전",
+        "name:en": "Taewonjeon (Funeral Hall)",
+        "name:th": "แทวอนจอน (ตำหนักประดิษฐานพระศพ)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974155,
+          37.582579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-50",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-25",
+        "serial": 176,
+        "group": "건청궁",
+        "name": "건청궁",
+        "name:ko": "건청궁",
+        "name:en": "Geoncheonggung (Royal Residence)",
+        "name:th": "คอนชองกุง (ที่ประทับหลวง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977093,
+          37.583115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-52",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:jibokjae",
+        "serial": 177,
+        "group": "집옥재",
+        "name": "집옥재",
+        "name:ko": "집옥재",
+        "name:en": "Jibokjae (Royal Library)",
+        "name:th": "ชิบกแจ (หอพระสมุดหลวง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976086,
+          37.583431
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-54",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:sujeongjeon",
+        "serial": 178,
+        "group": "수정전",
+        "name": "수정전",
+        "name:ko": "수정전",
+        "name:en": "Sujeongjeon (Royal Hall)",
+        "name:th": "ซูจองจอน (ตำหนักหลวง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.975951,
+          37.578972
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-56",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-26",
+        "serial": 183,
+        "group": "소주방",
+        "name": "소주방",
+        "name:ko": "소주방",
+        "name:en": "Sojubang (Royal Kitchen)",
+        "name:th": "โซจูบัง (ห้องเครื่องหลวง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.978267,
+          37.57953
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-58",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-27",
+        "serial": 185,
+        "group": "수정전",
+        "name": "궐내각사 터",
+        "name:ko": "궐내각사 터",
+        "name:en": "Gwollaegaksa Teo (Site of Palace Offices)",
+        "name:th": "ควอลแรกักซา ทอ (ที่ตั้งหน่วยงานในพระราชวัง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.975951,
+          37.578972
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-60",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-3",
+        "serial": 186,
+        "group": "태원전",
+        "name": "기원문",
+        "name:ko": "기원문",
+        "name:en": "Giwonmun (Gate to Laundry Quarters)",
+        "name:th": "คีวอนมุน (ประตูสู่ตำหนักซักรีด)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.973995,
+          37.582046
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-62",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:geonsukmun-gate",
+        "serial": 187,
+        "group": "태원전",
+        "name": "건숙문",
+        "name:ko": "건숙문",
+        "name:en": "Geonsungmun (Outer Gate)",
+        "name:th": "คอนซุงมุน (ประตูชั้นนอก)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974352,
+          37.582111
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-64",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:gyeonganmun-gate",
+        "serial": 188,
+        "group": "태원전",
+        "name": "경안문",
+        "name:ko": "경안문",
+        "name:en": "Gyeonganmun (Inner Gate)",
+        "name:th": "คยองอันมุน (ประตูชั้นใน)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974255,
+          37.582339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-66",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-8",
+        "serial": 189,
+        "group": "태원전",
+        "name": "인수문",
+        "name:ko": "인수문",
+        "name:en": "Insumun (Courtyard Gate)",
+        "name:th": "อินซูมุน (ประตูสู่ลาน)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974049,
+          37.582239
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-68",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:gongbukjae",
+        "serial": 190,
+        "group": "태원전",
+        "name": "공묵재",
+        "name:ko": "공묵재",
+        "name:en": "Gongmukjae (Royal Mourning Residence)",
+        "name:th": "คงมุกแจ (ที่ประทับหลวงช่วงไว้ทุกข์)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974478,
+          37.58231
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-70",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:sungmundang",
+        "serial": 191,
+        "group": "태원전",
+        "name": "숙문당",
+        "name:ko": "숙문당",
+        "name:en": "Sungmundang (Royal Hall)",
+        "name:th": "ซุงมุนดัง (ตำหนักหลวง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.973875,
+          37.582686
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-72",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-2",
+        "serial": 192,
+        "group": "태원전",
+        "name": "건길문",
+        "name:ko": "건길문",
+        "name:en": "Geongilmun (Gate to Yeongsajae)",
+        "name:th": "คอนกิลมุน (ประตูสู่ยองซาแจ)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974443,
+          37.582598
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-74",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:yeongsajae",
+        "serial": 193,
+        "group": "태원전",
+        "name": "영사재",
+        "name:ko": "영사재",
+        "name:en": "Yeongsajae (Inner Mourning Residence)",
+        "name:th": "ยองซาแจ (ที่ประทับฝ่ายในช่วงไว้ทุกข์)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974386,
+          37.582669
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-76",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-28",
+        "serial": 194,
+        "group": "태원전",
+        "name": "보강문",
+        "name:ko": "보강문",
+        "name:en": "Bogangmun (Wall Gate)",
+        "name:th": "โพกังมุน (ประตูช่องกำแพง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974155,
+          37.582579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-78",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:honggyeongmun",
+        "serial": 195,
+        "group": "태원전",
+        "name": "홍경문",
+        "name:ko": "홍경문",
+        "name:en": "Honggyeongmun (Gate to Gongmukjae)",
+        "name:th": "ฮงคยองมุน (ประตูสู่คงมุกแจ)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.974588,
+          37.582231
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-80",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:iljungmun-gate",
+        "serial": 196,
+        "group": "태원전",
+        "name": "일중문",
+        "name:ko": "일중문",
+        "name:en": "Iljungmun (Gate)",
+        "name:th": "อิลจุงมุน (ประตู)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.975047,
+          37.582045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-82",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-29",
+        "serial": 197,
+        "group": "건청궁",
+        "name": "필성문",
+        "name:ko": "필성문",
+        "name:en": "Pilseongmun (Gate)",
+        "name:th": "พิลซองมุน (ประตู)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977093,
+          37.583115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-84",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:jangandang",
+        "serial": 198,
+        "group": "건청궁",
+        "name": "장안당",
+        "name:ko": "장안당",
+        "name:en": "Jangandang (Residence Hall)",
+        "name:th": "จังอันดัง (เรือนประทับ)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976964,
+          37.583055
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-86",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-11",
+        "serial": 199,
+        "group": "건청궁",
+        "name": "초양문",
+        "name:ko": "초양문",
+        "name:en": "Choyangmun (Gate)",
+        "name:th": "โชยังมุน (ประตู)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977191,
+          37.582916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-88",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-30",
+        "serial": 200,
+        "group": "건청궁",
+        "name": "인유문",
+        "name:ko": "인유문",
+        "name:en": "Inyumun (Gate)",
+        "name:th": "อินยูมุน (ประตู)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977093,
+          37.583115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-90",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-31",
+        "serial": 201,
+        "group": "건청궁",
+        "name": "정시합",
+        "name:ko": "정시합",
+        "name:en": "Jeongsihap (Bedchamber)",
+        "name:th": "จองซีฮับ (ห้องบรรทม)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977223,
+          37.583175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-92",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:boksudang",
+        "serial": 202,
+        "group": "건청궁",
+        "name": "복수당",
+        "name:ko": "복수당",
+        "name:en": "Boksudang (Residence Hall)",
+        "name:th": "พกซูดัง (เรือนพัก)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977229,
+          37.583383
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-94",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-32",
+        "serial": 203,
+        "group": "건청궁",
+        "name": "녹금당",
+        "name:ko": "녹금당",
+        "name:en": "Nokgeumdang (Residence Hall)",
+        "name:th": "นกกึมดัง (เรือนพัก)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977229,
+          37.583383
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-96",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:gonnyeonghap",
+        "serial": 204,
+        "group": "건청궁",
+        "name": "곤녕합",
+        "name:ko": "곤녕합",
+        "name:en": "Gonnyeonghap (Queen’s Residence)",
+        "name:th": "คน-นยองฮับ (ตำหนักพระมเหสี)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977223,
+          37.583175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-98",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:hyeopgildang",
+        "serial": 205,
+        "group": "집옥재",
+        "name": "협길당",
+        "name:ko": "협길당",
+        "name:en": "Hyeopgildang (Residence Hall)",
+        "name:th": "ฮยอบกิลดัง (เรือนประทับ)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976317,
+          37.583472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-100",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:hamhwadang",
+        "serial": 206,
+        "group": "흥복전",
+        "name": "함화당",
+        "name:ko": "함화당",
+        "name:en": "Hamhwadang (Bedchamber)",
+        "name:th": "ฮัมฮวาดัง (ห้องบรรทม)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976608,
+          37.581624
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-102",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:heungbokjeon",
+        "serial": 207,
+        "group": "흥복전",
+        "name": "흥복전",
+        "name:ko": "흥복전",
+        "name:en": "Heungbokjeon (Bedchamber)",
+        "name:th": "ฮึงบกจอน (ห้องบรรทม)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977043,
+          37.580729
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-104",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:yongseongmun-gate",
+        "serial": 208,
+        "group": "흥례문",
+        "name": "용성문",
+        "name:ko": "용성문",
+        "name:en": "Yongseongmun (Gate)",
+        "name:th": "ยงซองมุน (ประตู)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976218,
+          37.576531
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-106",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:hyupsaengmun-gate",
+        "serial": 209,
+        "group": "흥례문",
+        "name": "협생문",
+        "name:ko": "협생문",
+        "name:en": "Hyeopsaengmun (Gate)",
+        "name:th": "ฮยอบแซงมุน (ประตู)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97752,
+          37.576498
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-108",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:yuhwamun-gate",
+        "serial": 210,
+        "group": "흥례문",
+        "name": "유화문",
+        "name:ko": "유화문",
+        "name:en": "Yuhwamun (Gate)",
+        "name:th": "ยูฮวามุน (ประตู)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976326,
+          37.577563
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-110",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-33",
+        "serial": 211,
+        "group": "교태전",
+        "name": "양의문",
+        "name:ko": "양의문",
+        "name:en": "Yanguimun (Gate)",
+        "name:th": "ยังอึยมุน (ประตู)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977058,
+          37.579916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-112",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:gyeongseongjeon",
+        "serial": 212,
+        "group": "강녕전",
+        "name": "경성전",
+        "name:ko": "경성전",
+        "name:en": "Gyeongseongjeon (Bedchamber)",
+        "name:th": "คยองซองจอน (ห้องบรรทม)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976652,
+          37.579407
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-114",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:eungjidang",
+        "serial": 213,
+        "group": "강녕전",
+        "name": "응지당",
+        "name:ko": "응지당",
+        "name:en": "Eungjidang (Auxiliary Hall)",
+        "name:th": "อึงจีดัง (อาคารเสริม)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976724,
+          37.579579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-116",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:manchunjeon",
+        "serial": 214,
+        "group": "사정전",
+        "name": "만춘전",
+        "name:ko": "만춘전",
+        "name:en": "Manchunjeon (Royal Study Hall)",
+        "name:th": "มันชุนจอน (ท้องพระโรงทรงงาน)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977351,
+          37.579069
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-118",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:yeongildang",
+        "serial": 215,
+        "group": "강녕전",
+        "name": "연길당",
+        "name:ko": "연길당",
+        "name:en": "Yeongildang (Auxiliary Hall)",
+        "name:th": "ยอนกิลดัง (อาคารเสริม)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977377,
+          37.579549
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-120",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:yeonsaengjeon",
+        "serial": 216,
+        "group": "강녕전",
+        "name": "연생전",
+        "name:ko": "연생전",
+        "name:en": "Yeonsaengjeon (Royal Bedchamber Hall)",
+        "name:th": "ยอนแซงจอน (ห้องบรรทมกษัตริย์)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977391,
+          37.579382
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-122",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:cheonchujeon",
+        "serial": 217,
+        "group": "사정전",
+        "name": "천추전",
+        "name:ko": "천추전",
+        "name:en": "Cheonchujeon (Royal Council Hall)",
+        "name:th": "ชอนชูจอน (ท้องพระโรงว่าราชการ)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976656,
+          37.579091
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-124",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:jaseondang",
+        "serial": 218,
+        "group": "동궁전",
+        "name": "자선당",
+        "name:ko": "자선당",
+        "name:en": "Jaseondang (Crown Prince’s Residence)",
+        "name:th": "จาซอนดัง (ที่ประทับองค์รัชทายาท)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977936,
+          37.57902
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-126",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:bihyeongak",
+        "serial": 219,
+        "group": "동궁전",
+        "name": "비현각",
+        "name:ko": "비현각",
+        "name:en": "Bihyeongak (Crown Prince’s Study)",
+        "name:th": "บีฮยองกัก (ห้องทรงงานองค์รัชทายาท)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.978401,
+          37.579011
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-128",
+        "category": "gate",
+        "categoryLabel": "문/문루",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-34",
+        "serial": 220,
+        "group": "동궁전",
+        "name": "중광문",
+        "name:ko": "중광문",
+        "name:en": "Junggwangmun (Gate)",
+        "name:th": "จุงกวังมุน (ประตู)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977936,
+          37.57902
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-130",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:jipgyeongdang",
+        "serial": 221,
+        "group": "흥복전",
+        "name": "집경당",
+        "name:ko": "집경당",
+        "name:en": "Jipgyeongdang (Royal Bedchamber Hall)",
+        "name:th": "จิบคยองดัง (ห้องบรรทมหลวง)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976929,
+          37.581588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-132",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-35",
+        "serial": 222,
+        "group": "자경전",
+        "name": "제수합",
+        "name:ko": "제수합",
+        "name:en": "Jesuhap (Royal Annex)",
+        "name:th": "เจซูฮับ (อาคารประกอบเขตพระราชฐาน)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9786,
+          37.580643
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-134",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:gyejodang",
+        "serial": 223,
+        "group": "동궁전",
+        "name": "계조당",
+        "name:ko": "계조당",
+        "name:en": "Gyejodang (Crown Prince’s Audience Hall)",
+        "name:th": "คเยโจดัง (ท้องพระโรงองค์รัชทายาท)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977882,
+          37.577871
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-136",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-36",
+        "serial": 224,
+        "group": "교태전",
+        "name": "원길헌",
+        "name:ko": "원길헌",
+        "name:en": "Wongilheon (Royal Annex)",
+        "name:th": "วอนกิลฮอน (อาคารประกอบพระตำหนัก)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977058,
+          37.579916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-138",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:parujeong",
+        "serial": 225,
+        "group": "집옥재",
+        "name": "팔우정",
+        "name:ko": "팔우정",
+        "name:en": "Parujeong (Octagonal Pavilion)",
+        "name:th": "พารูจอง (ศาลาแปดเหลี่ยม)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.975839,
+          37.583437
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-140",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-13",
+        "serial": 226,
+        "group": "교태전",
+        "name": "함홍각",
+        "name:ko": "함홍각",
+        "name:en": "Hamhonggak (Royal Annex)",
+        "name:th": "ฮัมฮงกัก (อาคารประกอบพระตำหนัก)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.976861,
+          37.579913
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-142",
+        "category": "hall",
+        "categoryLabel": "전각",
+        "color": "#e03131",
+        "icon": "",
+        "nameId": "place:p-37",
+        "serial": 227,
+        "group": "교태전",
+        "name": "건순각",
+        "name:ko": "건순각",
+        "name:en": "Geonsungak (Royal Annex)",
+        "name:th": "คอนซุนกัก (อาคารประกอบพระตำหนัก)",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977058,
+          37.579916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-144",
+        "category": "event",
+        "categoryLabel": "행사",
+        "color": "#fab005",
+        "icon": "",
+        "nameId": "event:sumunjang-gyodae",
+        "name": "수문장 교대의식",
+        "name:ko": "수문장 교대의식",
+        "name:en": "Royal Guard Changing Ceremony",
+        "name:th": "พิธีเปลี่ยนเวรยามรักษาพระราชวัง",
+        "description": "메인 행사\n시간: 매일 10:00, 14:00 (약 20분)\n위치: 광화문과 흥례문 사이 흥례문 광장\n\n관람 참고\n· 매주 화요일 정기 휴궁일 — 행사 없음\n· 우천·폭염·혹한 등 기상에 따라 취소되거나 약식 진행 (비 오면 광화문 파수 근무만 하기도 함)\n· 광화문 바깥은 인파로 시야가 가릴 수 있음 — 흥례문 광장 쪽 파란색 관람 라인 추천"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97686,
+          37.57644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-146",
+        "category": "event",
+        "categoryLabel": "행사",
+        "color": "#fab005",
+        "icon": "",
+        "nameId": "event:gwanghwamun-pasu",
+        "name": "광화문 파수의식",
+        "name:ko": "광화문 파수의식",
+        "name:en": "Gwanghwamun Gate Guard Ceremony",
+        "name:th": "พิธีเฝ้ายามประตูควังฮวามุน",
+        "description": "근무 교대 후 수비를 서는 의식\n시간: 매일 11:00, 13:00 (약 10분)\n위치: 광화문 앞\n\n관람 참고\n· 매주 화요일 정기 휴궁일 — 행사 없음\n· 우천·폭염·혹한 등 기상에 따라 취소되거나 약식 진행 (비 오면 광화문 파수 근무만 하기도 함)\n· 광화문 바깥은 인파로 시야가 가릴 수 있음 — 흥례문 광장 쪽 파란색 관람 라인 추천"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97692,
+          37.575928
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-148",
+        "category": "event",
+        "categoryLabel": "행사",
+        "color": "#fab005",
+        "icon": "",
+        "nameId": "event:sumungun-training",
+        "name": "수문군 공개훈련",
+        "name:ko": "수문군 공개훈련",
+        "name:en": "Gatekeepers Open Training",
+        "name:th": "การฝึกทหารรักษาประตู (เปิดให้ชม)",
+        "description": "교대의식 전 훈련 모습\n시간: 매일 09:35, 13:35 (약 15분)\n위치: 협생문 앞 (흥례문 동쪽)\n\n관람 참고\n· 매주 화요일 정기 휴궁일 — 행사 없음\n· 우천·폭염·혹한 등 기상에 따라 취소되거나 약식 진행 (비 오면 광화문 파수 근무만 하기도 함)\n· 광화문 바깥은 인파로 시야가 가릴 수 있음 — 흥례문 광장 쪽 파란색 관람 라인 추천"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.97745,
+          37.57647
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-150",
+        "category": "water",
+        "categoryLabel": "식수대",
+        "color": "#1c7ed6",
+        "icon": "💧",
+        "nameId": "name:water",
+        "name": "식수대",
+        "name:ko": "식수대",
+        "name:en": "Drinking water",
+        "name:th": "จุดน้ำดื่ม",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9781811,
+          37.577514
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-152",
+        "category": "restroom",
+        "categoryLabel": "화장실",
+        "color": "#0ca678",
+        "icon": "🚻",
+        "nameId": "name:restroom",
+        "name": "화장실",
+        "name:ko": "화장실",
+        "name:en": "Restroom",
+        "name:th": "ห้องน้ำ",
+        "description": "무료"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9794263,
+          37.5803602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-154",
+        "category": "restroom",
+        "categoryLabel": "화장실",
+        "color": "#0ca678",
+        "icon": "🚻",
+        "nameId": "name:restroom",
+        "name": "화장실",
+        "name:ko": "화장실",
+        "name:en": "Restroom",
+        "name:th": "ห้องน้ำ",
+        "description": "무료 · 휠체어 이용 가능"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9796149,
+          37.5814249
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-156",
+        "category": "water",
+        "categoryLabel": "식수대",
+        "color": "#1c7ed6",
+        "icon": "💧",
+        "nameId": "name:water",
+        "name": "식수대",
+        "name:ko": "식수대",
+        "name:en": "Drinking water",
+        "name:th": "จุดน้ำดื่ม",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9777006,
+          37.5801802
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-158",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9742769,
+          37.5804727
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-160",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9740603,
+          37.5818356
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-162",
+        "category": "restroom",
+        "categoryLabel": "화장실",
+        "color": "#0ca678",
+        "icon": "🚻",
+        "nameId": "name:restroom",
+        "name": "화장실",
+        "name:ko": "화장실",
+        "name:en": "Restroom",
+        "name:th": "ห้องน้ำ",
+        "description": "무료 · 휠체어 이용 가능"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9780918,
+          37.5821819
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-164",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9789643,
+          37.5782731
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-166",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9788964,
+          37.5782871
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-168",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9789927,
+          37.5783066
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-170",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9788908,
+          37.5783246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-172",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9789405,
+          37.5783519
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-174",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.977554,
+          37.5803169
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-176",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9781797,
+          37.5813221
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-178",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9782548,
+          37.5813231
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-180",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9782528,
+          37.5813731
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-182",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9781844,
+          37.5813763
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-184",
+        "category": "restroom",
+        "categoryLabel": "화장실",
+        "color": "#0ca678",
+        "icon": "🚻",
+        "nameId": "name:restroom",
+        "name": "화장실",
+        "name:ko": "화장실",
+        "name:en": "Restroom",
+        "name:th": "ห้องน้ำ",
+        "description": "무료 · 휠체어 일부 가능"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9785914,
+          37.5813937
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-186",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9760066,
+          37.580937
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-188",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.975983,
+          37.5808593
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-190",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9778018,
+          37.5817243
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-192",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9777884,
+          37.5815151
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-194",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9781657,
+          37.5798395
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-196",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9780668,
+          37.5806975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-198",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9791874,
+          37.5805499
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-200",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9781441,
+          37.5805809
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-202",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9788635,
+          37.5790263
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-204",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.978902,
+          37.5795434
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-206",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9791895,
+          37.5804134
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-208",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9791725,
+          37.5800491
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-210",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9797389,
+          37.5806654
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-212",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9799304,
+          37.5812258
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-214",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9750688,
+          37.5815639
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-216",
+        "category": "bench",
+        "categoryLabel": "벤치",
+        "color": "#a0522d",
+        "icon": "🪑",
+        "nameId": "name:bench",
+        "name": "벤치",
+        "name:ko": "벤치",
+        "name:en": "Bench",
+        "name:th": "ม้านั่ง",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9750388,
+          37.5815396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-218",
+        "category": "restroom",
+        "categoryLabel": "화장실",
+        "color": "#0ca678",
+        "icon": "🚻",
+        "nameId": "name:restroom",
+        "name": "화장실",
+        "name:ko": "화장실",
+        "name:en": "Restroom",
+        "name:th": "ห้องน้ำ",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9751501,
+          37.5785292
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-220",
+        "category": "restroom",
+        "categoryLabel": "화장실",
+        "color": "#0ca678",
+        "icon": "🚻",
+        "nameId": "name:restroom",
+        "name": "화장실",
+        "name:ko": "화장실",
+        "name:en": "Restroom",
+        "name:th": "ห้องน้ำ",
+        "description": "무료 · 휠체어 이용 가능"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9764977,
+          37.5803882
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-222",
+        "category": "restroom",
+        "categoryLabel": "화장실",
+        "color": "#0ca678",
+        "icon": "🚻",
+        "nameId": "name:restroom",
+        "name": "화장실",
+        "name:ko": "화장실",
+        "name:en": "Restroom",
+        "name:th": "ห้องน้ำ",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.973878,
+          37.58189
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "-224",
+        "category": "restroom",
+        "categoryLabel": "화장실",
+        "color": "#0ca678",
+        "icon": "🚻",
+        "nameId": "name:restroom",
+        "name": "화장실",
+        "name:ko": "화장실",
+        "name:en": "Restroom",
+        "name:th": "ห้องน้ำ",
+        "description": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.9786583,
+          37.5778823
+        ]
+      }
+    }
+  ]
+}

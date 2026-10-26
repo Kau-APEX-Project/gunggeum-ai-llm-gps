@@ -1,0 +1,385 @@
+<!doctype html>
+<!-- 판정 시뮬레이터: 가상 보행자(또는 현장 로그)를 judge.mjs 에 넣고 존 상태·이벤트를 지도로 확인.
+     저장소 루트를 띄울 것 (../servermap 을 읽음): npx http-server . -p 8080 -c-1 → /deploy/visit/sim.html -->
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>宮今 판정 시뮬레이터</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/pmtiles@4.5.0/dist/pmtiles.js"></script>
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { display: flex; font: 13px system-ui, sans-serif; color: #111; background: #fff }
+  #map { flex: 1; min-width: 0 }
+  #side { width: 340px; overflow: auto; padding: 10px 12px; box-sizing: border-box; border-left: 1px solid #ccc }
+  @media (max-width: 700px) { body { flex-direction: column } #side { width: auto; height: 45vh; border: 0; border-top: 1px solid #ccc } }
+  h3 { margin: 0 0 8px; font-size: 15px }
+  button { font-size: 13px; padding: 6px 10px; margin: 0 4px 6px 0 }
+  label { display: inline-block; margin: 0 8px 6px 0 }
+  input[type=number] { width: 56px }
+  .row { margin-bottom: 6px }
+  .legend span { display: inline-block; width: 10px; height: 10px; margin: 0 3px 0 8px; vertical-align: -1px }
+  #stat { font: 12px ui-monospace, monospace; white-space: pre-wrap; background: #f6f6f6; padding: 6px; margin: 6px 0 }
+  #ev { font: 12px ui-monospace, monospace; white-space: pre-wrap }
+  .enter { color: #b08800 } .audio { color: #1971c2 } .stamp { color: #2b8a3e; font-weight: 600 } .exit { color: #868e96 } .miss { color: #c92a2a }
+  details { margin: 6px 0 } summary { cursor: pointer }
+  .hint { color: #666; font-size: 12px }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div id="side">
+  <h3>宮今 판정 시뮬레이터</h3>
+  <div class="hint">지도를 클릭하면 길을 따라 걸어감. 멈춰 있어도 샘플은 계속 들어감(=그 자리에 서 있음).</div>
+  <div class="row" style="margin-top:8px">
+    <button id="tour">자동 투어</button><button id="pause">일시정지</button><button id="reset">리셋</button>
+  </div>
+  <div class="row"><label>로그 재생 <input id="file" type="file" accept=".json" /></label></div>
+  <div class="row"><label>목적지 <select id="dest"><option value="">—</option></select></label></div>
+  <div class="row">근처 <button data-cat="restroom">화장실</button><button data-cat="bench">벤치</button><button data-cat="water">식수대</button></div>
+  <div class="row">코스 <input id="ask" placeholder="요청 — 예: 왕비 이야기 위주로 40분" style="width:calc(100% - 100px)" /><button id="askBtn">LLM</button>
+    <div class="hint">LLM 이 코스를 짜고 그 순서로 걸어감. 광화문 출발·도착 기준. deploy/server/course.py 를 같이 띄워야 동작 (sim.bat 이 띄움)</div></div>
+  <div class="row">질문 <input id="q" placeholder="예: 교태전 어떻게 가? · 근처 화장실 · 근정전이 뭐야?" style="width:calc(100% - 100px)" /><button id="qBtn">LLM</button>
+    <div class="hint">POST /api/ask — 길·편의시설 질문이면 action 대로 지금 위치에서 길찾기·근처 표시</div></div>
+  <div class="row">
+    <label>속도 <select id="speed"><option>1</option><option>5</option><option selected>10</option><option>30</option><option>60</option></select>×</label>
+    <label>GPS 오차 σ <input id="sigma" type="number" value="3" min="0" step="1" />m</label>
+    <label>보고 정확도 <input id="acc" type="number" value="8" min="1" step="1" />m</label>
+  </div>
+  <details><summary>판정 임계값 (judge.mjs DEFAULTS) — 바꾸면 판정 초기화</summary><div id="opts" style="margin-top:6px"></div></details>
+  <div class="legend">존:<span style="background:#adb5bd"></span>밖<span style="background:#fcc419"></span>ENTERING<span style="background:#339af0"></span>INSIDE<span style="background:#51cf66"></span>스탬프 완료
+    <br />테두리: 실선=마당 · 보라 점선=건물 둘레 띠 · 주황=문 · 빨강 선=담장</div>
+  <div id="stat">불러오는 중…</div>
+  <div id="ev"></div>
+</div>
+<script>
+  // 오류를 패널에 보이게 (모듈 안 예외·MapLibre 오류는 콘솔에만 찍혀서 '불러오는 중'에 멈춘 것처럼 보임)
+  const showErr = (m) => { const d = document.getElementById('stat'); d.textContent = '오류: ' + m + '\n' + d.textContent }
+  addEventListener('error', (e) => showErr(e.message))
+  addEventListener('unhandledrejection', (e) => showErr(e.reason?.message || e.reason))
+</script>
+<script type="module">
+import { createJudge, DEFAULTS, distM, distToPolygon } from './judge.mjs'
+import { buildGraph, nearestNode, shortestPath, nextStop, routeTo, nearestAmenities, fitCourse } from './route.mjs'
+
+const $ = (id) => document.getElementById(id)
+const base = new URL('../servermap/', location.href).href
+const get = (u) => fetch(u).then((r) => { if (!r.ok) throw new Error(`${u} ${r.status}`); return r.json() })
+const [style, paths, zones, pois, walls, pins] = await Promise.all(
+  [base + 'style.json', base + 'data/paths.geojson', 'data/zones.geojson', 'data/pois.json', 'data/walls.geojson', base + 'data/pins.geojson'].map(get))
+
+// LLM 코스 stop id → 위치: 전각은 pois, 자연 지점(nature:<이름>)은 지도 places
+const naturePin = new Map((await get(base + 'data/places.geojson')).features.map((f) => [`nature:${f.properties.name}`, f.geometry.coordinates]))
+
+const g = buildGraph(paths)
+const used = pois.filter((p) => p.zoneIds.length)
+const nameOf = new Map(pois.map((p) => [p.id, p.name]))
+const zoneGeom = new Map(zones.features.map((f) => [f.properties.id, f.geometry.coordinates]))
+const zonePois = new Map() // zoneId → [poiId]
+for (const p of used) for (const z of p.zoneIds) (zonePois.get(z) || zonePois.set(z, []).get(z)).push(p.id)
+
+// ── 시뮬레이션 상태 ──
+const WALK = 1.3, STAY = 40 // m/s, 투어에서 목적지 도착 후 최대 체류(초)
+const M = 111195 // 위도 1도당 m (judge.mjs 와 같은 지구 반지름)
+const opts = { ...DEFAULTS }
+const start = g.coord.get(pois.find((p) => p.id === 'place:gwanghwamun-gate')?.approachNodes[0]) || style.center
+let judge, simT, here = start, meas = null, path = [], tour = false, target = null, dwellLeft = 0, skipped = new Set(), replay = null, paused = false
+let course = null, courseEnd = null, courseLine = [], amen = [] // 코스 남은 POI id · 끝점 · 코스 미리보기 선 · 근처 편의시설 표시
+
+function newJudge() {
+  try { judge = createJudge(zones, used, opts) } catch (e) { $('stat').textContent = '판정 생성 실패: ' + e.message; throw e }
+}
+function reset() {
+  newJudge(); simT = 0; path = []; tour = false; target = null; skipped = new Set(); replay = null; meas = null
+  course = null; courseEnd = null; courseLine = []; amen = []
+  $('ev').innerHTML = ''
+}
+const mmss = (t) => `${String(Math.floor(t / 60000)).padStart(2, '0')}:${String(Math.floor(t / 1000) % 60).padStart(2, '0')}`
+function log(cls, text) {
+  const d = document.createElement('div')
+  d.className = cls; d.textContent = `${mmss(simT)} ${text}`
+  $('ev').prepend(d)
+}
+
+function gauss() { return Math.sqrt(-2 * Math.log(1 - Math.random())) * Math.cos(2 * Math.PI * Math.random()) }
+const mLng = (lat) => M * Math.cos((lat * Math.PI) / 180)
+const noisy = ([lng, lat], s) => [lng + (gauss() * s) / mLng(lat), lat + (gauss() * s) / M]
+
+function move(d) {
+  while (d > 0 && path.length) {
+    const nx = path[0], L = distM(here, nx)
+    if (L <= d) { here = nx; path.shift(); d -= L }
+    else { const f = d / L; here = [here[0] + (nx[0] - here[0]) * f, here[1] + (nx[1] - here[1]) * f]; d = 0 }
+  }
+}
+
+const visited = () => new Set([...judge.saved().visited, ...skipped])
+// 코스 걷기: 코스 순서대로 다음 곳 — 이미 스탬프 받은 곳도 코스에 있으면 걸어감 (자동 투어와 다름).
+// 자연 지점은 판정 대상이 아니라 걸어서 지나가기만 (target 없음)
+function courseNext() {
+  while (course.length) {
+    const s = course.shift(), p = used.find((x) => x.id === s.id)
+    const r = p ? nextStop(g, here, [p], new Set()) : shortestPath(g, nearestNode(g, here), [nearestNode(g, s.pin)])
+    if (r) return p ? r : { ...r, poiId: null, pin: s.pin, name: s.name }
+  }
+  return null
+}
+
+// 투어: 안 간 곳 중 걸어서 가장 가까운 접근 노드로 → 핀까지 걸어 들어가 스탬프 날 때까지(최대 STAY초) 서 있음
+function tourTick() {
+  if (target && !visited().has(target)) {
+    if (--dwellLeft > 0) return
+    skipped.add(target)
+    const off = Math.min(...used.find((p) => p.id === target).zoneIds.map((z) => distToPolygon(here, zoneGeom.get(z))))
+    log('miss', `✗ ${nameOf.get(target)} — 핀에서 ${STAY}초 있어도 스탬프 없음` +
+      (off > 0 ? ` (접근 노드가 존 밖 ${off.toFixed(1)}m — 존을 넓히거나 접근 노드를 존 안으로)` : ''))
+  }
+  const r = course ? courseNext() : nextStop(g, here, used, visited())
+  if (!r && courseEnd) { // 코스 마지막 곳까지 다 봤으면 끝점으로 걸어감
+    const b = shortestPath(g, nearestNode(g, here), [nearestNode(g, courseEnd)])
+    path = b ? [...b.coords, courseEnd] : [courseEnd]; courseEnd = null; target = null
+    log('', `→ 끝점으로 (${Math.round(b?.meters ?? 0)}m)`); return
+  }
+  if (!r) {
+    log('', `— ${course ? '코스' : '투어'} 끝: 스탬프 ${judge.saved().visited.length} · 실패 ${failed().length}`)
+    tour = false; target = null; course = null; return
+  }
+  // 길 끝(접근 노드)에서 핀까지는 직접 걸어 들어감 — 마당 안엔 길 데이터가 없는 곳이 많음
+  target = r.poiId; dwellLeft = STAY; path = [...r.coords, r.pin || used.find((p) => p.id === target).pin]
+  log('', `→ ${r.name || nameOf.get(target)} (${Math.round(r.meters)}m)`)
+}
+
+function feed(s) {
+  meas = s
+  for (const e of judge.update(s)) log(e.type, `${e.type.padEnd(5)} ${nameOf.get(e.poiId)}`)
+}
+
+// 시뮬레이션 1초
+function step() {
+  if (replay) {
+    simT += 1000
+    const { samples } = replay
+    while (replay.i < samples.length && samples[replay.i].t - samples[0].t <= simT) {
+      const s = samples[replay.i++]
+      here = [s.lng, s.lat]
+      feed({ ...s, t: s.t - samples[0].t })
+    }
+    if (replay.i >= samples.length) { replay = null; log('', '— 재생 끝') }
+    return
+  }
+  simT += 1000
+  move(WALK)
+  if (!path.length && tour) tourTick()
+  const [lng, lat] = noisy(here, +$('sigma').value)
+  feed({ lat, lng, accuracy: +$('acc').value, t: simT })
+}
+
+// ── 지도 ──
+maplibregl.addProtocol('pmtiles', new pmtiles.Protocol().tile)
+for (const src of Object.values(style.sources)) {
+  if (typeof src.data === 'string') src.data = base + src.data
+  if (src.url?.startsWith('pmtiles://')) src.url = 'pmtiles://' + base + src.url.slice(10)
+}
+const map = new maplibregl.Map({
+  container: 'map', style, maxZoom: 20, center: here, zoom: 16.3,
+  localIdeographFontFamily: "'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif",
+})
+map.style.glyphManager._doesCharSupportLocalGlyph = () => true // servermap/index.html 참고 — 비공개 API
+
+map.on('error', (e) => showErr(e.error?.message || e.error))
+const pt = (c, props = {}) => ({ type: 'Feature', properties: props, geometry: { type: 'Point', coordinates: c } })
+const fc = (features) => ({ type: 'FeatureCollection', features })
+function circle([lng, lat], r) {
+  const ring = []
+  for (let i = 0; i <= 32; i++) { const a = (i / 32) * 2 * Math.PI; ring.push([lng + (r * Math.cos(a)) / mLng(lat), lat + (r * Math.sin(a)) / M]) }
+  return { type: 'Feature', properties: {}, geometry: { type: 'Polygon', coordinates: [ring] } }
+}
+
+map.on('load', () => {
+  map.addSource('zones', { type: 'geojson', data: zones, promoteId: 'id' })
+  const zs = ['coalesce', ['feature-state', 's'], 0]
+  map.addLayer({ id: 'zones-fill', type: 'fill', source: 'zones', paint: {
+    'fill-color': ['match', zs, 1, '#fcc419', 2, '#339af0', 3, '#51cf66', '#adb5bd'],
+    'fill-opacity': ['match', zs, 0, 0.25, 0.5] } })
+  // line-dasharray 는 데이터 기반 식을 못 받음 → 띠만 따로
+  map.addLayer({ id: 'zones-line', type: 'line', source: 'zones', filter: ['!=', ['get', 'kind'], 'band'], paint: {
+    'line-color': ['match', ['get', 'kind'], 'gate', '#e8590c', '#343a40'], 'line-width': 1.5 } })
+  map.addLayer({ id: 'zones-band', type: 'line', source: 'zones', filter: ['==', ['get', 'kind'], 'band'], paint: {
+    'line-color': '#7048e8', 'line-width': 1.5, 'line-dasharray': [2, 2] } })
+  map.addSource('walls', { type: 'geojson', data: walls })
+  map.addLayer({ id: 'walls', type: 'line', source: 'walls', filter: ['==', ['get', 'layer'], 'barrier'], paint: {
+    'line-color': ['match', ['get', 'kind'], ['gate', 'kerb', 'retaining_wall'], '#f59f00', '#c92a2a'], 'line-width': 1.5 } },
+    'palace-mask-fill') // 궁 밖 마스크 아래에 — 궁 밖 담장은 가려짐
+  map.addSource('pois', { type: 'geojson', promoteId: 'id', data: fc(pois.map((p) => pt(p.pin, { id: p.id, name: p.name, zoned: p.zoneIds.length > 0 }))) })
+  const ps = ['coalesce', ['feature-state', 'v'], 0]
+  map.addLayer({ id: 'pois', type: 'circle', source: 'pois', paint: {
+    'circle-radius': 5, 'circle-stroke-width': 1.5, 'circle-stroke-color': '#222',
+    'circle-color': ['case', ['!', ['get', 'zoned']], '#c92a2a', ['match', ps, 1, '#51cf66', 2, '#fd7e14', 3, '#fa5252', '#fff']] } })
+  map.addLayer({ id: 'pois-label', type: 'symbol', source: 'pois', minzoom: 16.5, layout: {
+    'text-field': ['get', 'name'], 'text-size': 11, 'text-offset': [0, 1.1], 'text-anchor': 'top', 'text-font': ['Regular'] },
+    paint: { 'text-halo-color': '#fff', 'text-halo-width': 1.5 } })
+  map.addSource('sim', { type: 'geojson', data: fc([]) })
+  map.addLayer({ id: 'sim-course', type: 'line', source: 'sim', filter: ['==', ['get', 'k'], 'course'], paint: { 'line-color': '#2b8a3e', 'line-width': 5, 'line-opacity': 0.4 } })
+  map.addLayer({ id: 'sim-amen', type: 'circle', source: 'sim', filter: ['==', ['get', 'k'], 'amen'], paint: {
+    'circle-radius': 8, 'circle-color': '#ae3ec9', 'circle-opacity': 0.6, 'circle-stroke-width': 2, 'circle-stroke-color': '#fff' } })
+  map.addLayer({ id: 'sim-route', type: 'line', source: 'sim', filter: ['==', ['get', 'k'], 'route'], paint: { 'line-color': '#1c7ed6', 'line-width': 3, 'line-dasharray': [1, 1] } })
+  map.addLayer({ id: 'sim-acc', type: 'fill', source: 'sim', filter: ['==', ['get', 'k'], 'acc'], paint: { 'fill-color': '#1c7ed6', 'fill-opacity': 0.12 } })
+  map.addLayer({ id: 'sim-true', type: 'circle', source: 'sim', filter: ['==', ['get', 'k'], 'true'], paint: { 'circle-radius': 4, 'circle-color': '#343a40' } })
+  map.addLayer({ id: 'sim-meas', type: 'circle', source: 'sim', filter: ['==', ['get', 'k'], 'meas'], paint: {
+    'circle-radius': 6, 'circle-color': '#1c7ed6', 'circle-stroke-width': 2, 'circle-stroke-color': '#fff' } })
+
+  const all = zones.features.flatMap((f) => f.geometry.coordinates[0])
+  map.fitBounds([[Math.min(...all.map((c) => c[0])), Math.min(...all.map((c) => c[1]))], [Math.max(...all.map((c) => c[0])), Math.max(...all.map((c) => c[1]))]], { padding: 20, duration: 0 })
+  map.on('click', (e) => {
+    if (replay) return
+    const to = [e.lngLat.lng, e.lngLat.lat]
+    tour = false; target = null; course = courseEnd = null
+    const r = shortestPath(g, nearestNode(g, here), [nearestNode(g, to)])
+    path = r ? [...r.coords, to] : [to]
+  })
+  reset()
+  requestAnimationFrame(frame)
+})
+
+const failed = () => [...skipped].filter((id) => !judge.saved().visited.includes(id)) // 포기 뒤 늦게 스탬프 난 곳은 빼고
+function paint() {
+  const peek = judge.peek(), by = new Map(peek.map((x) => [x.id, x]))
+  for (const [z, ids] of zonePois) {
+    const ss = ids.map((i) => by.get(i))
+    const s = ss.some((x) => x.state === 'INSIDE') ? 2 : ss.some((x) => x.state === 'ENTERING') ? 1 : ss.some((x) => x.visited) ? 3 : 0
+    map.setFeatureState({ source: 'zones', id: z }, { s })
+  }
+  for (const p of pois) map.setFeatureState({ source: 'pois', id: p.id }, { v: by.get(p.id)?.visited ? 1 : skipped.has(p.id) ? 3 : p.id === target ? 2 : 0 })
+  const f = amen.map((a) => pt(a.pin, { k: 'amen' }))
+  if (courseLine.length > 1) f.push({ type: 'Feature', properties: { k: 'course' }, geometry: { type: 'LineString', coordinates: courseLine } })
+  if (path.length) f.push({ type: 'Feature', properties: { k: 'route' }, geometry: { type: 'LineString', coordinates: [here, ...path] } })
+  if (meas) f.push({ ...circle([meas.lng, meas.lat], meas.accuracy), properties: { k: 'acc' } }, pt([meas.lng, meas.lat], { k: 'meas' }))
+  if (!replay) f.push(pt(here, { k: 'true' }))
+  map.getSource('sim').setData(fc(f))
+
+  const active = peek.filter((x) => x.state !== 'OUTSIDE').map((x) => {
+    const p = used.find((u) => u.id === x.id)
+    return `${x.state === 'INSIDE' ? '●' : '○'} ${nameOf.get(x.id)}  체류 ${x.dwell.toFixed(0)}/${p.dwellAudioSec ?? opts.dwellAudioSec}s` +
+      `  스탬프 ${x.stampDwell.toFixed(0)}/${p.dwellStampSec ?? opts.dwellStampSec}s${x.visited ? ' ✓' : ''}`
+  })
+  $('stat').textContent = `${replay ? '로그 재생' : tour ? (course ? '코스 걷기' : '자동 투어') : '수동'}${paused ? ' (일시정지)' : ''} · ${mmss(simT)}` +
+    ` · 스탬프 ${peek.filter((x) => x.visited).length}/${used.length}${failed().length ? ` · 실패 ${failed().length}` : ''}` +
+    (meas ? `\n정확도 ${meas.accuracy.toFixed(0)}m${meas.accuracy > opts.maxAccuracy ? ' → 버려짐' : ''}` : '') +
+    (active.length ? '\n' + active.join('\n') : '')
+}
+
+let carry = 0, last = performance.now()
+function frame(now) {
+  const dt = Math.min((now - last) / 1000, 0.5); last = now
+  if (!paused) {
+    carry += dt * +$('speed').value
+    let n = 0
+    while (carry >= 1 && n++ < 300) { carry -= 1; step() }
+    if (n) paint()
+  }
+  requestAnimationFrame(frame)
+}
+
+// ── 조작 ──
+$('tour').onclick = () => { if (replay) return; tour = true; target = null; course = courseEnd = null; path = []; log('', '— 자동 투어 시작') }
+const min = (m) => `${Math.round(m)}분`
+// 길찾기: 목적지 고르면 그 핀까지 걸어감
+for (const p of used) $('dest').add(new Option(p.name, p.id))
+function goTo(p) {
+  if (!p || replay) return
+  const r = routeTo(g, here, p)
+  tour = false; target = null; course = courseEnd = null
+  if (!r) return log('miss', `✗ ${p.name} — 경로 없음`)
+  path = r.coords
+  log('', `→ ${p.name} ${Math.round(r.meters)}m · ${min(r.minutes)}`)
+}
+$('dest').onchange = (e) => { goTo(used.find((x) => x.id === e.target.value)); e.target.value = '' }
+// 근처 편의시설: 가까운 3곳 표시, 1등으로 걸어감
+function showAmen(cat) {
+  if (replay) return
+  amen = nearestAmenities(g, here, pins, cat)
+  log('', `근처 ${document.querySelector(`[data-cat=${cat}]`).textContent}: ` + amen.map((a, i) => `${i + 1}. ${Math.round(a.meters)}m·${min(a.minutes)}`).join('  '))
+  if (amen.length) { tour = false; target = null; course = courseEnd = null; path = amen[0].coords }
+  paint()
+}
+for (const b of document.querySelectorAll('[data-cat]')) b.onclick = () => showAmen(b.dataset.cat)
+// 답변의 [이름](card:b-160) 링크 → 로그엔 [이름] 만
+const plain = (t) => t.replace(/\[([^\]]+)\]\(card:[^)]+\)/g, '[$1]')
+const api = async (path, body) => {
+  try {
+    const r = await fetch('http://localhost:8001' + path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+    const j = await r.json()
+    if (j.error) throw new Error(j.error)
+    return j
+  } catch (e) { log('miss', `✗ ${e.message === 'Failed to fetch' ? 'API 가 꺼져 있음 — deploy/server/course.py 를 실행할 것' : e.message}`) }
+}
+// 질문 → /api/ask. action 이 오면 그대로: route = 길찾기, amenity = 근처 편의시설
+$('qBtn').onclick = async () => {
+  const q = $('q').value.trim()
+  if (!q || replay) return
+  $('qBtn').disabled = true
+  log('', `… 질문: ${q}`)
+  const r = await api('/api/ask', { question: q })
+  if (r) {
+    log('', `${plain(r.answer)}${r.action ? `\n  action ${JSON.stringify(r.action)}` : ''}`)
+    if (r.action?.type === 'route') goTo(used.find((x) => x.id === r.action.to))
+    if (r.action?.type === 'amenity') showAmen(r.action.category)
+  }
+  $('qBtn').disabled = false
+}
+$('q').onkeydown = (e) => { if (e.key === 'Enter') $('qBtn').click() }
+// 코스: LLM 이 정한 순서·체류를 fitCourse 로 실제 길에 맞춤 (넘치는 곳은 뺌), 끝점 = 출발점
+const DROP = { time: '시간 초과', path: '길 없음', unknown: '모르는 곳' }
+// 요청 → course.py (API 서버) 가 LLM 에 넘겨 코스를 받아 옴 (10~20초)
+$('askBtn').onclick = async () => {
+  const req = $('ask').value.trim()
+  if (!req || replay) return
+  $('askBtn').disabled = true
+  log('', `… LLM 에 요청: ${req}`)
+  const r = await api('/api/course', { request: req })
+  if (r) showCourse(r.course, `"${req}" → ${r.course.minutes}분`, r.answer)
+  $('askBtn').disabled = false
+}
+$('ask').onkeydown = (e) => { if (e.key === 'Enter') $('askBtn').click() }
+function showCourse(llm, title, answer) {
+  const budget = llm.minutes
+  const name = (id) => nameOf.get(id) || id.replace('nature:', '')
+  const stops = llm.stops.map((s) => {
+    const p = used.find((x) => x.id === s.id)
+    return { ...s, name: name(s.id), pin: p?.pin || naturePin.get(s.id), approachNodes: p?.approachNodes }
+  })
+  here = start // 코스는 광화문 출발·도착 기준으로 만들어짐
+  const c = fitCourse(g, here, stops, budget)
+  const byId = new Map(stops.map((s) => [s.id, s]))
+  courseLine = [...c.stops, c.back].flatMap((s) => s.coords)
+  course = c.stops.map((s) => byId.get(s.id)); courseEnd = here
+  tour = true; target = null; path = []; amen = []
+  log('', `— 코스 ${title} (LLM ${llm.stops.length}곳 → ${c.stops.length}곳): ${Math.round(c.meters)}m · ${min(c.minutes)}\n  ${plain(answer)}\n  ` +
+    c.stops.map((s, i) => `${i + 1}. ${name(s.id)} (걷기 ${min(s.walkMin)}+${s.stayMin}분)`).join('\n  ') +
+    `\n  → 출발점 (걷기 ${min(c.back.walkMin)})` +
+    (c.dropped.length ? `\n  뺀 곳: ${c.dropped.map((d) => `${name(d.id)}(${DROP[d.reason]})`).join(', ')}` : ''))
+  paint()
+}
+$('pause').onclick = () => { paused = !paused; $('pause').textContent = paused ? '계속' : '일시정지'; paint() }
+$('reset').onclick = () => { reset(); paint() }
+$('file').onchange = async (e) => {
+  const f = e.target.files[0]
+  if (!f) return
+  const { device, samples } = JSON.parse(await f.text())
+  reset()
+  replay = { samples: samples.slice().sort((a, b) => a.t - b.t), i: 0 }
+  if (samples.length) map.flyTo({ center: [samples[0].lng, samples[0].lat], zoom: 17.5 })
+  log('', `— 로그 재생: ${device || f.name} · 샘플 ${samples.length}`)
+  e.target.value = ''
+}
+for (const k of Object.keys(DEFAULTS)) {
+  const l = document.createElement('label')
+  l.innerHTML = `${k} <input type="number" value="${DEFAULTS[k]}" />`
+  l.querySelector('input').onchange = (e) => { opts[k] = +e.target.value; newJudge(); log('', `— ${k}=${opts[k]} → 판정 초기화`); paint() }
+  $('opts').append(l)
+}
+</script>
+</body>
+</html>

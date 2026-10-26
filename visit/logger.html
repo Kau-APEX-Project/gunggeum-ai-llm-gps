@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>宮今 위치 로거</title>
+<style>
+  body { font: 15px system-ui, sans-serif; margin: 16px; background: #fff; color: #111 }
+  button { font-size: 16px; padding: 10px 14px; margin: 0 6px 8px 0 }
+  #now { font: 600 18px ui-monospace, monospace; margin: 8px 0 }
+  #ev { font: 13px ui-monospace, monospace; white-space: pre-wrap; max-height: 60vh; overflow: auto }
+  .bad { color: #c92a2a }
+</style>
+</head>
+<body>
+<h3>宮今 위치 로거</h3>
+<input id="who" placeholder="기기/이름 (예: 갤럭시S23-윤서)" style="font-size:16px;width:100%;margin-bottom:8px" />
+<button id="start">시작</button><button id="stop" disabled>멈춤</button><button id="save">로그 저장</button>
+<div id="now">대기 중</div>
+<div id="ev"></div>
+<script type="module">
+import { createJudge, DEFAULTS } from './judge.mjs'
+
+const $ = (id) => document.getElementById(id)
+const log = []
+let watch = null, judge = null, wake = null
+
+// 존이 있으면 판정도 같이 돌려 본다 (없으면 기록만)
+const names = new Map()
+try {
+  const [zones, pois] = await Promise.all(['data/zones.geojson', 'data/pois.json'].map((f) => fetch(f).then((r) => r.json())))
+  pois.forEach((p) => names.set(p.id, p.name))
+  const used = pois.filter((p) => p.zoneIds.length)
+  if (used.length) judge = createJudge(zones, used)
+} catch (e) { $('ev').textContent = '판정 없이 기록만 (' + e.message + ')\n' }
+
+$('start').onclick = async () => {
+  if (!navigator.geolocation) return alert('이 브라우저는 위치를 지원하지 않습니다')
+  try { wake = await navigator.wakeLock?.request('screen') } catch {} // 화면 꺼지면 위치가 멈춤
+  watch = navigator.geolocation.watchPosition(onPos, (e) => ($('now').textContent = '오류: ' + e.message),
+    { enableHighAccuracy: true, maximumAge: 0, timeout: 10000 })
+  $('start').disabled = true; $('stop').disabled = false
+}
+$('stop').onclick = () => {
+  navigator.geolocation.clearWatch(watch); wake?.release()
+  $('start').disabled = false; $('stop').disabled = true
+}
+$('save').onclick = () => {
+  const blob = new Blob([JSON.stringify({ device: $('who').value, ua: navigator.userAgent, samples: log })], { type: 'application/json' })
+  const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(blob),
+    download: `gpslog-${$('who').value || 'device'}-${new Date().toISOString().slice(0, 19).replace(/:/g, '')}.json` })
+  a.click()
+}
+
+function onPos({ coords: c, timestamp: t }) {
+  const s = { lat: c.latitude, lng: c.longitude, accuracy: c.accuracy, t }
+  log.push(s)
+  const bad = c.accuracy > DEFAULTS.maxAccuracy
+  $('now').innerHTML = `${log.length}개 · 정확도 <span class="${bad ? 'bad' : ''}">${c.accuracy.toFixed(1)}m</span>`
+  for (const e of judge?.update(s) || []) {
+    $('ev').textContent = `${new Date(t).toTimeString().slice(0, 8)} ${e.type} ${names.get(e.poiId) || e.poiId}\n` + $('ev').textContent
+  }
+}
+</script>
+</body>
+</html>

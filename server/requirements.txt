@@ -1,0 +1,7 @@
+boto3
+korean-romanizer
+numpy
+openai
+pgvector
+psycopg[binary]
+python-dotenv
