@@ -1,6 +1,7 @@
 """경복궁 해설 챗봇: Postgres(pgvector)에서 검색한 문서로 GPT-6 Luna(OpenAI API)가 답한다.
 질문당 LLM 호출: 의도(길·편의시설·질문) → [질문] 번역(영어·태국어만) → 문서 고르기 → 답변 = 최대 4번,
 [길 묻기] 의도 → 답변(목적지 문서 고정) = 2번, [편의시설] 의도 1번. 답변 언어: 한국어·English·ภาษาไทย(태국어).
+LLM 없이 코드로: 후속 질문은 앞 답변의 전각 카드를 붙여 처리(prepare), 카드 링크는 이름·DB 풀이·검수 별칭 매칭(cards.link).
 
 사용: python deploy/server/ask.py                  대화 모드 (빈 줄 / exit 로 종료)
       python deploy/server/ask.py "강녕전이 뭐야?"   한 번만 묻기  [--debug: 검색된 청크 표시]
@@ -18,7 +19,7 @@ from korean_romanizer.romanizer import Romanizer
 from openai import OpenAI
 
 import config  # noqa: F401  deploy/.env 로드 (OPENAI_API_KEY)
-from cards import link_names
+from cards import gloss_index, link
 from pg import Collection
 
 THAI = re.compile('[฀-๿]')  # 태국 문자
@@ -300,11 +301,16 @@ def answer(col, names, question, stages=None):
     return text, context, col.get(ids=s['fixed'] + s['picked'])['metadatas']
 
 
+# 태국어 답변 끝에 가끔 붙는 스팸 문구: 'เครดิตฟรี'(무료 크레딧), 'ทดลองใช้ฟรี'(무료 체험). DB·프롬프트엔 없고 모델 출력에서 생김.
+# 'ฟรี'(무료)가 든 마지막 어절 하나를 지움 — DB 문서 585개에 'ฟรี'가 한 번도 없어서 정상 답변이 이 말로 끝날 일이 없음
+NOISE = re.compile(r'\s+\S*ฟรี\S*[\s.]*$')
+
+
 def answer_docs(docs, question, language):
     """정해진 문서로만 답변 (검색 없음) → (답변, context). 일반 질문·길 묻기·코스 설명이 같은 규칙(SYSTEM)을 씀"""
     context = '\n\n'.join(docs)
     text = llm(SYSTEM.format(context=context, language=language), question, 2048)
-    return drop_bad_parens(text, context, language), context
+    return NOISE.sub('', drop_bad_parens(text, context, language)), context
 
 
 INTENT = """경복궁 관람객의 말을 분류하라.
@@ -337,10 +343,62 @@ def intent(col, question):
     return json.loads(llm(INTENT.format(places=listing), question, 100, schema=schema))
 
 
-def reply(col, names, question):
+def glosses(col, _cache={}):
+    """카드 링크 색인 (cards.gloss_index: DB 풀이 + 검수한 별칭 aliases.json). 서버 시작 뒤 처음 한 번 만듦 (약 2초)"""
+    if col.name not in _cache:
+        path = os.path.join(os.path.dirname(__file__), 'aliases.json')
+        aliases = json.load(open(path, encoding='utf-8')) if os.path.exists(path) else None
+        _cache[col.name] = gloss_index(col.get()['metadatas'], aliases)
+    return _cache[col.name]
+
+
+# 후속 질문: LLM 없이 규칙으로 앞 대화의 대상을 붙임
+POINT = re.compile(r'거기|그곳|그 곳|그 건물|그분|여기|그 앞|그 옆|그 뒤|\b(there|it|its|this place|that place|they)\b|ที่นั่น|ที่นี่|ตรงนั้น|ที่นั้น', re.I)
+# ponytail: 스스로 주어를 가진 질문의 사람·역할 낱말 ("그럼 왕비는 어디서?"). 이 말이 있으면 대상을 안 붙임. 새 낱말은 여기 추가
+OWN = re.compile(r'왕비|왕|세자|대비|후궁|화장실|벤치|식수|물 마실|\b(queen|king|prince|princess|dowager|restroom|toilet|bench|water)\b'
+                 r'|ราชินี|มเหสี|กษัตริย์|พระราชา|รัชทายาท|ห้องน้ำ|ม้านั่ง|น้ำดื่ม', re.I)
+
+
+def topic(col, names, history):
+    """앞 대화의 대상 전각 (메타데이터): 가장 최근 답변에 처음 걸린 전각 카드, 없으면 그 질문에서 찾은 전각"""
+    for h in reversed(history[-3:]):
+        if m := re.search(r'card:b-(\d+)', h.get('answer') or ''):
+            if got := col.get(where={'type': 'building', 'serial': m[1]})['metadatas']:
+                return got[0]
+        for n in named(names, h.get('question') or ''):
+            if got := col.get(where={'type': 'building', 'name': n})['metadatas']:
+                return got[0]
+    return None
+
+
+def prepare(col, names, question, history=()):
+    """후속 질문 → 앞 대화의 대상 이름을 질문 언어로 붙인 질문. LLM 호출 없음.
+    'Who lived there?' → 'Who lived there? (Gyotaejeon)', 'สร้างครั้งแรกเมื่อไร' → 'สร้างครั้งแรกเมื่อไร (คยองฮเวรู)'.
+    붙이는 때: 지시어(거기·there·ที่นั่น)가 있거나, 질문에 전각·용어 이름도 사람·역할 낱말도 없을 때 (태국어·한국어는 주어를 뺌).
+    붙인 문장이 그대로 기존 흐름(이름 찾기 → 고정 문서, 번역, 의도)에 들어감. 외국어엔 외국어 이름을 붙여 번역 조건도 그대로"""
+    if not history or not (POINT.search(question) or not named(names, question) and not OWN.search(question)):
+        return question
+    m = topic(col, names, history)
+    if not m:
+        return question
+    field = 'name_th' if THAI.search(question) else 'name' if re.search('[가-힣]', question) else 'name_en'
+    q = f"{question} ({re.sub(r'\s*\(.*', '', m.get(field) or m['name']).strip()})"
+    show(f'[-] 맥락 반영: {q}')
+    return q
+
+
+def answer_in(col, docs, question, language, metas):
+    """(카드 링크까지 단 답변, context). 카드는 코드로만 검 (cards.link: 이름 매칭 + DB 풀이·별칭, 넣은 문서의 카드만)"""
+    text, context = answer_docs(docs, question, language)
+    return link(text, metas, language, glosses(col), context), context
+
+
+def reply(col, names, question, history=()):
     """(POST /api/ask 응답 {answer, language, action}, 넣은 문서 context). 길·편의시설은 어디로인지만 정하고, 실제 길은 폰(route.mjs)이 계산.
-    길 묻기 답변 = 목적지 문서로 짧은 소개 + 카드 링크 (검색·고르기 없이 문서 고정)"""
+    길 묻기 답변 = 목적지 문서로 짧은 소개 + 카드 링크 (검색·고르기 없이 문서 고정).
+    history = 이전 턴 [{question, answer}] (폰이 보냄) → 후속 질문을 독립 질문으로 바꿔서 처리"""
     language = answer_language(question)
+    question = prepare(col, names, question, history)
     it = intent(col, question)
     if it['kind'] == 'amenity' and it['amenity']:
         ko, en, th = AMENITY[it['amenity']]
@@ -352,19 +410,22 @@ def reply(col, names, question):
         add_fixed(col, {'type': 'building', 'nameId': it['to']}, fixed)
         name = places(col)[it['to']]['name']
         # ponytail: "가는 길 + 뭐하는 곳" 섞인 질문도 짧은 소개만. 길게 원하면 일반 질문으로 다시 물으면 됨
-        text, context = answer_docs(list(fixed.values()), f'{name}을(를) 2~3문장으로 짧게 소개하라: 무엇인지, 가서 무엇을 볼 수 있는지. '
-                              '위치·방향·가는 길은 지도가 안내하므로 쓰지 않는다.', language)
-        return {'answer': link_names(text, col.get(ids=list(fixed))['metadatas'], language), 'language': language,
-                'action': {'type': 'route', 'to': it['to']}}, context
-    text, context, metas = answer(col, names, question)
-    return {'answer': link_names(text, metas, language), 'language': language, 'action': None}, context
+        text, context = answer_in(col, list(fixed.values()), f'{name}을(를) 2~3문장으로 짧게 소개하라: 무엇인지, 가서 무엇을 볼 수 있는지. '
+                                  f'위치·방향·가는 길은 지도가 안내하므로 쓰지 않는다. {language}로 쓴다.', language,  # 지시문이 한국어라 안 적으면 곤녕합 등은 한국어로 답함
+                                  col.get(ids=list(fixed))['metadatas'])
+        return {'answer': text, 'language': language, 'action': {'type': 'route', 'to': it['to']}}, context
+    s = {}
+    docs = retrieve(col, names, question, s)  # 검색·고르기는 그대로 (외국어 질문 번역 포함)
+    text, context = answer_in(col, docs, question, language, col.get(ids=s['fixed'] + s['picked'])['metadatas'])
+    return {'answer': text, 'language': language, 'action': None}, context
 
 
-def ask(col, names, question, debug=False):
-    r, context = reply(col, names, question)
+def ask(col, names, question, debug=False, history=()):
+    r, context = reply(col, names, question, history)
     print(r['answer'] + (f"\n[action] {json.dumps(r['action'], ensure_ascii=False)}" if r['action'] else ''))
     if debug:
         print('\n--- 검색된 청크 ---\n' + context)
+    return r
 
 
 def main():
@@ -374,10 +435,10 @@ def main():
     names = name_keys(col)
     if question:
         return ask(col, names, question, debug)
-    # ponytail: 질문마다 독립 검색·답변(대화 기록 없음). "거기는?" 같은 후속 질문이 필요하면 history 추가
     print('경복궁 해설 챗봇입니다. 빈 줄이나 exit 입력 시 종료.')
+    history = []
     while (question := input('\n질문> ').strip()) not in ('', 'exit', 'quit'):
-        ask(col, names, question, debug)
+        history.append({'question': question, 'answer': ask(col, names, question, debug, history)['answer']})
 
 
 if __name__ == '__main__':

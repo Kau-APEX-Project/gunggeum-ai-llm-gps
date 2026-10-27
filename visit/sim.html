@@ -315,14 +315,16 @@ const api = async (path, body) => {
     return j
   } catch (e) { log('miss', `✗ ${e.message === 'Failed to fetch' ? 'API 가 꺼져 있음 — deploy/server/course.py 를 실행할 것' : e.message}`) }
 }
-// 질문 → /api/ask. action 이 오면 그대로: route = 길찾기, amenity = 근처 편의시설
+// 질문 → /api/ask. action 이 오면 그대로: route = 길찾기, amenity = 근처 편의시설. 이전 대화(history)를 같이 보내 "거기는?"도 알아들음
+const chat = []
 $('qBtn').onclick = async () => {
   const q = $('q').value.trim()
   if (!q || replay) return
   $('qBtn').disabled = true
   log('', `… 질문: ${q}`)
-  const r = await api('/api/ask', { question: q })
+  const r = await api('/api/ask', { question: q, history: chat.slice(-3) })
   if (r) {
+    chat.push({ question: q, answer: r.answer })
     log('', `${plain(r.answer)}${r.action ? `\n  action ${JSON.stringify(r.action)}` : ''}`)
     if (r.action?.type === 'route') goTo(used.find((x) => x.id === r.action.to))
     if (r.action?.type === 'amenity') showAmen(r.action.category)

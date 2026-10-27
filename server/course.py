@@ -3,7 +3,7 @@
 1. 경로 (LLM 1번): 재료 = course-input.json (후보 = 권역 대표 전각 + 지도 자연 지점, 후보 사이 걷기 분)
    + 권역 해설(DB 전각 문서, group 으로 묶음). LLM 은 후보 id(enum) 중 들를 곳·순서·체류·넣은 이유(why)만 정함.
 2. 설명 (LLM 1번): 고른 곳의 DB 문서(b-<serial>-*)를 고정으로 넣고 챗봇 답변 규칙(ask.SYSTEM)으로 "코스를 왜 이렇게 짰는지 + 곳마다 볼 것"
-   → 카드 링크(cards.link_names). why 는 2단계 재료로만 쓰고 응답엔 안 나감.
+   → 카드 링크(ask.answer_in → cards.link, LLM 없음). why 는 2단계 재료로만 쓰고 응답엔 안 나감.
 실제 길·시간은 폰의 visit/route.mjs fitCourse 가 다시 계산하고 넘치는 곳은 뺌.
 실행: 루트에서 .venv\Scripts\python deploy/server/course.py → localhost:8001 (OPENAI_API_KEY·DATABASE_URL 필요). 화면은 루트 sim.bat
 """
@@ -13,8 +13,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
-from ask import add_fixed, answer_docs, answer_language, llm, name_keys, reply
-from cards import card, link_names
+from ask import add_fixed, answer_in, answer_language, llm, name_keys, reply
+from cards import card
 from pg import Collection
 
 INPUT = Path(__file__).parent / 'course-input.json'  # servermap 이 바뀌면 build.cmd 가 다시 만듦
@@ -106,8 +106,9 @@ class Planner:
         # ponytail: 대표 전각 문서만 (권역 소속 건물 전부 넣으면 수만 자). 소속 건물 얘기가 빠지면 group 으로 넓힐 것
         lines = '\n'.join(f"{i}. {self.name[s['id']]}{' (자연 지점)' if s['id'].startswith('nature:') else ''} ({s['why']})"
                           for i, s in enumerate(stops, 1))
-        text, _ = answer_docs(list(fixed.values()), DESCRIBE.format(request=request, stops=lines), language)
-        return link_names(text, self.col.get(ids=list(fixed))['metadatas'], language)
+        text, _ = answer_in(self.col, list(fixed.values()), DESCRIBE.format(request=request, stops=lines), language,
+                            self.col.get(ids=list(fixed))['metadatas'])
+        return text
 
     def make(self, request):
         """POST /api/course 응답: {answer, language, course: {minutes, stops: [{id, stayMin}]}}"""
@@ -122,8 +123,14 @@ def serve(port=8001):
     정식 API 서버는 아직 없음. 화면(정적 파일)은 sim.bat 의 http-server 가 띄움 — 지도 타일(pmtiles)이 Range 요청을 써서 파이썬 기본 서버로는 안 됨"""
     col = Collection()
     p, names = Planner(col), name_keys(col)
-    routes = {'/api/course': ('request', lambda s: p.make(s)),
-              '/api/ask': ('question', lambda s: reply(col, names, s)[0])}
+    routes = {'/api/course': ('request', lambda s, body: p.make(s)),
+              '/api/ask': ('question', lambda s, body: reply(col, names, s, history(body))[0])}
+
+    def history(body):
+        """본문의 선택 history → 최근 3턴. 형식이 틀린 항목은 버림"""
+        h = body.get('history')
+        return [{'question': x['question'][:300], 'answer': x['answer']} for x in (h if isinstance(h, list) else [])
+                if isinstance(x, dict) and isinstance(x.get('question'), str) and isinstance(x.get('answer'), str)][-3:]
 
     class Handler(BaseHTTPRequestHandler):
         def cors(self, code, body=None):
@@ -160,12 +167,13 @@ def serve(port=8001):
                 return self.cors(404, {'error': '없는 경로'})
             field, run = routes[self.path]
             try:
-                text = json.loads(self.rfile.read(int(self.headers.get('Content-Length') or 0)))[field].strip()[:300]
+                body = json.loads(self.rfile.read(int(self.headers.get('Content-Length') or 0)))
+                text = body[field].strip()[:300]
                 assert text
             except Exception:
                 return self.cors(400, {'error': f'JSON 본문에 {field} (빈 문자열 아님) 필요'})
             try:
-                self.cors(200, run(text))
+                self.cors(200, run(text, body))
             except Exception as e:  # LLM·DB 실패는 화면 로그에 보이게
                 self.cors(500, {'error': str(e)})
 
