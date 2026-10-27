@@ -24,7 +24,17 @@ paths:
               type: object
               required: [question]
               properties:
-                question: {type: string, minLength: 1, maxLength: 300, example: "교태전 어떻게 가?"}
+                question: {type: string, minLength: 1, maxLength: 300, example: "거기 어떻게 가?"}
+                history:
+                  description: 이전 턴 (선택, 최근 3개만 씀). 후속 질문("거기는?")을 이해하려고 폰이 보냄. 형식이 틀린 항목은 무시
+                  type: array
+                  items:
+                    type: object
+                    required: [question, answer]
+                    properties:
+                      question: {type: string}
+                      answer: {type: string, description: 받은 answer 그대로}
+                  example: [{question: "교태전이 뭐야?", answer: "[교태전](card:b-164)은 왕비의 침전으로 ..."}]
       responses:
         '200':
           description: 답변

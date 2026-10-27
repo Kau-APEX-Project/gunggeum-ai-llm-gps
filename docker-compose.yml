@@ -5,6 +5,7 @@
 services:
   db:
     image: pgvector/pgvector:pg17
+    container_name: APEX-LLM
     environment:
       POSTGRES_DB: gbg
       POSTGRES_PASSWORD: ${DB_PASSWORD:-gbg}
