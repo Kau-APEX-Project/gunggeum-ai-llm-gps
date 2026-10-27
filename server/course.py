@@ -3,7 +3,7 @@
 1. 경로 (LLM 1번): 재료 = course-input.json (후보 = 권역 대표 전각 + 지도 자연 지점, 후보 사이 걷기 분)
    + 권역 해설(DB 전각 문서, group 으로 묶음). LLM 은 후보 id(enum) 중 들를 곳·순서·체류·넣은 이유(why)만 정함.
 2. 설명 (LLM 1번): 고른 곳의 DB 문서(b-<serial>-*)를 고정으로 넣고 챗봇 답변 규칙(ask.SYSTEM)으로 "코스를 왜 이렇게 짰는지 + 곳마다 볼 것"
-   → 카드 링크(ask.answer_in → cards.link_names). why 는 2단계 재료로만 쓰고 응답엔 안 나감.
+   → 카드 링크(ask.answer_in → cards.link, LLM 없음). why 는 2단계 재료로만 쓰고 응답엔 안 나감.
 실제 길·시간은 폰의 visit/route.mjs fitCourse 가 다시 계산하고 넘치는 곳은 뺌.
 실행: 루트에서 .venv\Scripts\python deploy/server/course.py → localhost:8001 (OPENAI_API_KEY·DATABASE_URL 필요). 화면은 루트 sim.bat
 """

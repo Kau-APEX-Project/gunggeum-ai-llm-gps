@@ -1,7 +1,7 @@
 """경복궁 해설 챗봇: Postgres(pgvector)에서 검색한 문서로 GPT-6 Luna(OpenAI API)가 답한다.
 질문당 LLM 호출: 의도(길·편의시설·질문) → [질문] 번역(영어·태국어만) → 문서 고르기 → 답변 = 최대 4번,
 [길 묻기] 의도 → 답변(목적지 문서 고정) = 2번, [편의시설] 의도 1번. 답변 언어: 한국어·English·ภาษาไทย(태국어).
-LLM 없이 코드로: 후속 질문은 앞 답변의 전각 카드를 붙여 처리(prepare).
+LLM 없이 코드로: 후속 질문은 앞 답변의 전각 카드를 붙여 처리(prepare), 카드 링크는 이름·DB 풀이·검수 별칭 매칭(cards.link).
 
 사용: python deploy/server/ask.py                  대화 모드 (빈 줄 / exit 로 종료)
       python deploy/server/ask.py "강녕전이 뭐야?"   한 번만 묻기  [--debug: 검색된 청크 표시]
@@ -19,7 +19,7 @@ from korean_romanizer.romanizer import Romanizer
 from openai import OpenAI
 
 import config  # noqa: F401  deploy/.env 로드 (OPENAI_API_KEY)
-from cards import link_names
+from cards import gloss_index, link
 from pg import Collection
 
 THAI = re.compile('[฀-๿]')  # 태국 문자
@@ -343,6 +343,15 @@ def intent(col, question):
     return json.loads(llm(INTENT.format(places=listing), question, 100, schema=schema))
 
 
+def glosses(col, _cache={}):
+    """카드 링크 색인 (cards.gloss_index: DB 풀이 + 검수한 별칭 aliases.json). 서버 시작 뒤 처음 한 번 만듦 (약 2초)"""
+    if col.name not in _cache:
+        path = os.path.join(os.path.dirname(__file__), 'aliases.json')
+        aliases = json.load(open(path, encoding='utf-8')) if os.path.exists(path) else None
+        _cache[col.name] = gloss_index(col.get()['metadatas'], aliases)
+    return _cache[col.name]
+
+
 # 후속 질문: LLM 없이 규칙으로 앞 대화의 대상을 붙임
 POINT = re.compile(r'거기|그곳|그 곳|그 건물|그분|여기|그 앞|그 옆|그 뒤|\b(there|it|its|this place|that place|they)\b|ที่นั่น|ที่นี่|ตรงนั้น|ที่นั้น', re.I)
 # ponytail: 스스로 주어를 가진 질문의 사람·역할 낱말 ("그럼 왕비는 어디서?"). 이 말이 있으면 대상을 안 붙임. 새 낱말은 여기 추가
@@ -379,9 +388,9 @@ def prepare(col, names, question, history=()):
 
 
 def answer_in(col, docs, question, language, metas):
-    """(카드 링크까지 단 답변, context). 카드는 넣은 문서의 이름에만 (cards.link_names)"""
+    """(카드 링크까지 단 답변, context). 카드는 코드로만 검 (cards.link: 이름 매칭 + DB 풀이·별칭, 넣은 문서의 카드만)"""
     text, context = answer_docs(docs, question, language)
-    return link_names(text, metas, language), context
+    return link(text, metas, language, glosses(col), context), context
 
 
 def reply(col, names, question, history=()):

@@ -1,0 +1,3769 @@
+{
+ "cards": {
+  "t-1": {
+   "en_safe": [
+    "main hall of a palace"
+   ],
+   "en_context": [
+    "main hall"
+   ],
+   "th_safe": [
+    "ท้องพระโรงหลัก"
+   ]
+  },
+  "t-2": {
+   "en_safe": [
+    "royal council hall"
+   ],
+   "en_context": [
+    "council hall",
+    "royal audience hall",
+    "royal council chamber"
+   ],
+   "th_safe": [
+    "ท้องพระโรงว่าราชการ"
+   ],
+   "th_context": [
+    "ห้องว่าราชการ"
+   ]
+  },
+  "t-3": {
+   "en_safe": [
+    "royal bedchamber hall",
+    "royal bedchamber"
+   ],
+   "en_context": [
+    "bedchamber",
+    "sleeping quarters",
+    "royal sleeping quarters"
+   ],
+   "th_safe": [
+    "ตำหนักบรรทมของกษัตริย์"
+   ],
+   "th_context": [
+    "ห้องบรรทม",
+    "ที่ประทับสำหรับบรรทม"
+   ]
+  },
+  "t-4": {
+   "en_safe": [
+    "Crown Prince's residence"
+   ],
+   "en_context": [
+    "Crown Prince's quarters",
+    "Crown Prince's palace",
+    "Crown Prince's compound"
+   ],
+   "th_safe": [
+    "ที่ประทับของมกุฎราชกุมาร"
+   ],
+   "th_context": [
+    "เขตประทับของมกุฎราชกุมาร",
+    "ตำหนักของมกุฎราชกุมาร"
+   ]
+  },
+  "t-5": {
+   "en_safe": [
+    "government offices inside the palace",
+    "palace government offices"
+   ],
+   "en_context": [
+    "palace offices",
+    "administrative offices inside the palace"
+   ],
+   "th_safe": [
+    "หน่วยงานราชการในพระราชวัง"
+   ],
+   "th_context": [
+    "หน่วยงานในพระราชวัง",
+    "สำนักงานราชการในพระราชวัง"
+   ]
+  },
+  "t-6": {
+   "en_safe": [
+    "covered corridor surrounding a building",
+    "covered palace corridor"
+   ],
+   "th_safe": [
+    "ระเบียงมีหลังคารอบอาคาร"
+   ],
+   "th_context": [
+    "ทางเดินมีหลังคา"
+   ]
+  },
+  "t-7": {
+   "en_safe": [
+    "palace wall"
+   ],
+   "en_context": [
+    "palace walls",
+    "fortification wall of the palace"
+   ],
+   "th_safe": [
+    "กำแพงพระราชวัง"
+   ],
+   "th_context": [
+    "กำแพงวัง"
+   ]
+  },
+  "t-8": {
+   "en_safe": [
+    "designated palace area"
+   ],
+   "en_context": [
+    "precinct"
+   ],
+   "th_safe": [
+    "เขตพื้นที่เฉพาะ"
+   ]
+  },
+  "t-9": {
+   "en_safe": [
+    "Queen Dowager's residence"
+   ],
+   "en_context": [
+    "Queen Dowager's quarters",
+    "residence of the Queen Dowager"
+   ],
+   "th_safe": [
+    "ที่ประทับของพระพันปีหลวง"
+   ],
+   "th_context": [
+    "ตำหนักพระพันปีหลวง",
+    "ที่ประทับของพระราชชนนี"
+   ]
+  },
+  "t-10": {
+   "en_safe": [
+    "queen consort's residence"
+   ],
+   "en_context": [
+    "queen's bedchamber",
+    "queen consort's bedchamber",
+    "queen's sleeping quarters"
+   ],
+   "th_safe": [
+    "ที่ประทับของพระมเหสี"
+   ],
+   "th_context": [
+    "ห้องบรรทมของพระมเหสี",
+    "ที่บรรทมของพระมเหสี"
+   ]
+  },
+  "t-11": {
+   "en_safe": [
+    "royal coffin hall",
+    "hall for the royal coffin"
+   ],
+   "en_context": [
+    "coffin hall",
+    "funerary hall"
+   ],
+   "th_safe": [
+    "ท้องพระโรงประดิษฐานพระศพ"
+   ],
+   "th_context": [
+    "ศาลาประดิษฐานพระศพ",
+    "สถานที่ประดิษฐานพระศพ"
+   ]
+  },
+  "t-12": {
+   "en_safe": [
+    "royal spirit hall",
+    "hall for the royal spirit"
+   ],
+   "en_context": [
+    "spirit hall",
+    "ancestral spirit hall"
+   ],
+   "th_safe": [
+    "ท้องพระโรงประดิษฐานพระวิญญาณ"
+   ],
+   "th_context": [
+    "ศาลาประดิษฐานพระวิญญาณ",
+    "ศาลาประดิษฐานพระวิญญาณของพระบรมวงศานุวงศ์"
+   ]
+  },
+  "t-13": {
+   "en_safe": [
+    "government offices outside the palace",
+    "government offices beyond the palace"
+   ],
+   "en_context": [
+    "outside palace offices",
+    "external government offices"
+   ],
+   "th_safe": [
+    "หน่วยงานราชการนอกพระราชวัง"
+   ],
+   "th_context": [
+    "หน่วยงานราชการนอกเขตพระราชวัง"
+   ]
+  },
+  "t-17": {
+   "en_context": [
+    "royal court affairs",
+    "main courtyard",
+    "royal court"
+   ],
+   "th_context": [
+    "กิจการในราชสำนัก",
+    "ลานหน้าท้องพระโรง",
+    "ราชสำนัก"
+   ]
+  },
+  "t-18": {
+   "en_safe": [
+    "enclosed precinct"
+   ],
+   "en_context": [
+    "enclosed courtyard"
+   ],
+   "th_safe": [
+    "เขตล้อมรั้ว"
+   ],
+   "th_context": [
+    "บริเวณล้อมรั้ว"
+   ]
+  },
+  "t-19": {
+   "en_safe": [
+    "scholar-official residence style",
+    "architectural style of a scholar-official's residence"
+   ],
+   "en_context": [
+    "scholar-official house style",
+    "traditional scholar-official residence style"
+   ],
+   "th_safe": [
+    "รูปแบบเรือนขุนนางนักปราชญ์"
+   ],
+   "th_context": [
+    "รูปแบบเรือนขุนนาง",
+    "รูปแบบบ้านขุนนางนักปราชญ์"
+   ]
+  },
+  "t-20": {
+   "en_safe": [
+    "gate tower",
+    "tower above a gate"
+   ],
+   "en_context": [
+    "gatehouse tower",
+    "two-story gate tower",
+    "single-story gate tower"
+   ],
+   "th_safe": [
+    "หอเหนือประตู"
+   ],
+   "th_context": [
+    "หอประตู",
+    "หอคอยเหนือประตู"
+   ]
+  },
+  "t-21": {
+   "en_safe": [
+    "archway",
+    "arched gate"
+   ],
+   "en_context": [
+    "arch",
+    "arched opening",
+    "stone arch"
+   ],
+   "th_safe": [
+    "ซุ้มโค้ง",
+    "ประตูซุ้มโค้ง"
+   ],
+   "th_context": [
+    "ช่องโค้ง",
+    "ช่องประตูโค้ง"
+   ]
+  },
+  "t-22": {
+   "en_safe": [
+    "stone retaining wall",
+    "stonework"
+   ],
+   "en_context": [
+    "stone wall",
+    "stone masonry",
+    "stone embankment"
+   ],
+   "th_safe": [
+    "กำแพงกันดินหิน",
+    "งานก่อหิน"
+   ],
+   "th_context": [
+    "กำแพงหิน",
+    "แนวกำแพงหิน",
+    "งานก่อสร้างด้วยหิน"
+   ]
+  },
+  "t-23": {
+   "en_safe": [
+    "podium"
+   ],
+   "en_context": [
+    "building base"
+   ],
+   "th_safe": [
+    "ฐานอาคาร"
+   ],
+   "th_context": [
+    "แท่นหิน",
+    "ฐานหิน"
+   ]
+  },
+  "t-24": {
+   "en_safe": [
+    "elevated stone platform",
+    "raised stone platform"
+   ],
+   "en_context": [
+    "stone platform"
+   ],
+   "th_safe": [
+    "ลานหินยกระดับ"
+   ],
+   "th_context": [
+    "แท่นหินยกระดับ",
+    "ลานยกระดับ"
+   ]
+  },
+  "t-25": {
+   "en_safe": [
+    "intercolumnar space"
+   ],
+   "en_context": [
+    "space between columns"
+   ],
+   "th_safe": [
+    "ช่องระหว่างเสา"
+   ],
+   "th_context": [
+    "ช่วงเสา",
+    "ช่องเสา"
+   ]
+  },
+  "t-26": {
+   "en_safe": [
+    "multi-storied structure",
+    "multi-story structure"
+   ],
+   "en_context": [
+    "two-story structure",
+    "two-story building",
+    "multi-level building"
+   ],
+   "th_safe": [
+    "อาคารหลายชั้น"
+   ],
+   "th_context": [
+    "อาคารสองชั้น",
+    "อาคารหลายระดับ"
+   ]
+  },
+  "t-27": {
+   "en_safe": [
+    "inscribed plaque"
+   ],
+   "en_context": [
+    "plaque",
+    "signboard",
+    "building plaque"
+   ],
+   "th_safe": [
+    "ป้ายอาคาร"
+   ],
+   "th_context": [
+    "ป้าย",
+    "แผ่นป้าย"
+   ]
+  },
+  "t-28": {
+   "en_safe": [
+    "carved stone pathway for the king's palanquin",
+    "king's palanquin pathway"
+   ],
+   "en_context": [
+    "carved stone pathway",
+    "sloping stone slab",
+    "ceremonial stone pathway"
+   ],
+   "th_safe": [
+    "ทางหินสลักสำหรับพระราชยาน"
+   ],
+   "th_context": [
+    "ทางหินสำหรับพระราชยาน",
+    "แผ่นหินลาดสลักลาย"
+   ]
+  },
+  "t-29": {
+   "en_safe": [
+    "decorative stone block at the stair sides",
+    "carved stair-side stone block"
+   ],
+   "en_context": [
+    "stair-side stone",
+    "decorative stone beside the steps"
+   ],
+   "th_safe": [
+    "หินประดับข้างบันได"
+   ],
+   "th_context": [
+    "หินข้างบันได",
+    "หินประดับบันได"
+   ]
+  },
+  "t-30": {
+   "en_safe": [
+    "samdo",
+    "eodo",
+    "three-path walkway",
+    "king's walkway"
+   ],
+   "en_context": [
+    "three-lane path",
+    "central royal walkway",
+    "royal path"
+   ],
+   "th_safe": [
+    "ทางเดินสามช่อง",
+    "ทางเสด็จของกษัตริย์"
+   ],
+   "th_context": [
+    "ทางสามช่อง",
+    "ทางเดินของกษัตริย์",
+    "ทางเสด็จ"
+   ]
+  },
+  "t-31": {
+   "en_safe": [
+    "rank stone",
+    "rank marker stone"
+   ],
+   "en_context": [
+    "stone marking official ranks",
+    "official rank marker"
+   ],
+   "th_safe": [
+    "ศิลาจัดลำดับขุนนาง"
+   ],
+   "th_context": [
+    "ศิลาบอกลำดับขุนนาง",
+    "หลักบอกตำแหน่งขุนนาง"
+   ]
+  },
+  "t-32": {
+   "en_safe": [
+    "granite paving slab"
+   ],
+   "en_context": [
+    "paving stone",
+    "rough granite slab",
+    "stone paving"
+   ],
+   "th_safe": [
+    "แผ่นหินปูพื้น"
+   ],
+   "th_context": [
+    "แผ่นหินปู",
+    "หินปูพื้น"
+   ]
+  },
+  "t-33": {
+   "en_safe": [
+    "awning",
+    "awning ring",
+    "Chail",
+    "Chailgori"
+   ],
+   "en_context": [
+    "sunshade cloth",
+    "awning tie ring"
+   ],
+   "th_safe": [
+    "ผ้าใบกันแดด",
+    "ห่วงผูกผ้าใบ"
+   ],
+   "th_context": [
+    "ผ้าบังแดด",
+    "ห่วงยึดผ้าใบ"
+   ]
+  },
+  "t-34": {
+   "en_safe": [
+    "large iron water vessel",
+    "large iron vessel for water"
+   ],
+   "en_context": [
+    "fire-prevention water vessel",
+    "iron water basin"
+   ],
+   "th_safe": [
+    "ภาชนะเหล็กใส่น้ำขนาดใหญ่"
+   ],
+   "th_context": [
+    "ภาชนะเหล็กใส่น้ำ",
+    "ภาชนะใส่น้ำสำหรับป้องกันอัคคีภัย"
+   ]
+  },
+  "t-35": {
+   "en_safe": [
+    "sacred palace waterway",
+    "palace boundary waterway"
+   ],
+   "en_context": [
+    "sacred waterway",
+    "palace waterway"
+   ],
+   "th_safe": [
+    "ลำน้ำศักดิ์สิทธิ์แบ่งเขตพระราชวัง"
+   ],
+   "th_context": [
+    "ลำน้ำศักดิ์สิทธิ์",
+    "ลำน้ำแบ่งเขตพระราชวัง"
+   ]
+  },
+  "t-36": {
+   "en_safe": [
+    "auspicious waterway"
+   ],
+   "en_context": [
+    "feng shui waterway",
+    "auspicious stream"
+   ],
+   "th_safe": [
+    "ลำน้ำมงคลตามหลักฮวงจุ้ย"
+   ],
+   "th_context": [
+    "ลำน้ำมงคล",
+    "สายน้ำตามหลักฮวงจุ้ย"
+   ]
+  },
+  "t-37": {
+   "en_safe": [
+    "stone arch bridge",
+    "arched stone bridge"
+   ],
+   "en_context": [
+    "arch bridge",
+    "arched bridge"
+   ],
+   "th_safe": [
+    "สะพานโค้งหิน"
+   ],
+   "th_context": [
+    "สะพานโค้ง"
+   ]
+  },
+  "t-38": {
+   "en_safe": [
+    "bridge end pillar",
+    "main bridge baluster"
+   ],
+   "en_context": [
+    "end pillar",
+    "main baluster"
+   ],
+   "th_safe": [
+    "เสาปลายสะพาน",
+    "เสาลูกกรงหลัก"
+   ],
+   "th_context": [
+    "เสาปลาย",
+    "เสาลูกกรงหลัก"
+   ]
+  },
+  "t-39": {
+   "en_safe": [
+    "artificial hill",
+    "man-made hill"
+   ],
+   "en_context": [
+    "artificial mound",
+    "landscaped hill"
+   ],
+   "th_safe": [
+    "เนินเขาจำลอง"
+   ],
+   "th_context": [
+    "เนินจำลอง",
+    "เนินดินที่สร้างขึ้น"
+   ]
+  },
+  "t-40": {
+   "en_safe": [
+    "multi-story open pavilion",
+    "multi-storey open pavilion"
+   ],
+   "en_context": [
+    "open pavilion",
+    "multi-story pavilion",
+    "multi-storey pavilion"
+   ],
+   "th_safe": [
+    "ศาลาเปิดโล่งหลายชั้น"
+   ],
+   "th_context": [
+    "ศาลาหลายชั้น",
+    "ศาลาเปิดโล่ง"
+   ]
+  },
+  "t-41": {
+   "en_safe": [
+    "traditional Korean pavilion",
+    "Korean pavilion"
+   ],
+   "en_context": [
+    "viewing pavilion"
+   ],
+   "th_safe": [
+    "ศาลาเกาหลีแบบดั้งเดิม"
+   ],
+   "th_context": [
+    "ศาลาพักชมวิว",
+    "ศาลาชมวิว"
+   ]
+  },
+  "t-42": {
+   "en_safe": [
+    "raised open-view floor",
+    "raised open-sided floor"
+   ],
+   "en_context": [
+    "raised floor",
+    "open-sided floor",
+    "raised veranda"
+   ],
+   "th_safe": [
+    "พื้นยกสูงเปิดรับวิว"
+   ],
+   "th_context": [
+    "พื้นยกสูง",
+    "ชานยกพื้น",
+    "ระเบียงยกพื้น"
+   ]
+  },
+  "t-43": {
+   "en_safe": [
+    "covered connecting corridor"
+   ],
+   "en_context": [
+    "connecting corridor"
+   ],
+   "th_safe": [
+    "ระเบียงทางเดินมีหลังคาเชื่อมอาคาร"
+   ],
+   "th_context": [
+    "ทางเดินเชื่อมอาคาร",
+    "ระเบียงทางเดิน"
+   ]
+  },
+  "t-44": {
+   "en_context": [
+    "elevated building",
+    "multi-story building",
+    "upper-story structure"
+   ],
+   "th_context": [
+    "อาคารยกพื้น",
+    "อาคารชั้นบน"
+   ]
+  },
+  "t-45": {
+   "en_safe": [
+    "open-through floor structure"
+   ],
+   "en_context": [
+    "open-through interior",
+    "open interior spanning two levels"
+   ],
+   "th_safe": [
+    "โครงสร้างภายในเปิดทะลุถึงกัน"
+   ],
+   "th_context": [
+    "โถงภายในเปิดโล่งเชื่อมถึงกัน",
+    "พื้นที่ภายในที่เปิดต่อเนื่องสองชั้น"
+   ]
+  },
+  "t-46": {
+   "en_safe": [
+    "mezzanine",
+    "internal two-story structure"
+   ],
+   "en_context": [
+    "intermediate floor",
+    "mezzanine level",
+    "two-level interior"
+   ],
+   "th_safe": [
+    "ชั้นลอย",
+    "โครงสร้างสองชั้นภายใน"
+   ],
+   "th_context": [
+    "ชั้นกลาง",
+    "ระดับชั้นลอย",
+    "พื้นที่ภายในสองชั้น"
+   ]
+  },
+  "t-47": {
+   "en_safe": [
+    "multi-cluster bracket architecture"
+   ],
+   "en_context": [
+    "Dapo bracket style",
+    "multi-cluster bracket system"
+   ],
+   "th_safe": [
+    "สถาปัตยกรรมชุดค้ำยันหลายกลุ่ม"
+   ],
+   "th_context": [
+    "รูปแบบทาโพ",
+    "ระบบชุดค้ำยันหลายกลุ่ม"
+   ]
+  },
+  "t-48": {
+   "en_context": [
+    "bracket system",
+    "bracket assembly",
+    "eave bracket",
+    "projecting bracket"
+   ],
+   "th_context": [
+    "ชุดค้ำยัน",
+    "ระบบค้ำยัน",
+    "ค้ำยันชายคา"
+   ]
+  },
+  "t-49": {
+   "en_safe": [
+    "hipped roof"
+   ],
+   "en_context": [
+    "hip roof"
+   ],
+   "th_safe": [
+    "หลังคาทรงปั้นหยา"
+   ],
+   "th_context": [
+    "หลังคาปั้นหยา"
+   ]
+  },
+  "t-50": {
+   "en_safe": [
+    "half-hipped roof"
+   ],
+   "en_context": [
+    "hip-and-gable roof",
+    "half-hipped roof"
+   ],
+   "th_safe": [
+    "หลังคาทรงปั้นหยาผสมจั่ว"
+   ],
+   "th_context": [
+    "หลังคาปั้นหยาผสมหน้าจั่ว",
+    "หลังคาทรงปั้นหยาครึ่งหนึ่ง"
+   ]
+  },
+  "t-51": {
+   "en_safe": [
+    "truncated square ceiling"
+   ],
+   "en_context": [
+    "truncated-corner ceiling",
+    "layered ceiling with cut corners"
+   ],
+   "th_safe": [
+    "เพดานตัดมุมเป็นชั้น"
+   ],
+   "th_context": [
+    "เพดานตัดมุม",
+    "เพดานลดหลั่นตัดมุม"
+   ]
+  },
+  "t-52": {
+   "en_safe": [
+    "decorative canopy over the throne"
+   ],
+   "en_context": [
+    "throne canopy",
+    "ornamental canopy above the throne"
+   ],
+   "th_safe": [
+    "เพดานประดับเหนือพระราชบัลลังก์"
+   ],
+   "th_context": [
+    "ฉัตรเหนือพระราชบัลลังก์",
+    "เครื่องประดับเหนือพระที่นั่ง"
+   ]
+  },
+  "t-53": {
+   "en_safe": [
+    "royal throne"
+   ],
+   "en_context": [
+    "royal seat"
+   ],
+   "th_safe": [
+    "พระราชบัลลังก์"
+   ],
+   "th_context": [
+    "บัลลังก์"
+   ]
+  },
+  "t-54": {
+   "en_safe": [
+    "inner circumferential column"
+   ],
+   "en_context": [
+    "inner column",
+    "inner perimeter column"
+   ],
+   "th_safe": [
+    "เสาชั้นในโดยรอบ"
+   ],
+   "th_context": [
+    "เสาด้านใน",
+    "เสาโดยรอบด้านใน"
+   ]
+  },
+  "t-55": {
+   "en_safe": [
+    "Korean dancheong"
+   ],
+   "en_context": [
+    "multicolored decorative painting",
+    "traditional Korean decorative painting"
+   ],
+   "th_safe": [
+    "ภาพเขียนหลายสีประดับอาคาร"
+   ],
+   "th_context": [
+    "ลวดลายสีประดับอาคาร",
+    "จิตรกรรมประดับอาคารหลายสี"
+   ]
+  },
+  "t-56": {
+   "en_safe": [
+    "Korean underfloor heating"
+   ],
+   "en_context": [
+    "underfloor heating",
+    "heated floor"
+   ],
+   "th_safe": [
+    "ระบบทำความร้อนใต้พื้นแบบเกาหลี"
+   ],
+   "th_context": [
+    "ระบบพื้นอุ่น",
+    "การทำความร้อนใต้พื้น"
+   ]
+  },
+  "t-57": {
+   "en_safe": [
+    "traditional Korean wooden-floored hall"
+   ],
+   "en_context": [
+    "wooden-floored hall",
+    "raised wooden-floor space"
+   ],
+   "th_safe": [
+    "โถงพื้นไม้แบบเกาหลีดั้งเดิม"
+   ],
+   "th_context": [
+    "โถงพื้นไม้",
+    "พื้นที่พื้นไม้ยกสูง"
+   ]
+  },
+  "t-58": {
+   "en_safe": [
+    "storehouse",
+    "storage room"
+   ],
+   "en_context": [
+    "storeroom",
+    "storage space"
+   ],
+   "th_safe": [
+    "ห้องเก็บของ"
+   ],
+   "th_context": [
+    "ห้องเก็บเสบียง",
+    "ที่เก็บของ"
+   ]
+  },
+  "t-59": {
+   "en_safe": [
+    "roof-shaped chimney cap"
+   ],
+   "en_context": [
+    "chimney cap",
+    "roof-shaped chimney cover"
+   ],
+   "th_safe": [
+    "ยอดปล่องควันทรงหลังคา"
+   ],
+   "th_context": [
+    "ฝาครอบปล่องควัน",
+    "ส่วนยอดปล่องควัน"
+   ]
+  },
+  "t-60": {
+   "en_safe": [
+    "water gate"
+   ],
+   "en_context": [
+    "water-control gate",
+    "sluice gate"
+   ],
+   "th_safe": [
+    "ประตูควบคุมน้ำ"
+   ],
+   "th_context": [
+    "ประตูน้ำ",
+    "ประตูระบายน้ำ"
+   ]
+  },
+  "t-61": {
+   "en_safe": [
+    "hidden gate",
+    "secret gate"
+   ],
+   "en_context": [
+    "concealed gate",
+    "discreet passage gate"
+   ],
+   "th_safe": [
+    "ประตูซ่อนเร้น",
+    "ประตูลับ"
+   ],
+   "th_context": [
+    "ประตูที่ซ่อนอยู่",
+    "ทางเข้าลับ"
+   ]
+  },
+  "t-62": {
+   "en_safe": [
+    "long pedestal stone"
+   ],
+   "en_context": [
+    "long foundation stone",
+    "elongated base stone"
+   ],
+   "th_safe": [
+    "หินฐานยาว"
+   ],
+   "th_context": [
+    "แท่งหินฐานยาว"
+   ]
+  },
+  "t-63": {
+   "en_safe": [
+    "foundation plinth",
+    "granite plinth",
+    "brick chimney base"
+   ],
+   "en_context": [
+    "plinth"
+   ],
+   "th_safe": [
+    "ฐานแท่นหินแกรนิต",
+    "ฐานรองปล่องอิฐ"
+   ],
+   "th_context": [
+    "แท่นฐาน"
+   ]
+  },
+  "t-64": {
+   "en_safe": [
+    "building foundation stone",
+    "foundation stones",
+    "foundation block"
+   ],
+   "en_context": [
+    "foundation stone",
+    "base stone"
+   ],
+   "th_safe": [
+    "หินฐานรากของอาคาร",
+    "หินรองฐานอาคาร"
+   ],
+   "th_context": [
+    "หินก่อฐาน",
+    "หินรองเสา"
+   ]
+  },
+  "t-65": {
+   "en_safe": [
+    "structural timber"
+   ],
+   "en_context": [
+    "structural member",
+    "building material",
+    "architectural element",
+    "reusable building component",
+    "architectural component",
+    "building component"
+   ],
+   "th_safe": [
+    "ไม้โครงสร้าง"
+   ],
+   "th_context": [
+    "วัสดุโครงสร้าง",
+    "ส่วนประกอบโครงสร้าง",
+    "องค์ประกอบอาคาร",
+    "ส่วนประกอบสถาปัตยกรรม"
+   ]
+  },
+  "t-66": {
+   "en_safe": [
+    "architectural remains",
+    "recovered architectural remains",
+    "historic building remains"
+   ],
+   "en_context": [
+    "ruins",
+    "stone remains",
+    "archaeological remains"
+   ],
+   "th_safe": [
+    "ซากโครงสร้างสถาปัตยกรรม",
+    "ซากอาคารโบราณ"
+   ],
+   "th_context": [
+    "ซากโครงสร้างโบราณ",
+    "ซากปรักหักพัง",
+    "ซากหิน"
+   ]
+  },
+  "t-67": {
+   "en_safe": [
+    "decorative flower-patterned wall",
+    "ornamental brick wall",
+    "Jakyungjeon flower wall"
+   ],
+   "en_context": [
+    "flower wall",
+    "decorative wall",
+    "patterned brick wall"
+   ],
+   "th_safe": [
+    "กำแพงอิฐประดับลวดลายดอกไม้",
+    "กำแพงลายดอกไม้จาคยองจอน"
+   ],
+   "th_context": [
+    "กำแพงประดับลวดลายดอกไม้",
+    "กำแพงประดับลวดลาย",
+    "กำแพงอิฐประดับ"
+   ]
+  },
+  "t-68": {
+   "en_safe": [
+    "stone planter",
+    "stone basin",
+    "stone water basin"
+   ],
+   "en_context": [
+    "stone pot",
+    "stone vessel"
+   ],
+   "th_safe": [
+    "กระถางหิน",
+    "อ่างหินใส่น้ำ",
+    "บ่อหิน"
+   ],
+   "th_context": [
+    "กระถางหิน",
+    "อ่างหิน",
+    "ภาชนะหิน",
+    "บ่อน้ำหิน"
+   ]
+  },
+  "t-69": {
+   "en_safe": [
+    "Five Elements",
+    "five-element theory"
+   ],
+   "en_context": [
+    "five elements",
+    "metal, water, wood, fire, and earth"
+   ],
+   "th_safe": [
+    "ธาตุทั้งห้า",
+    "ทฤษฎีธาตุทั้งห้า"
+   ],
+   "th_context": [
+    "ธาตุทั้งห้า",
+    "โลหะ น้ำ ไม้ ไฟ และดิน"
+   ]
+  },
+  "t-70": {
+   "en_safe": [
+    "Four Guardian Deities",
+    "Four Celestial Guardians",
+    "Four Directional Guardians"
+   ],
+   "en_context": [
+    "four guardians",
+    "guardian deities",
+    "Azure Dragon, White Tiger, Vermilion Bird, and Black Tortoise"
+   ],
+   "th_safe": [
+    "เทพผู้พิทักษ์ทั้งสี่",
+    "เทพผู้พิทักษ์สี่ทิศ"
+   ],
+   "th_context": [
+    "ผู้พิทักษ์สวรรค์ทั้งสี่",
+    "เทพผู้พิทักษ์ทั้งสี่",
+    "มังกรเขียว เสือขาว นกแดง และเต่าดำ"
+   ]
+  },
+  "t-71": {
+   "en_safe": [
+    "auspicious mythical animal",
+    "mythical guardian animal"
+   ],
+   "en_context": [
+    "auspicious beast",
+    "guardian beast"
+   ],
+   "th_safe": [
+    "สัตว์มงคลในตำนาน",
+    "สัตว์เทพผู้พิทักษ์"
+   ],
+   "th_context": [
+    "สัตว์มงคล"
+   ]
+  },
+  "t-72": {
+   "en_safe": [
+    "warding off evil spirits",
+    "apotropaic protection",
+    "evil-spirit warding"
+   ],
+   "en_context": [
+    "warding off evil",
+    "protection against evil spirits",
+    "evil-warding symbolism"
+   ],
+   "th_safe": [
+    "การขับไล่วิญญาณชั่วร้าย",
+    "การปัดเป่าสิ่งชั่วร้าย"
+   ],
+   "th_context": [
+    "การขับไล่ภูตผี",
+    "การป้องกันสิ่งชั่วร้าย",
+    "สัญลักษณ์ปัดเป่าสิ่งชั่วร้าย"
+   ]
+  },
+  "t-73": {
+   "en_safe": [
+    "ten symbols of longevity",
+    "ten symbols of long life"
+   ],
+   "en_context": [
+    "longevity symbols",
+    "symbols of longevity",
+    "ten longevity symbols"
+   ],
+   "th_safe": [
+    "สัญลักษณ์แห่งความยืนยาวสิบประการ",
+    "สัญลักษณ์สิบประการแห่งการมีอายุยืน"
+   ],
+   "th_context": [
+    "สัญลักษณ์แห่งความยืนยาว",
+    "สัญลักษณ์แห่งการมีอายุยืน",
+    "สัญลักษณ์อายุยืนสิบประการ"
+   ]
+  },
+  "t-74": {
+   "en_safe": [
+    "Korean phoenix"
+   ],
+   "en_context": [
+    "phoenix"
+   ],
+   "th_safe": [
+    "หงส์ไฟเกาหลี"
+   ],
+   "th_context": [
+    "หงส์ไฟ",
+    "นกฟีนิกซ์"
+   ]
+  },
+  "t-75": {
+   "en_safe": [
+    "yin and yang",
+    "principle of dual energy"
+   ],
+   "en_context": [
+    "yin-yang"
+   ],
+   "th_safe": [
+    "หยินและหยาง",
+    "หลักพลังคู่ตรงข้าม"
+   ],
+   "th_context": [
+    "หยินหยาง"
+   ]
+  },
+  "t-76": {
+   "en_safe": [
+    "the five Confucian virtues",
+    "five Confucian virtues"
+   ],
+   "en_context": [
+    "benevolence, righteousness, propriety, wisdom, and trust",
+    "benevolence, righteousness, propriety, wisdom, and faithfulness"
+   ],
+   "th_safe": [
+    "คุณธรรมขงจื๊อห้าประการ"
+   ],
+   "th_context": [
+    "เมตตา ความชอบธรรม มารยาท ปัญญา และความซื่อสัตย์",
+    "เมตตาธรรม ความชอบธรรม ความเหมาะสม ปัญญา และความซื่อสัตย์"
+   ]
+  },
+  "t-77": {
+   "en_safe": [
+    "principle of round heaven and square earth",
+    "round heaven and square earth"
+   ],
+   "en_context": [
+    "round heaven, square earth"
+   ],
+   "th_safe": [
+    "หลักฟ้ากลมแผ่นดินเหลี่ยม"
+   ],
+   "th_context": [
+    "ฟ้ากลมแผ่นดินเหลี่ยม",
+    "แนวคิดฟ้ากลมแผ่นดินเหลี่ยม"
+   ]
+  },
+  "t-78": {
+   "en_safe": [
+    "Four Gracious Plants",
+    "four noble plants"
+   ],
+   "en_context": [
+    "plum, orchid, chrysanthemum, and bamboo",
+    "the four gentlemen"
+   ],
+   "th_safe": [
+    "พรรณไม้ผู้ทรงคุณธรรมสี่ชนิด",
+    "พรรณไม้มงคลสี่ชนิด"
+   ],
+   "th_context": [
+    "บ๊วย กล้วยไม้ เบญจมาศ และไผ่",
+    "ไม้สี่สุภาพ"
+   ]
+  },
+  "t-79": {
+   "en_safe": [
+    "auspicious patterns",
+    "auspicious motifs"
+   ],
+   "en_context": [
+    "lucky patterns",
+    "lucky motifs"
+   ],
+   "th_safe": [
+    "ลวดลายมงคล",
+    "ลายมงคล"
+   ],
+   "th_context": [
+    "ลวดลายแห่งความเป็นสิริมงคล",
+    "ลายมงคล"
+   ]
+  },
+  "t-80": {
+   "en_safe": [
+    "divine mythical beast",
+    "sacred mythical beast"
+   ],
+   "en_context": [
+    "divine beast"
+   ],
+   "th_safe": [
+    "สัตว์มงคลศักดิ์สิทธิ์ในตำนาน",
+    "สัตว์เทพในตำนาน"
+   ],
+   "th_context": [
+    "สัตว์เทพ"
+   ]
+  },
+  "t-81": {
+   "en_safe": [
+    "Cheonrok",
+    "horned divine beast guarding the waterway"
+   ],
+   "en_context": [
+    "mythical waterway guardian",
+    "horned waterway guardian"
+   ],
+   "th_safe": [
+    "สัตว์เทพมีเขาผู้พิทักษ์ทางน้ำ"
+   ],
+   "th_context": [
+    "สัตว์เทพมีเขา",
+    "สัตว์ผู้พิทักษ์ทางน้ำ"
+   ]
+  },
+  "t-82": {
+   "en_safe": [
+    "mythical creature warding off fire and evil",
+    "fire- and evil-warding mythical creature"
+   ],
+   "en_context": [
+    "fire-warding creature",
+    "evil-warding creature"
+   ],
+   "th_safe": [
+    "สัตว์ในตำนานผู้ปัดเป่าไฟและสิ่งชั่วร้าย",
+    "สัตว์เทพผู้ป้องกันไฟและสิ่งชั่วร้าย"
+   ],
+   "th_context": [
+    "สัตว์ผู้ปัดเป่าไฟ",
+    "สัตว์ผู้ปัดเป่าสิ่งชั่วร้าย"
+   ]
+  },
+  "t-83": {
+   "en_safe": [
+    "seven-clawed dragon"
+   ],
+   "en_context": [
+    "seven-clawed dragon carving"
+   ],
+   "th_safe": [
+    "มังกรเจ็ดเล็บ"
+   ],
+   "th_context": [
+    "รูปมังกรเจ็ดเล็บ"
+   ]
+  },
+  "t-84": {
+   "en_safe": [
+    "Ssangnyong",
+    "twin dragons",
+    "Yeouiboju",
+    "wish-fulfilling jewel"
+   ],
+   "en_context": [
+    "paired dragons",
+    "wish-granting jewel"
+   ],
+   "th_safe": [
+    "มังกรคู่",
+    "แก้วสารพัดนึก"
+   ],
+   "th_context": [
+    "มังกรสองตัว",
+    "แก้วสารพัดพร"
+   ]
+  },
+  "t-85": {
+   "en_safe": [
+    "statues of the twelve Chinese zodiac animals",
+    "twelve zodiac animal statues"
+   ],
+   "en_context": [
+    "Chinese zodiac animal statues",
+    "zodiac animal figures"
+   ],
+   "th_safe": [
+    "รูปสลักสัตว์นักษัตรจีนทั้งสิบสอง",
+    "รูปปั้นสัตว์นักษัตรจีนสิบสองตัว"
+   ],
+   "th_context": [
+    "รูปสลักสัตว์นักษัตร",
+    "รูปสัตว์นักษัตรจีน"
+   ]
+  },
+  "t-86": {
+   "en_safe": [
+    "monster mask warding off evil"
+   ],
+   "en_context": [
+    "evil-averting monster mask",
+    "protective monster mask"
+   ],
+   "th_safe": [
+    "หน้ากากอสูรผู้ปัดเป่าสิ่งชั่วร้าย"
+   ],
+   "th_context": [
+    "หน้ากากอสูรปัดเป่าสิ่งชั่วร้าย",
+    "หน้ากากอสูรคุ้มภัย"
+   ]
+  },
+  "t-87": {
+   "en_safe": [
+    "metal-eating mythical creature"
+   ],
+   "en_context": [
+    "metal-eating monster",
+    "metal-eating creature"
+   ],
+   "th_safe": [
+    "สัตว์ในตำนานกินเหล็ก"
+   ],
+   "th_context": [
+    "อสูรกินเหล็ก",
+    "สัตว์กินเหล็กในตำนาน"
+   ]
+  },
+  "t-88": {
+   "en_safe": [
+    "Irworobongdo",
+    "Irworobongbyeong",
+    "painting of the sun, moon, and five peaks",
+    "screen of the sun, moon, and five peaks"
+   ],
+   "en_context": [
+    "sun, moon, and five peaks painting",
+    "sun, moon, and five peaks screen",
+    "royal screen of the sun, moon, and five peaks"
+   ],
+   "th_safe": [
+    "ภาพวาดพระอาทิตย์ พระจันทร์ และยอดเขาห้ายอด",
+    "ฉากกั้นพระอาทิตย์ พระจันทร์ และยอดเขาห้ายอด"
+   ],
+   "th_context": [
+    "ภาพพระอาทิตย์ พระจันทร์ และยอดเขาห้ายอด",
+    "ฉากพระอาทิตย์ พระจันทร์ และยอดเขาห้ายอด",
+    "ภาพฉากสัญลักษณ์พระอาทิตย์ พระจันทร์ และยอดเขาห้ายอด"
+   ]
+  },
+  "t-89": {
+   "en_safe": [
+    "three-panel folding screen"
+   ],
+   "en_context": [
+    "three-panel screen",
+    "three-fold folding screen"
+   ],
+   "th_safe": [
+    "ฉากกั้นพับสามตอน"
+   ],
+   "th_context": [
+    "ฉากพับสามตอน",
+    "ฉากกั้นสามบาน"
+   ]
+  },
+  "t-90": {
+   "en_safe": [
+    "Five Blessings"
+   ],
+   "en_context": [
+    "five blessings"
+   ],
+   "th_safe": [
+    "พรประเสริฐห้าประการ"
+   ],
+   "th_context": [
+    "พรห้าประการ",
+    "พรทั้งห้า"
+   ]
+  },
+  "t-91": {
+   "en_safe": [
+    "Hexagram of Peace and Harmony"
+   ],
+   "en_context": [
+    "hexagram of peace and harmony",
+    "Tai hexagram"
+   ],
+   "th_safe": [
+    "ข่วยแห่งสันติสุขและความปรองดอง"
+   ],
+   "th_context": [
+    "ข่วยไท่",
+    "สัญลักษณ์ข่วยแห่งสันติสุขและความปรองดอง"
+   ]
+  },
+  "t-92": {
+   "en_safe": [
+    "naming taboo custom"
+   ],
+   "en_context": [
+    "name-avoidance custom",
+    "taboo on using a name",
+    "naming taboo"
+   ],
+   "th_safe": [
+    "ธรรมเนียมงดใช้ชื่อ"
+   ],
+   "th_context": [
+    "ธรรมเนียมห้ามเอ่ยชื่อ",
+    "การหลีกเลี่ยงการใช้ชื่อ"
+   ]
+  },
+  "t-93": {
+   "en_safe": [
+    "Era of Peace and Prosperity"
+   ],
+   "en_context": [
+    "peace and prosperity"
+   ],
+   "th_safe": [
+    "ยุคแห่งสันติสุขและความรุ่งเรือง"
+   ],
+   "th_context": [
+    "สันติสุขและความรุ่งเรือง"
+   ]
+  },
+  "t-94": {
+   "en_safe": [
+    "fire demon",
+    "destructive fire"
+   ],
+   "en_context": [
+    "demon of fire",
+    "destructive blaze"
+   ],
+   "th_safe": [
+    "ปีศาจเพลิง",
+    "ไฟทำลายล้าง"
+   ],
+   "th_context": [
+    "ปีศาจแห่งไฟ",
+    "เพลิงทำลายล้าง"
+   ]
+  },
+  "t-95": {
+   "en_context": [
+    "crown prince",
+    "heir to the throne",
+    "prince heir"
+   ],
+   "th_context": [
+    "องค์รัชทายาท",
+    "รัชทายาท",
+    "เจ้าชายรัชทายาท"
+   ]
+  },
+  "t-96": {
+   "en_safe": [
+    "queen dowager"
+   ],
+   "en_context": [
+    "dowager queen"
+   ],
+   "th_safe": [
+    "พระพันปีหลวง"
+   ],
+   "th_context": [
+    "พระราชินีหม้าย"
+   ]
+  },
+  "t-97": {
+   "en_safe": [
+    "Munban",
+    "Muban"
+   ],
+   "en_context": [
+    "civil official",
+    "military official",
+    "civilian official",
+    "civil official",
+    "military official"
+   ],
+   "th_safe": [
+    "ขุนนางฝ่ายพลเรือน",
+    "ขุนนางฝ่ายทหาร"
+   ],
+   "th_context": [
+    "ขุนนางพลเรือน",
+    "ขุนนางทหาร"
+   ]
+  },
+  "t-98": {
+   "en_safe": [
+    "royal portrait"
+   ],
+   "en_context": [
+    "portrait of a king",
+    "portrait of the king"
+   ],
+   "th_safe": [
+    "พระบรมสาทิสลักษณ์"
+   ],
+   "th_context": [
+    "ภาพพระบรมฉายาลักษณ์",
+    "ภาพเหมือนของพระมหากษัตริย์"
+   ]
+  },
+  "t-99": {
+   "en_safe": [
+    "court official"
+   ],
+   "en_context": [
+    "court officials",
+    "royal retainer",
+    "court retainer"
+   ],
+   "th_safe": [
+    "ขุนนางในราชสำนัก",
+    "ข้าราชบริพาร"
+   ],
+   "th_context": [
+    "ขุนนางราชสำนัก",
+    "ผู้รับใช้ราชสำนัก"
+   ]
+  },
+  "t-100": {
+   "en_safe": [
+    "Dongban",
+    "Seoban",
+    "civil officials in the east",
+    "military officials in the west"
+   ],
+   "en_context": [
+    "eastern civil officials",
+    "western military officials"
+   ],
+   "th_safe": [
+    "ขุนนางฝ่ายพลเรือนทางตะวันออก",
+    "ขุนนางฝ่ายทหารทางตะวันตก"
+   ],
+   "th_context": [
+    "ขุนนางพลเรือนฝ่ายตะวันออก",
+    "ขุนนางทหารฝ่ายตะวันตก"
+   ]
+  },
+  "t-101": {
+   "en_safe": [
+    "crown princess"
+   ],
+   "en_context": [
+    "crown prince's wife",
+    "wife of the crown prince"
+   ],
+   "th_safe": [
+    "มเหสีองค์รัชทายาท"
+   ],
+   "th_context": [
+    "พระชายาขององค์รัชทายาท",
+    "พระมเหสีของรัชทายาท"
+   ]
+  },
+  "t-102": {
+   "en_safe": [
+    "royal relative",
+    "royal family member"
+   ],
+   "en_context": [
+    "member of the royal family",
+    "royal kin"
+   ],
+   "th_safe": [
+    "พระประยูรญาติ"
+   ],
+   "th_context": [
+    "สมาชิกพระราชวงศ์"
+   ]
+  },
+  "t-103": {
+   "en_safe": [
+    "King's mother",
+    "mother of the king"
+   ],
+   "en_context": [
+    "royal mother"
+   ],
+   "th_safe": [
+    "พระราชมารดา",
+    "พระมารดาของพระมหากษัตริย์"
+   ],
+   "th_context": [
+    "พระราชชนนี"
+   ]
+  },
+  "t-104": {
+   "en_safe": [
+    "adopted son",
+    "adoptive mother"
+   ],
+   "en_context": [
+    "adoptive parent",
+    "adoptive child"
+   ],
+   "th_safe": [
+    "บุตรบุญธรรมชาย",
+    "มารดาบุญธรรม"
+   ],
+   "th_context": [
+    "บุตรบุญธรรม",
+    "แม่บุญธรรม"
+   ]
+  },
+  "t-105": {
+   "en_safe": [
+    "regency by a queen dowager",
+    "queen dowager's regency",
+    "rule by a queen dowager"
+   ],
+   "th_safe": [
+    "การสำเร็จราชการโดยพระพันปี",
+    "การสำเร็จราชการของพระพันปี"
+   ]
+  },
+  "t-106": {
+   "en_safe": [
+    "direct rule by the king",
+    "the king's direct rule",
+    "personal rule by the king"
+   ],
+   "en_context": [
+    "direct rule",
+    "personal rule"
+   ],
+   "th_safe": [
+    "การปกครองโดยพระราชาโดยตรง",
+    "การปกครองโดยพระมหากษัตริย์โดยตรง"
+   ],
+   "th_context": [
+    "การปกครองโดยตรง"
+   ]
+  },
+  "t-107": {
+   "en_safe": [
+    "passing of a monarch",
+    "death of a monarch",
+    "the monarch's death"
+   ],
+   "th_safe": [
+    "การสวรรคตของพระมหากษัตริย์",
+    "การสิ้นพระชนม์ของพระมหากษัตริย์"
+   ],
+   "th_context": [
+    "การสวรรคต",
+    "การสิ้นพระชนม์"
+   ]
+  },
+  "t-108": {
+   "en_safe": [
+    "state mourning",
+    "royal mourning",
+    "state funeral"
+   ],
+   "th_safe": [
+    "การไว้ทุกข์หลวง",
+    "การไว้ทุกข์ระดับรัฐ",
+    "พระราชพิธีพระบรมศพ"
+   ]
+  },
+  "t-109": {
+   "en_safe": [
+    "royal honorific title",
+    "honorific title bestowed on a monarch"
+   ],
+   "en_context": [
+    "honorific title"
+   ],
+   "th_safe": [
+    "พระราชสมัญญา",
+    "พระราชทินนาม"
+   ],
+   "th_context": [
+    "พระสมัญญา"
+   ]
+  },
+  "t-110": {
+   "en_safe": [
+    "enshrinement",
+    "temporary enshrinement"
+   ],
+   "en_context": [
+    "enshrining",
+    "placing in a shrine"
+   ],
+   "th_safe": [
+    "การประดิษฐาน",
+    "การประดิษฐานชั่วคราว"
+   ],
+   "th_context": [
+    "ประดิษฐาน",
+    "การนำไปประดิษฐาน"
+   ]
+  },
+  "t-111": {
+   "en_safe": [
+    "copying a royal portrait",
+    "reproducing a royal portrait",
+    "making a replica of a royal portrait"
+   ],
+   "en_context": [
+    "copying",
+    "reproducing",
+    "making a replica"
+   ],
+   "th_safe": [
+    "การคัดลอกภาพพระบรมสาทิสลักษณ์",
+    "การจำลองภาพพระบรมสาทิสลักษณ์"
+   ],
+   "th_context": [
+    "การคัดลอก",
+    "การจำลองแบบ"
+   ]
+  },
+  "t-112": {
+   "en_safe": [
+    "all civil and military officials",
+    "civil and military officials"
+   ],
+   "th_safe": [
+    "ข้าราชการฝ่ายพลเรือนและทหารทั้งหมด",
+    "ขุนนางฝ่ายพลเรือนและฝ่ายทหาร"
+   ]
+  },
+  "t-113": {
+   "en_safe": [
+    "official rank system"
+   ],
+   "en_context": [
+    "official rank",
+    "court rank",
+    "bureaucratic rank",
+    "rank grade"
+   ],
+   "th_safe": [
+    "ระบบลำดับชั้นข้าราชการ",
+    "ระดับตำแหน่งขุนนาง"
+   ],
+   "th_context": [
+    "ลำดับขุนนาง",
+    "ชั้นยศข้าราชการ",
+    "ระดับขุนนาง"
+   ]
+  },
+  "t-114": {
+   "en_safe": [
+    "meritorious official",
+    "meritorious subject"
+   ],
+   "en_context": [
+    "distinguished official",
+    "official rewarded for meritorious service",
+    "official who rendered meritorious service"
+   ],
+   "th_safe": [
+    "ขุนนางผู้มีความดีความชอบ",
+    "ขุนนางผู้สร้างคุณงามความดี"
+   ],
+   "th_context": [
+    "ขุนนางผู้มีผลงานความดีความชอบ",
+    "ขุนนางผู้ได้รับความดีความชอบ"
+   ]
+  },
+  "t-115": {
+   "en_safe": [
+    "ritual of allegiance by meritorious officials",
+    "meritorious officials' oath ritual"
+   ],
+   "en_context": [
+    "oath of allegiance",
+    "allegiance ritual",
+    "pledge of loyalty ceremony",
+    "ritual of loyalty"
+   ],
+   "th_safe": [
+    "พิธีถวายสัตย์ปฏิญาณของขุนนางผู้มีความดีความชอบ",
+    "พิธีสาบานความภักดีของขุนนางผู้สร้างคุณงามความดี"
+   ],
+   "th_context": [
+    "พิธีถวายสัตย์ปฏิญาณ",
+    "พิธีสาบานความภักดี",
+    "พิธีถวายสัตย์"
+   ]
+  },
+  "t-116": {
+   "en_safe": [
+    "official historian",
+    "court historian",
+    "royal historiographer"
+   ],
+   "en_context": [
+    "historian",
+    "official recorder"
+   ],
+   "th_safe": [
+    "เจ้าหน้าที่บันทึกประวัติศาสตร์",
+    "นักประวัติศาสตร์ประจำราชสำนัก"
+   ],
+   "th_context": [
+    "ผู้บันทึกประวัติศาสตร์",
+    "เจ้าหน้าที่บันทึกเหตุการณ์ในราชสำนัก"
+   ]
+  },
+  "t-117": {
+   "en_safe": [
+    "royal recorder in the Seungjeongwon",
+    "Seungjeongwon recorder",
+    "royal speech recorder"
+   ],
+   "en_context": [
+    "royal recorder",
+    "court recorder",
+    "recorder of royal discussions"
+   ],
+   "th_safe": [
+    "เจ้าหน้าที่บันทึกพระราชดำรัส",
+    "เจ้าหน้าที่บันทึกงานในซึงจองวอน"
+   ],
+   "th_context": [
+    "ผู้บันทึกพระราชดำรัส",
+    "ผู้บันทึกการประชุมของกษัตริย์และขุนนาง"
+   ]
+  },
+  "t-118": {
+   "en_safe": [
+    "royal secretary",
+    "royal secretary in the Seungjeongwon"
+   ],
+   "en_context": [
+    "secretary to the king",
+    "king's secretary"
+   ],
+   "th_safe": [
+    "เลขานุการพระราชา",
+    "เลขานุการประจำราชสำนัก"
+   ],
+   "th_context": [
+    "เลขานุการของกษัตริย์",
+    "ผู้ช่วยเลขานุการพระราชา"
+   ]
+  },
+  "t-119": {
+   "en_safe": [
+    "minister of the Six Ministries",
+    "minister of a Joseon ministry"
+   ],
+   "en_context": [
+    "ministry head"
+   ],
+   "th_safe": [
+    "เสนาบดีแห่งหกกระทรวง",
+    "เสนาบดีประจำกระทรวงของโชซอน"
+   ],
+   "th_context": [
+    "หัวหน้ากระทรวง"
+   ]
+  },
+  "t-120": {
+   "en_safe": [
+    "high-ranking official",
+    "senior court official"
+   ],
+   "en_context": [
+    "senior official",
+    "high official",
+    "high-ranking court official"
+   ],
+   "th_safe": [
+    "ขุนนางระดับสูง",
+    "ข้าราชการชั้นผู้ใหญ่"
+   ],
+   "th_context": [
+    "ขุนนางอาวุโส",
+    "ข้าราชการระดับสูง"
+   ]
+  },
+  "t-121": {
+   "en_safe": [
+    "king's privy purse",
+    "king's personal funds",
+    "royal personal treasury"
+   ],
+   "en_context": [
+    "privy purse",
+    "personal funds",
+    "royal private funds"
+   ],
+   "th_safe": [
+    "พระคลังส่วนพระองค์",
+    "เงินส่วนพระองค์ของกษัตริย์"
+   ],
+   "th_context": [
+    "เงินส่วนพระองค์",
+    "พระราชทรัพย์ส่วนพระองค์",
+    "เงินส่วนพระคลังส่วนพระองค์"
+   ]
+  },
+  "t-122": {
+   "en_safe": [
+    "diplomatic envoy",
+    "foreign envoy",
+    "Chinese envoy"
+   ],
+   "en_context": [
+    "envoy",
+    "diplomat",
+    "foreign diplomatic mission",
+    "foreign emissary"
+   ],
+   "th_safe": [
+    "ทูตทางการทูต",
+    "ราชทูต",
+    "ทูตจีน"
+   ],
+   "th_context": [
+    "คณะทูต",
+    "ผู้แทนทางการทูต",
+    "ราชทูตต่างประเทศ"
+   ]
+  },
+  "t-123": {
+   "en_safe": [
+    "Hall of Worthies",
+    "Royal Research Institute"
+   ],
+   "en_context": [
+    "royal institute",
+    "royal scholarly institution"
+   ],
+   "th_safe": [
+    "หอประชุมนักปราชญ์",
+    "สถาบันวิจัยหลวง"
+   ],
+   "th_context": [
+    "สถาบันราชบัณฑิต",
+    "สถาบันวิชาการหลวง"
+   ]
+  },
+  "t-124": {
+   "en_safe": [
+    "Royal Secretariat"
+   ],
+   "en_context": [
+    "royal secretariat"
+   ],
+   "th_safe": [
+    "สำนักเลขานุการหลวง"
+   ],
+   "th_context": [
+    "สำนักเลขานุการของพระมหากษัตริย์",
+    "หน่วยงานเลขานุการหลวง"
+   ]
+  },
+  "t-125": {
+   "en_safe": [
+    "Uijeongbu",
+    "State Council",
+    "Yukjo",
+    "Six Ministries"
+   ],
+   "en_context": [
+    "council of state",
+    "central ministries"
+   ],
+   "th_safe": [
+    "สภาแห่งรัฐ",
+    "กระทรวงทั้งหก"
+   ],
+   "th_context": [
+    "คณะรัฐมนตรีแห่งโชซอน",
+    "หน่วยงานบริหารส่วนกลาง"
+   ]
+  },
+  "t-126": {
+   "en_safe": [
+    "royal lecture",
+    "royal lectures"
+   ],
+   "en_context": [
+    "court lecture",
+    "royal instruction"
+   ],
+   "th_safe": [
+    "การบรรยายหลวง"
+   ],
+   "th_context": [
+    "การถวายคำสอนแด่พระมหากษัตริย์",
+    "การศึกษาของพระมหากษัตริย์"
+   ]
+  },
+  "t-127": {
+   "en_safe": [
+    "formal congratulations to the king"
+   ],
+   "en_context": [
+    "formal congratulations",
+    "congratulatory audience with the king"
+   ],
+   "th_safe": [
+    "การถวายพระพรอย่างเป็นทางการ"
+   ],
+   "th_context": [
+    "การถวายพระพร",
+    "พิธีถวายพระพรแด่พระมหากษัตริย์"
+   ]
+  },
+  "t-128": {
+   "en_safe": [
+    "Three Armies Headquarters"
+   ],
+   "en_context": [
+    "military headquarters",
+    "headquarters of the three armies"
+   ],
+   "th_safe": [
+    "กองบัญชาการสามกองทัพ"
+   ],
+   "th_context": [
+    "กองบัญชาการทหาร",
+    "หน่วยบัญชาการสามกองทัพ"
+   ]
+  },
+  "t-129": {
+   "en_safe": [
+    "Office of the Inspector General"
+   ],
+   "en_context": [
+    "inspectorate",
+    "government inspector's office"
+   ],
+   "th_safe": [
+    "สำนักผู้ตรวจการแผ่นดิน"
+   ],
+   "th_context": [
+    "หน่วยงานตรวจสอบราชการ",
+    "สำนักตรวจการแผ่นดิน"
+   ]
+  },
+  "t-130": {
+   "en_safe": [
+    "government office site"
+   ],
+   "en_context": [
+    "government office",
+    "government offices",
+    "government agency"
+   ],
+   "th_safe": [
+    "ที่ตั้งหน่วยงานราชการ"
+   ],
+   "th_context": [
+    "หน่วยงานราชการ",
+    "สำนักงานราชการ"
+   ]
+  },
+  "t-131": {
+   "en_safe": [
+    "Office of Special Advisors"
+   ],
+   "en_context": [
+    "royal advisory office",
+    "special advisors' office"
+   ],
+   "th_safe": [
+    "สำนักที่ปรึกษาพิเศษ"
+   ],
+   "th_context": [
+    "หน่วยงานที่ปรึกษาพิเศษของพระมหากษัตริย์",
+    "สำนักที่ปรึกษาราชสำนัก"
+   ]
+  },
+  "t-132": {
+   "en_safe": [
+    "Office of Royal Decrees"
+   ],
+   "en_context": [
+    "office that drafted royal edicts",
+    "royal decree office"
+   ],
+   "th_safe": [
+    "สำนักพระราชโองการ"
+   ],
+   "th_context": [
+    "หน่วยงานจัดทำพระราชโองการ",
+    "สำนักร่างพระราชกฤษฎีกา"
+   ]
+  },
+  "t-133": {
+   "en_safe": [
+    "Royal Infirmary",
+    "Royal Medical Bureau"
+   ],
+   "en_context": [
+    "royal medical office",
+    "royal medical institution"
+   ],
+   "th_safe": [
+    "สถานพยาบาลหลวง",
+    "สำนักแพทย์หลวง"
+   ],
+   "th_context": [
+    "หน่วยงานแพทย์ประจำราชสำนัก"
+   ]
+  },
+  "t-134": {
+   "en_safe": [
+    "Conference Hall for High Officials"
+   ],
+   "en_context": [
+    "conference room for high officials",
+    "meeting place for senior ministers"
+   ],
+   "th_safe": [
+    "ห้องประชุมขุนนางชั้นสูง"
+   ],
+   "th_context": [
+    "ห้องประชุมของขุนนางระดับสูง",
+    "สถานที่ประชุมของเสนาบดีชั้นผู้ใหญ่"
+   ]
+  },
+  "t-135": {
+   "en_safe": [
+    "Border Defense Council"
+   ],
+   "en_context": [
+    "council for border defense",
+    "border defense agency"
+   ],
+   "th_safe": [
+    "สภาป้องกันชายแดน"
+   ],
+   "th_context": [
+    "สภากลาโหมชายแดน",
+    "หน่วยงานด้านการป้องกันชายแดน"
+   ]
+  },
+  "t-136": {
+   "en_safe": [
+    "Office of Royal Messengers and Guards"
+   ],
+   "en_context": [
+    "office of royal guards and messengers",
+    "royal messenger and guard office"
+   ],
+   "th_safe": [
+    "สำนักราชองครักษ์และผู้ส่งสาร"
+   ],
+   "th_context": [
+    "หน่วยงานราชองครักษ์และผู้ส่งสารของพระมหากษัตริย์"
+   ]
+  },
+  "t-137": {
+   "en_safe": [
+    "Headquarters of Palace Gate Guards"
+   ],
+   "en_context": [
+    "palace gate guard headquarters",
+    "office of the palace gate guards"
+   ],
+   "th_safe": [
+    "กองบัญชาการทหารรักษาประตูพระราชวัง"
+   ],
+   "th_context": [
+    "หน่วยงานรักษาประตูพระราชวัง",
+    "ที่ทำการทหารยามประตูวัง"
+   ]
+  },
+  "t-138": {
+   "en_safe": [
+    "Special Medical Office for the King and Queen"
+   ],
+   "en_context": [
+    "special medical office for the royal couple",
+    "medical office for the king and queen"
+   ],
+   "th_safe": [
+    "สำนักแพทย์เฉพาะกิจสำหรับพระมหากษัตริย์และพระราชินี"
+   ],
+   "th_context": [
+    "หน่วยแพทย์เฉพาะสำหรับกษัตริย์และพระราชินี",
+    "สำนักแพทย์ประจำพระมหากษัตริย์และพระราชินี"
+   ]
+  },
+  "t-139": {
+   "en_safe": [
+    "Deliberative Council for Military and State Affairs"
+   ],
+   "en_context": [
+    "council for military and state affairs",
+    "military and state affairs council"
+   ],
+   "th_safe": [
+    "สภาหารือกิจการทหารและบ้านเมือง"
+   ],
+   "th_context": [
+    "สภาหารือกิจการทหารและกิจการแผ่นดิน",
+    "คณะกรรมการกิจการทหารและการปกครอง"
+   ]
+  },
+  "t-140": {
+   "en_safe": [
+    "Royal Library and Inner Cabinet"
+   ],
+   "en_context": [
+    "inner cabinet",
+    "royal library"
+   ],
+   "th_safe": [
+    "หอสมุดหลวงและสำนักบริหารภายใน"
+   ],
+   "th_context": [
+    "สำนักบริหารภายในราชสำนัก",
+    "หอสมุดประจำราชสำนัก"
+   ]
+  },
+  "t-141": {
+   "en_safe": [
+    "King's Personal Storage and Attendant Office"
+   ],
+   "en_context": [
+    "king's storage and attendant office",
+    "royal storage and attendant office"
+   ],
+   "th_safe": [
+    "ตำหนักเก็บของและที่ทำงานผู้ถวายงานกษัตริย์"
+   ],
+   "th_context": [
+    "ที่เก็บของส่วนพระองค์และที่ทำงานผู้ถวายงาน",
+    "สถานที่ทำงานของเจ้าหน้าที่ผู้ถวายงานกษัตริย์"
+   ]
+  },
+  "t-142": {
+   "en_safe": [
+    "Royal Kitchen"
+   ],
+   "en_context": [
+    "king's kitchen",
+    "palace kitchen"
+   ],
+   "th_safe": [
+    "ห้องครัวหลวง"
+   ],
+   "th_context": [
+    "ครัวของพระราชวัง",
+    "ห้องประกอบอาหารในราชสำนัก"
+   ]
+  },
+  "t-143": {
+   "en_safe": [
+    "Royal Laundry Office"
+   ],
+   "en_context": [
+    "laundry office",
+    "royal laundry"
+   ],
+   "th_safe": [
+    "หน่วยซักรีดหลวง"
+   ],
+   "th_context": [
+    "หน่วยซักรีด",
+    "ฝ่ายซักรีดในพระราชวัง"
+   ]
+  },
+  "t-144": {
+   "en_safe": [
+    "Gibyeol",
+    "Jobo"
+   ],
+   "en_context": [
+    "government newsletter",
+    "court gazette",
+    "government bulletin"
+   ],
+   "th_context": [
+    "จดหมายข่าวราชการ",
+    "ประกาศข่าวราชสำนัก"
+   ]
+  },
+  "t-145": {
+   "en_safe": [
+    "official government gazette"
+   ],
+   "en_context": [
+    "official gazette",
+    "government gazette"
+   ],
+   "th_safe": [
+    "ราชกิจจานุเบกษาของรัฐบาล"
+   ],
+   "th_context": [
+    "ราชกิจจานุเบกษา",
+    "ประกาศราชการ"
+   ]
+  },
+  "t-146": {
+   "en_safe": [
+    "official petition to the king"
+   ],
+   "en_context": [
+    "petition to the king",
+    "petition",
+    "official petition"
+   ],
+   "th_safe": [
+    "ฎีกาถวายพระมหากษัตริย์"
+   ],
+   "th_context": [
+    "ฎีกา",
+    "คำร้องถวายพระมหากษัตริย์"
+   ]
+  },
+  "t-147": {
+   "en_safe": [
+    "appointment and dismissal of officials"
+   ],
+   "en_context": [
+    "appointment of officials",
+    "dismissal of officials",
+    "appointment and dismissal"
+   ],
+   "th_safe": [
+    "การแต่งตั้งและปลดข้าราชการ"
+   ],
+   "th_context": [
+    "การแต่งตั้งข้าราชการ",
+    "การปลดข้าราชการ",
+    "การแต่งตั้งและถอดถอน"
+   ]
+  },
+  "t-148": {
+   "en_safe": [
+    "royal edict",
+    "royal decree"
+   ],
+   "en_context": [
+    "edict",
+    "decree",
+    "royal proclamation"
+   ],
+   "th_safe": [
+    "พระราชโองการ",
+    "พระราชกำหนด"
+   ],
+   "th_context": [
+    "ประกาศพระราชโองการ",
+    "พระบรมราชโองการ"
+   ]
+  },
+  "t-149": {
+   "en_safe": [
+    "daily morning court assembly"
+   ],
+   "en_context": [
+    "daily morning assembly",
+    "morning court assembly",
+    "daily court audience"
+   ],
+   "th_safe": [
+    "การประชุมขุนนางยามเช้าประจำวัน"
+   ],
+   "th_context": [
+    "การเข้าเฝ้าประจำวันตอนเช้า"
+   ]
+  },
+  "t-150": {
+   "en_safe": [
+    "royal lecture for the crown prince"
+   ],
+   "en_context": [
+    "lecture for the crown prince",
+    "crown prince's lecture",
+    "royal instruction for the crown prince"
+   ],
+   "th_safe": [
+    "การสอนหนังสือองค์รัชทายาท"
+   ],
+   "th_context": [
+    "การสอนองค์รัชทายาท",
+    "การบรรยายสำหรับองค์รัชทายาท"
+   ]
+  },
+  "t-151": {
+   "en_safe": [
+    "morning assembly of officials"
+   ],
+   "en_context": [
+    "morning assembly",
+    "court assembly",
+    "assembly of officials",
+    "morning court audience"
+   ],
+   "th_safe": [
+    "การประชุมขุนนางยามเช้า"
+   ],
+   "th_context": [
+    "การประชุมขุนนาง",
+    "การเข้าเฝ้าตอนเช้า",
+    "การเข้าเฝ้าของขุนนาง"
+   ]
+  },
+  "t-152": {
+   "en_safe": [
+    "enthronement",
+    "enthronement ceremony",
+    "coronation",
+    "coronation ceremony"
+   ],
+   "en_context": [
+    "accession ceremony",
+    "royal enthronement"
+   ],
+   "th_safe": [
+    "พระราชพิธีขึ้นครองราชย์",
+    "พิธีขึ้นครองราชย์",
+    "พิธีราชาภิเษก"
+   ],
+   "th_context": [
+    "การขึ้นครองราชย์",
+    "พิธีสถาปนากษัตริย์"
+   ]
+  },
+  "t-153": {
+   "en_safe": [
+    "transmission of royal decrees and reports"
+   ],
+   "en_context": [
+    "royal decree transmission",
+    "dispatch of royal orders and reports"
+   ],
+   "th_safe": [
+    "การส่งพระราชโองการและรายงาน"
+   ],
+   "th_context": [
+    "การส่งพระราชโองการ",
+    "การถ่ายทอดพระราชโองการและรายงาน"
+   ]
+  },
+  "t-154": {
+   "en_safe": [
+    "civil rule",
+    "rule by learning and law"
+   ],
+   "en_context": [
+    "rule by civil officials",
+    "civil governance"
+   ],
+   "th_safe": [
+    "การปกครองด้วยพลเรือน",
+    "การปกครองด้วยวิชาความรู้และกฎหมาย"
+   ],
+   "th_context": [
+    "การปกครองโดยขุนนางฝ่ายพลเรือน",
+    "การปกครองด้วยความรู้และกฎหมาย"
+   ]
+  },
+  "t-155": {
+   "en_safe": [
+    "first special Korean diplomatic mission to the United States"
+   ],
+   "en_context": [
+    "Korean diplomatic mission to the United States",
+    "special diplomatic mission to the United States"
+   ],
+   "th_safe": [
+    "คณะทูตเกาหลีชุดแรกไปสหรัฐอเมริกา"
+   ],
+   "th_context": [
+    "คณะทูตเกาหลีไปสหรัฐอเมริกา",
+    "คณะผู้แทนทางการทูตเกาหลีชุดพิเศษ"
+   ]
+  },
+  "t-156": {
+   "en_safe": [
+    "sura",
+    "royal meal",
+    "byeolsik",
+    "royal special delicacy",
+    "dasik",
+    "traditional Korean confection"
+   ],
+   "en_context": [
+    "royal meal",
+    "special delicacy",
+    "traditional snack"
+   ],
+   "th_safe": [
+    "พระกระยาหาร"
+   ],
+   "th_context": [
+    "อาหารประจำวันของราชวงศ์",
+    "อาหารพิเศษในวัง",
+    "ขนมกินเล่นแบบดั้งเดิม",
+    "อาหารพิเศษ",
+    "ขนมพื้นเมือง"
+   ]
+  },
+  "t-157": {
+   "en_safe": [
+    "Japanese invasions of Korea, 1592–1598",
+    "Imjin War"
+   ],
+   "en_context": [
+    "Japanese invasion of Korea",
+    "Imjin invasions"
+   ],
+   "th_safe": [
+    "การรุกรานเกาหลีของญี่ปุ่น ค.ศ. 1592–1598"
+   ],
+   "th_context": [
+    "สงครามอิมจิน",
+    "การรุกรานเกาหลีโดยญี่ปุ่น"
+   ]
+  },
+  "t-158": {
+   "en_safe": [
+    "destruction by fire"
+   ],
+   "en_context": [
+    "reconstruction",
+    "restoration",
+    "founding",
+    "rebuilding",
+    "repair and restoration",
+    "burned down",
+    "rebuilding"
+   ],
+   "th_safe": [
+    "การสร้างขึ้นใหม่",
+    "การถูกไฟไหม้เสียหาย"
+   ],
+   "th_context": [
+    "การบูรณะ",
+    "การก่อตั้ง",
+    "การสร้างใหม่",
+    "การซ่อมแซมและบูรณะ",
+    "ถูกไฟไหม้",
+    "การฟื้นฟู"
+   ]
+  },
+  "t-159": {
+   "en_context": [
+    "rebuilding of Gyeongbokgung",
+    "Gyeongbokgung reconstruction"
+   ],
+   "th_context": [
+    "การสร้างพระราชวังคยองบกกุงขึ้นใหม่",
+    "การบูรณะคยองบกกุง"
+   ]
+  },
+  "t-160": {
+   "en_safe": [
+    "Japanese colonial rule in Korea"
+   ],
+   "en_context": [
+    "Japanese colonial period, 1910–1945",
+    "Japanese colonial era",
+    "colonial period under Japanese rule"
+   ],
+   "th_safe": [
+    "ยุคอาณานิคมญี่ปุ่น ค.ศ. 1910–1945"
+   ],
+   "th_context": [
+    "ยุคที่ญี่ปุ่นปกครองเกาหลี",
+    "สมัยอาณานิคมญี่ปุ่น"
+   ]
+  },
+  "t-161": {
+   "en_safe": [
+    "Japanese Government-General of Korea",
+    "Government-General of Korea"
+   ],
+   "en_context": [
+    "Japanese colonial government in Korea",
+    "Government-General"
+   ],
+   "th_safe": [
+    "หน่วยงานปกครองญี่ปุ่น"
+   ],
+   "th_context": [
+    "รัฐบาลญี่ปุ่นในเกาหลี",
+    "หน่วยงานรัฐบาลอาณานิคมญี่ปุ่น"
+   ]
+  },
+  "t-162": {
+   "en_safe": [
+    "Joseon Industrial Exhibition of 1915"
+   ],
+   "en_context": [
+    "1915 Joseon Industrial Exhibition",
+    "Joseon industrial exposition"
+   ],
+   "th_safe": [
+    "งานแสดงอุตสาหกรรมโชซอน ค.ศ. 1915"
+   ],
+   "th_context": [
+    "งานนิทรรศการอุตสาหกรรมโชซอนปี 1915",
+    "งานแสดงสินค้าอุตสาหกรรมโชซอน"
+   ]
+  },
+  "t-163": {
+   "en_safe": [
+    "Heungseon Daewongun",
+    "Regent Heungseon Daewongun"
+   ],
+   "en_context": [
+    "King Gojong’s father"
+   ],
+   "th_context": [
+    "ผู้สำเร็จราชการฮึงซ็อน",
+    "พระบิดาของพระเจ้าโกจง"
+   ]
+  },
+  "t-164": {
+   "en_safe": [
+    "Queen Sinjeong",
+    "Queen Sinjeong (Jodaebi)"
+   ],
+   "en_context": [
+    "the regent queen"
+   ],
+   "th_safe": [
+    "พระราชินีชินจ็อง"
+   ],
+   "th_context": [
+    "พระพันปีชินจ็อง",
+    "พระราชินีผู้สำเร็จราชการ"
+   ]
+  },
+  "t-165": {
+   "en_safe": [
+    "Empress Myeongseong",
+    "Queen Min",
+    "Myeongseongwanghu"
+   ],
+   "th_safe": [
+    "จักรพรรดินีมย็องซ็อง",
+    "พระมเหสีมย็องซ็อง"
+   ]
+  },
+  "t-166": {
+   "en_safe": [
+    "the assassination of Empress Myeongseong",
+    "the 1895 assassination of Empress Myeongseong"
+   ],
+   "en_context": [
+    "the assassination",
+    "the 1895 incident"
+   ],
+   "th_safe": [
+    "การลอบปลงพระชนม์จักรพรรดินีมย็องซ็อง",
+    "เหตุลอบปลงพระชนม์จักรพรรดินีมย็องซ็องในปี ค.ศ. 1895"
+   ],
+   "th_context": [
+    "เหตุการณ์ลอบปลงพระชนม์",
+    "เหตุการณ์ปี ค.ศ. 1895"
+   ]
+  },
+  "t-167": {
+   "en_safe": [
+    "Gabo Reforms",
+    "Gabo Reforms of 1894",
+    "Gabo Reform"
+   ],
+   "en_context": [
+    "the 1894 reforms"
+   ],
+   "th_safe": [
+    "การปฏิรูปคาบโอ",
+    "การปฏิรูปคาบโอ ค.ศ. 1894"
+   ],
+   "th_context": [
+    "การปฏิรูปในปี ค.ศ. 1894"
+   ]
+  },
+  "t-168": {
+   "en_safe": [
+    "demolition",
+    "demolition of a building"
+   ],
+   "en_context": [
+    "demolished",
+    "dismantling",
+    "torn down"
+   ],
+   "th_safe": [
+    "การรื้อถอน",
+    "การรื้อถอนอาคาร",
+    "การทุบทำลาย"
+   ],
+   "th_context": [
+    "ถูกรื้อถอน",
+    "ถูกรื้อออก"
+   ]
+  },
+  "t-169": {
+   "en_safe": [
+    "the former Central Government Building",
+    "former Government-General building"
+   ],
+   "en_context": [
+    "the Central Government Building",
+    "the former central government headquarters"
+   ],
+   "th_safe": [
+    "อาคารรัฐบาลกลางเดิม",
+    "อาคารรัฐบาลกลางเก่า"
+   ],
+   "th_context": [
+    "อาคารรัฐบาลกลาง",
+    "ที่ทำการรัฐบาลกลางเดิม"
+   ]
+  },
+  "t-170": {
+   "en_safe": [
+    "the 1917 Great Fire of Changdeokgung",
+    "Changdeokgung’s 1917 fire"
+   ],
+   "en_context": [
+    "the great fire",
+    "the 1917 fire"
+   ],
+   "th_safe": [
+    "เหตุไฟไหม้ครั้งใหญ่ชางด็อกกุงในปี ค.ศ. 1917"
+   ],
+   "th_context": [
+    "เหตุไฟไหม้ครั้งใหญ่",
+    "ไฟไหม้ปี ค.ศ. 1917"
+   ]
+  },
+  "t-171": {
+   "en_safe": [
+    "the Great Kanto Earthquake",
+    "the Great Kanto Earthquake of 1923",
+    "Kanto earthquake"
+   ],
+   "en_context": [
+    "the 1923 earthquake",
+    "the Kanto earthquake"
+   ],
+   "th_safe": [
+    "แผ่นดินไหวครั้งใหญ่คันโต ค.ศ. 1923",
+    "แผ่นดินไหวคันโตครั้งใหญ่",
+    "แผ่นดินไหวคันโต"
+   ],
+   "th_context": [
+    "แผ่นดินไหวครั้งใหญ่",
+    "แผ่นดินไหวในปี ค.ศ. 1923"
+   ]
+  },
+  "t-173": {
+   "en_safe": [
+    "the Korean War"
+   ],
+   "en_context": [
+    "the 1950 war"
+   ],
+   "th_safe": [
+    "สงครามเกาหลี"
+   ],
+   "th_context": [
+    "สงครามปี ค.ศ. 1950"
+   ]
+  },
+  "t-174": {
+   "en_safe": [
+    "Liberation of Korea in 1945",
+    "Korean liberation in 1945"
+   ],
+   "en_context": [
+    "liberation"
+   ],
+   "th_safe": [
+    "การปลดปล่อยเกาหลี ค.ศ. 1945"
+   ],
+   "th_context": [
+    "การปลดปล่อย"
+   ]
+  },
+  "t-175": {
+   "en_safe": [
+    "May 16 coup",
+    "1961 military coup in South Korea"
+   ],
+   "en_context": [
+    "military coup",
+    "coup"
+   ],
+   "th_safe": [
+    "รัฐประหาร 16 พฤษภาคม ค.ศ. 1961"
+   ],
+   "th_context": [
+    "รัฐประหารโดยทหาร",
+    "รัฐประหาร"
+   ]
+  },
+  "t-176": {
+   "en_safe": [
+    "Danjong restoration movement",
+    "movement to restore Danjong"
+   ],
+   "en_context": [
+    "restoration movement"
+   ],
+   "th_safe": [
+    "ขบวนการฟื้นฟูพระเจ้าทันจง"
+   ],
+   "th_context": [
+    "การเคลื่อนไหวฟื้นฟูบัลลังก์"
+   ]
+  },
+  "t-177": {
+   "en_safe": [
+    "Crown Prince Hyomyeong"
+   ],
+   "th_safe": [
+    "องค์รัชทายาทฮโยมย็อง"
+   ]
+  },
+  "t-178": {
+   "en_safe": [
+    "Gyeongbokgung restoration project",
+    "Gyeongbokgung restoration and maintenance project"
+   ],
+   "en_context": [
+    "Gyeongbokgung restoration",
+    "palace restoration project"
+   ],
+   "th_safe": [
+    "โครงการบูรณะพระราชวังคย็องบกกุง"
+   ],
+   "th_context": [
+    "โครงการบูรณะและปรับปรุงพระราชวัง"
+   ]
+  },
+  "t-179": {
+   "en_safe": [
+    "first electric power plant in Korea",
+    "Korea's first electric power station"
+   ],
+   "en_context": [
+    "electric power plant",
+    "power station"
+   ],
+   "th_safe": [
+    "โรงไฟฟ้าแห่งแรกในเกาหลี"
+   ],
+   "th_context": [
+    "โรงไฟฟ้า"
+   ]
+  },
+  "t-180": {
+   "en_safe": [
+    "Mulbul",
+    "Geondalbul",
+    "early nicknames for the electric light"
+   ],
+   "en_context": [
+    "early electric light",
+    "electric light"
+   ],
+   "th_safe": [
+    "มุลบุลและค็อนดัลบุล",
+    "ชื่อเรียกเล่นของไฟฟ้ายุคแรก"
+   ],
+   "th_context": [
+    "ไฟฟ้ายุคแรก"
+   ]
+  },
+  "t-181": {
+   "en_safe": [
+    "Annals of the Joseon Dynasty",
+    "Joseon Dynasty Annals"
+   ],
+   "en_context": [
+    "Joseon annals",
+    "the annals"
+   ],
+   "th_safe": [
+    "พงศาวดารราชวงศ์โชซอน"
+   ],
+   "th_context": [
+    "พงศาวดารโชซอน",
+    "พงศาวดาร"
+   ]
+  },
+  "t-182": {
+   "en_safe": [
+    "Diaries of the Royal Secretariat",
+    "Royal Secretariat Diaries"
+   ],
+   "en_context": [
+    "royal secretariat diaries",
+    "the diaries"
+   ],
+   "th_safe": [
+    "บันทึกสำนักเลขานุการพระราชสำนัก"
+   ],
+   "th_context": [
+    "บันทึกสำนักเลขานุการ"
+   ]
+  },
+  "t-183": {
+   "en_safe": [
+    "Book of Documents"
+   ],
+   "en_context": [
+    "the Book of Documents"
+   ],
+   "th_safe": [
+    "คัมภีร์ว่าด้วยเอกสารโบราณ"
+   ],
+   "th_context": [
+    "คัมภีร์เอกสารโบราณ"
+   ]
+  },
+  "t-184": {
+   "en_safe": [
+    "I Ching",
+    "Book of Changes"
+   ],
+   "en_context": [
+    "Yijing",
+    "Classic of Changes"
+   ],
+   "th_safe": [
+    "คัมภีร์อี้จิง",
+    "คัมภีร์แห่งการเปลี่ยนแปลง"
+   ],
+   "th_context": [
+    "อี้จิง",
+    "คัมภีร์ว่าด้วยการเปลี่ยนแปลง"
+   ]
+  },
+  "t-186": {
+   "en_context": [
+    "Floor Plan of Gyeongbokgung Palace",
+    "Gyeongbokgung Palace plan",
+    "Plan of the Northern Palace"
+   ],
+   "th_context": [
+    "แผนผังพระราชวังคยองบกกุง",
+    "แผนผังวังฝ่ายเหนือ"
+   ]
+  },
+  "t-187": {
+   "en_context": [
+    "Painting of the Eastern Palaces",
+    "Eastern Palace painting"
+   ],
+   "th_context": [
+    "ภาพวาดพระราชวังฝ่ายตะวันออก"
+   ]
+  },
+  "t-188": {
+   "en_context": [
+    "Diary of the Reconstruction of Gyeongbokgung Palace",
+    "Gyeongbokgung reconstruction diary"
+   ],
+   "th_context": [
+    "บันทึกการบูรณะพระราชวังคยองบกกุง"
+   ]
+  },
+  "t-189": {
+   "en_context": [
+    "Detailed Illustrated Plan of Gyeonghoeru Pavilion",
+    "Gyeonghoeru Pavilion plan"
+   ],
+   "th_context": [
+    "แผนผังภาพประกอบโดยละเอียดของศาลาคยองฮเวรู",
+    "แผนผังศาลาคยองฮเวรู"
+   ]
+  },
+  "t-190": {
+   "en_context": [
+    "Historical Records of Royal Palaces",
+    "Records of the Royal Palaces"
+   ],
+   "th_context": [
+    "บันทึกประวัติพระราชวัง",
+    "บันทึกเกี่ยวกับพระราชวังหลวง"
+   ]
+  },
+  "t-191": {
+   "en_context": [
+    "Illustrated Book of Korean Ancient Relics",
+    "Illustrated guide to Korean historical sites"
+   ],
+   "th_context": [
+    "หนังสือภาพโบราณสถานเกาหลี",
+    "หนังสือภาพแหล่งโบราณคดีเกาหลี"
+   ]
+  },
+  "t-192": {
+   "en_context": [
+    "Record of Heumgyeonggak Pavilion",
+    "Heumgyeonggak record"
+   ],
+   "th_context": [
+    "บันทึกศาลาฮึมกยองกัก",
+    "บันทึกเกี่ยวกับศาลาฮึมกยองกัก"
+   ]
+  },
+  "t-193": {
+   "en_context": [
+    "Collection of Excellent Korean Literary Works",
+    "Anthology of Korean Literary Works"
+   ],
+   "th_context": [
+    "รวมวรรณกรรมชั้นเยี่ยมของเกาหลี",
+    "รวมผลงานวรรณกรรมเกาหลี"
+   ]
+  },
+  "t-194": {
+   "en_safe": [
+    "Travelogue of the Spring City"
+   ],
+   "en_context": [
+    "Chunseongyu-gi",
+    "Spring City travelogue"
+   ],
+   "th_safe": [
+    "บันทึกการเดินทางในนครฤดูใบไม้ผลิ"
+   ],
+   "th_context": [
+    "บันทึกชุนซองยูกี",
+    "บันทึกการเดินทางในนครฤดูใบไม้ผลิ"
+   ]
+  },
+  "t-195": {
+   "en_safe": [
+    "commemorative record"
+   ],
+   "en_context": [
+    "commemorative inscription",
+    "commemorative text"
+   ],
+   "th_safe": [
+    "บันทึกที่ระลึก"
+   ],
+   "th_context": [
+    "จารึกที่ระลึก",
+    "ข้อความที่ระลึก"
+   ]
+  },
+  "t-196": {
+   "en_safe": [
+    "UNESCO Memory of the World",
+    "Memory of the World"
+   ],
+   "en_context": [
+    "UNESCO documentary heritage",
+    "Memory of the World Register"
+   ],
+   "th_safe": [
+    "มรดกความทรงจำแห่งโลกของยูเนสโก",
+    "มรดกความทรงจำแห่งโลก"
+   ],
+   "th_context": [
+    "ทะเบียนมรดกความทรงจำแห่งโลก",
+    "มรดกเอกสารของยูเนสโก"
+   ]
+  },
+  "t-197": {
+   "en_safe": [
+    "National Treasure"
+   ],
+   "en_context": [
+    "designated National Treasure",
+    "designated Treasure",
+    "Treasure"
+   ],
+   "th_safe": [
+    "สมบัติชาติ"
+   ],
+   "th_context": [
+    "โบราณวัตถุที่ขึ้นทะเบียนเป็นสมบัติชาติ",
+    "โบราณวัตถุที่ขึ้นทะเบียนเป็นสมบัติ",
+    "สมบัติ"
+   ]
+  },
+  "t-198": {
+   "en_safe": [
+    "Korea Heritage Service"
+   ],
+   "en_context": [
+    "Korea Heritage Administration",
+    "Cultural Heritage Administration"
+   ],
+   "th_safe": [
+    "สำนักงานมรดกเกาหลี"
+   ],
+   "th_context": [
+    "สำนักงานบริหารมรดกทางวัฒนธรรมเกาหลี"
+   ]
+  },
+  "t-199": {
+   "en_safe": [
+    "automated water clock"
+   ],
+   "th_safe": [
+    "นาฬิกาน้ำอัตโนมัติ"
+   ]
+  },
+  "t-200": {
+   "en_safe": [
+    "water clock",
+    "astronomical clock"
+   ],
+   "th_safe": [
+    "นาฬิกาน้ำ",
+    "นาฬิกาดาราศาสตร์"
+   ]
+  },
+  "t-201": {
+   "en_safe": [
+    "time-announcing mechanism"
+   ],
+   "en_context": [
+    "time signal mechanism",
+    "time-telling mechanism"
+   ],
+   "th_safe": [
+    "กลไกบอกเวลา"
+   ],
+   "th_context": [
+    "กลไกส่งสัญญาณบอกเวลา",
+    "กลไกแจ้งเวลา"
+   ]
+  },
+  "t-202": {
+   "en_safe": [
+    "mechanical wheel"
+   ],
+   "en_context": [
+    "water-powered wheel",
+    "mechanism wheel"
+   ],
+   "th_safe": [
+    "ล้อกลไก"
+   ],
+   "th_context": [
+    "ล้อที่ขับเคลื่อนด้วยน้ำ",
+    "วงล้อกลไก"
+   ]
+  },
+  "t-203": {
+   "en_safe": [
+    "tree-ring dating"
+   ],
+   "en_context": [
+    "tree-ring analysis",
+    "tree-ring dating survey"
+   ],
+   "th_safe": [
+    "การหาอายุจากวงปีไม้"
+   ],
+   "th_context": [
+    "การวิเคราะห์วงปีไม้",
+    "การตรวจสอบอายุด้วยวงปีไม้"
+   ]
+  },
+  "t-204": {
+   "en_safe": [
+    "archaeological excavation",
+    "archaeological investigation"
+   ],
+   "en_context": [
+    "excavation",
+    "excavation survey"
+   ],
+   "th_safe": [
+    "การขุดค้นทางโบราณคดี",
+    "การสำรวจทางโบราณคดี"
+   ],
+   "th_context": [
+    "การขุดค้น",
+    "การสำรวจขุดค้น"
+   ]
+  },
+  "t-205": {
+   "en_safe": [
+    "candlepower"
+   ],
+   "en_context": [
+    "candlepower unit"
+   ],
+   "th_safe": [
+    "หน่วยวัดความสว่างแบบแคนเดลา"
+   ],
+   "th_context": [
+    "หน่วยวัดความสว่าง"
+   ]
+  },
+  "t-206": {
+   "en_safe": [
+    "collecting and reassembling calligraphic characters",
+    "calligraphic character assembly"
+   ],
+   "en_context": [
+    "character assembly",
+    "assembling characters from calligraphy"
+   ],
+   "th_safe": [
+    "การรวบรวมและประกอบอักษรจากลายมือ",
+    "การประกอบอักษรจากลายมือ"
+   ],
+   "th_context": [
+    "การรวบรวมอักษร",
+    "การประกอบอักษร"
+   ]
+  },
+  "t-207": {
+   "en_safe": [
+    "wing-like bracket",
+    "Ikgong bracket",
+    "Iikgong bracket",
+    "Choikgong bracket"
+   ],
+   "th_safe": [
+    "ไม้ค้ำยันรูปปีก",
+    "ค้ำยันแบบอิกกง",
+    "ค้ำยันแบบอีอิกกง",
+    "ค้ำยันแบบโชอิกกง"
+   ]
+  },
+  "t-208": {
+   "en_safe": [
+    "outer aisle",
+    "perimeter aisle"
+   ],
+   "en_context": [
+    "side aisle"
+   ],
+   "th_safe": [
+    "ทางเดินรอบอาคาร",
+    "ระเบียงทางเดินรอบอาคาร"
+   ],
+   "th_context": [
+    "ช่องทางเดิน"
+   ]
+  },
+  "t-209": {
+   "en_safe": [
+    "gabled roof",
+    "gable roof"
+   ],
+   "th_safe": [
+    "หลังคาหน้าจั่ว"
+   ]
+  },
+  "t-210": {
+   "en_safe": [
+    "decorative roof-ridge figures",
+    "roof-ridge figurines"
+   ],
+   "en_context": [
+    "decorative figures",
+    "roof ornaments"
+   ],
+   "th_safe": [
+    "รูปประดับบนสันหลังคา",
+    "ตุ๊กตาประดับสันหลังคา"
+   ],
+   "th_context": [
+    "เครื่องประดับหลังคา"
+   ]
+  },
+  "t-211": {
+   "en_safe": [
+    "double eaves",
+    "single eaves"
+   ],
+   "en_context": [
+    "double-eaved roof",
+    "single-eaved roof"
+   ],
+   "th_safe": [
+    "ชายคาสองชั้น",
+    "ชายคาชั้นเดียว"
+   ],
+   "th_context": [
+    "ชายคาคู่",
+    "ชายคาเดี่ยว"
+   ]
+  },
+  "t-212": {
+   "en_safe": [
+    "round purlin"
+   ],
+   "en_context": [
+    "circular purlin"
+   ],
+   "th_safe": [
+    "แปกลม",
+    "คานรับหลังคาทรงกลม"
+   ]
+  },
+  "t-213": {
+   "en_safe": [
+    "three-bay gate",
+    "three-bay gateway"
+   ],
+   "en_context": [
+    "three-bay entrance gate"
+   ],
+   "th_safe": [
+    "ประตูสามช่อง",
+    "ซุ้มประตูสามช่อง"
+   ],
+   "th_context": [
+    "ประตูชั้นกลาง",
+    "ประตูสามช่อง"
+   ]
+  },
+  "t-214": {
+   "en_safe": [
+    "Four-pillar Gate"
+   ],
+   "en_context": [
+    "four-pillar gate"
+   ],
+   "th_safe": [
+    "ประตูสี่เสา"
+   ],
+   "th_context": [
+    "ประตูสี่เสา"
+   ]
+  },
+  "t-215": {
+   "en_safe": [
+    "Tall Main Gate"
+   ],
+   "en_context": [
+    "tall main gate",
+    "raised-roof gate"
+   ],
+   "th_safe": [
+    "ประตูหลักยอดสูง"
+   ],
+   "th_context": [
+    "ประตูหลักยอดสูง"
+   ]
+  },
+  "t-216": {
+   "en_safe": [
+    "Moon Gate"
+   ],
+   "en_context": [
+    "moon-shaped gate"
+   ],
+   "th_context": [
+    "ประตูโค้ง",
+    "ซุ้มประตูโค้ง"
+   ]
+  },
+  "t-217": {
+   "en_safe": [
+    "inner quarters of the palace"
+   ],
+   "en_context": [
+    "inner palace quarters",
+    "palace inner quarters",
+    "inner quarters",
+    "royal inner quarters"
+   ],
+   "th_safe": [
+    "เขตชั้นในของพระราชวัง"
+   ],
+   "th_context": [
+    "เขตพระราชวังชั้นใน",
+    "เขตชั้นใน",
+    "ตำหนักฝ่ายใน"
+   ]
+  },
+  "t-218": {
+   "en_safe": [
+    "Jaesil",
+    "Naejaesil",
+    "ritual preparation room"
+   ],
+   "en_context": [
+    "preparation room for royal rites",
+    "royal ritual preparation room",
+    "inner ritual preparation room"
+   ],
+   "th_safe": [
+    "ห้องเตรียมพิธีกรรม"
+   ],
+   "th_context": [
+    "ห้องเตรียมพิธี",
+    "ห้องเตรียมประกอบพิธีกรรม"
+   ]
+  },
+  "t-219": {
+   "en_safe": [
+    "court ladies of the inner palace"
+   ],
+   "en_context": [
+    "inner-court ladies"
+   ],
+   "th_safe": [
+    "นางในฝ่ายใน"
+   ],
+   "th_context": [
+    "เหล่านางกำนัลฝ่ายใน"
+   ]
+  },
+  "t-220": {
+   "en_safe": [
+    "official court lady"
+   ],
+   "en_context": [
+    "court lady",
+    "palace maid"
+   ],
+   "th_safe": [
+    "นางกำนัลประจำราชสำนัก"
+   ],
+   "th_context": [
+    "นางกำนัล",
+    "นางใน"
+   ]
+  },
+  "t-221": {
+   "en_safe": [
+    "royal concubine"
+   ],
+   "en_context": [
+    "king's concubine"
+   ],
+   "th_safe": [
+    "นางสนมหลวง"
+   ],
+   "th_context": [
+    "นางสนม"
+   ]
+  },
+  "t-222": {
+   "en_safe": [
+    "residence of royal concubines"
+   ],
+   "en_context": [
+    "concubine's residence",
+    "residence of the king's concubines"
+   ],
+   "th_safe": [
+    "ที่ประทับของนางสนมหลวง"
+   ],
+   "th_context": [
+    "ที่พำนักของนางสนม",
+    "ตำหนักนางสนม"
+   ]
+  },
+  "t-223": {
+   "en_safe": [
+    "Seosagwan",
+    "Jesulgwan"
+   ],
+   "en_context": [
+    "inscription calligrapher",
+    "plaque calligrapher",
+    "royal document writer",
+    "inscription writer",
+    "calligrapher"
+   ],
+   "th_context": [
+    "ผู้เขียนอักษรบนป้าย",
+    "ผู้เขียนคำจารึก",
+    "ผู้ร่างข้อความ",
+    "ช่างเขียนอักษร"
+   ]
+  },
+  "t-224": {
+   "en_safe": [
+    "royal banquet",
+    "royal banquet ceremony"
+   ],
+   "en_context": [
+    "banquet"
+   ],
+   "th_safe": [
+    "งานเลี้ยงหลวง",
+    "พิธีงานเลี้ยงหลวง"
+   ],
+   "th_context": [
+    "งานเลี้ยง"
+   ]
+  },
+  "t-225": {
+   "en_safe": [
+    "regency by the crown prince",
+    "crown prince's regency",
+    "acting rule by the crown prince"
+   ],
+   "en_context": [
+    "acting as regent"
+   ],
+   "th_safe": [
+    "การสำเร็จราชการโดยองค์รัชทายาท",
+    "การสำเร็จราชการแทนพระองค์โดยองค์รัชทายาท"
+   ],
+   "th_context": [
+    "การเป็นผู้สำเร็จราชการแทนพระองค์"
+   ]
+  },
+  "t-226": {
+   "en_safe": [
+    "monthly morning audience",
+    "monthly royal morning audience"
+   ],
+   "en_context": [
+    "morning audience",
+    "monthly audience"
+   ],
+   "th_safe": [
+    "การเข้าเฝ้ายามเช้าประจำเดือน",
+    "การเข้าเฝ้าพระราชาประจำเดือน"
+   ],
+   "th_context": [
+    "การเข้าเฝ้ายามเช้า",
+    "การเข้าเฝ้าประจำเดือน"
+   ]
+  },
+  "t-227": {
+   "en_safe": [
+    "nighttime royal lecture and conference",
+    "royal nighttime lecture"
+   ],
+   "en_context": [
+    "nighttime lecture",
+    "nighttime conference"
+   ],
+   "th_safe": [
+    "การบรรยายและหารือกับพระราชายามค่ำคืน",
+    "การบรรยายถวายพระราชายามค่ำคืน"
+   ],
+   "th_context": [
+    "การบรรยายยามค่ำคืน",
+    "การหารือยามค่ำคืน"
+   ]
+  },
+  "t-228": {
+   "en_safe": [
+    "selection of royal spouses",
+    "royal spouse selection"
+   ],
+   "en_context": [
+    "spouse selection",
+    "selection of a royal spouse"
+   ],
+   "th_safe": [
+    "การคัดเลือกคู่สมรสในราชวงศ์",
+    "การคัดเลือกคู่ครองราชวงศ์"
+   ],
+   "th_context": [
+    "การคัดเลือกคู่สมรส",
+    "การคัดเลือกคู่ครอง"
+   ]
+  },
+  "t-229": {
+   "en_safe": [
+    "royal interrogation"
+   ],
+   "en_context": [
+    "interrogation"
+   ],
+   "th_safe": [
+    "การไต่สวนหลวง"
+   ],
+   "th_context": [
+    "การไต่สวน"
+   ]
+  },
+  "t-230": {
+   "en_safe": [
+    "royal tomb",
+    "royal burial tomb"
+   ],
+   "en_context": [
+    "tomb",
+    "royal burial ground"
+   ],
+   "th_safe": [
+    "สุสานหลวง",
+    "สุสานพระราชวงศ์"
+   ],
+   "th_context": [
+    "สุสาน",
+    "ที่ฝังพระบรมศพ"
+   ]
+  },
+  "t-231": {
+   "en_safe": [
+    "temporary office for royal construction",
+    "royal construction office"
+   ],
+   "en_context": [
+    "temporary construction office",
+    "construction office"
+   ],
+   "th_safe": [
+    "หน่วยงานชั่วคราวดูแลงานก่อสร้างหลวง",
+    "สำนักงานก่อสร้างหลวง"
+   ],
+   "th_context": [
+    "หน่วยงานก่อสร้างชั่วคราว",
+    "สำนักงานก่อสร้าง"
+   ]
+  },
+  "t-232": {
+   "en_safe": [
+    "message for a ridge beam-raising ceremony",
+    "ridge-beam raising inscription",
+    "ridge-beam ceremony message"
+   ],
+   "en_context": [
+    "ridge-beam inscription"
+   ],
+   "th_safe": [
+    "ข้อความสำหรับพิธียกคานหลังคา",
+    "จารึกพิธียกคานหลังคา",
+    "ข้อความพิธียกคาน"
+   ]
+  },
+  "t-233": {
+   "en_safe": [
+    "Records of Daily Reflections"
+   ],
+   "en_context": [
+    "daily reflections record",
+    "daily record"
+   ],
+   "th_safe": [
+    "บันทึกการใคร่ครวญประจำวัน"
+   ],
+   "th_context": [
+    "บันทึกการใคร่ครวญ"
+   ]
+  },
+  "t-234": {
+   "en_safe": [
+    "Expanded Encyclopedia of the Joseon Dynasty"
+   ],
+   "en_context": [
+    "Jeungbo Munheon Bigo"
+   ],
+   "th_safe": [
+    "สารานุกรมเพิ่มเติมเกี่ยวกับราชวงศ์โชซอน"
+   ],
+   "th_context": [
+    "สารานุกรมชึงโบมุนฮอนบีโก"
+   ]
+  },
+  "t-235": {
+   "en_safe": [
+    "paintings of farming life"
+   ],
+   "en_context": [
+    "Gyeongjik do",
+    "farming-life painting"
+   ],
+   "th_safe": [
+    "ภาพวิถีเกษตรกรรม"
+   ],
+   "th_context": [
+    "ภาพชีวิตเกษตรกรรม"
+   ]
+  }
+ },
+ "homonyms": {
+  "사신": "t-122"
+ }
+}
