@@ -216,6 +216,8 @@ judge.update({ lat, lng, accuracy, t })  // geolocation 샘플마다 → [{ type
 judge.saved()                            // { visited: [poiId], lastAudio: {poiId: t} } → localStorage 에 저장해 두고 다음에 복원
 ```
 `audio` = 존 안 7초 → 해설 재생 (`serial` 로 카드·사진), `stamp` = 25초 → 스탬프. 임계값은 `DEFAULTS`.
+`audio` 는 샘플 하나에 최대 1개 — 존을 같이 쓰는 곳(근정전 마당 = 근정전·조정·내부)은 핀이 가장 가까운 곳만, 나머지는 스탬프만.
+존이 일부만 겹치면 몇 초 뒤 다른 `audio` 가 올 수 있음 → 재생 중인 해설을 새 것으로 바꿈.
 
 ### `route.mjs` — 길
 | 함수 | 반환 | 쓰는 곳 |
@@ -259,5 +261,5 @@ judge.saved()                            // { visited: [poiId], lastAudio: {poiI
 - `/ws` 실시간 통역 (별도 컨테이너·Redis).
 - 세션·QR 토큰, 스탬프 서버 저장 (지금은 폰 `judge.saved()`).
 - 응답 스트리밍 — 필요해지면 `/api/ask` 를 SSE 로.
-- 대화 기록(후속 질문), 자연 지점 길 묻기.
+- 자연 지점 길 묻기.
 - 해설 소리: judge `audio` 때 무엇을 재생할지 미정 (브라우저 TTS 로 카드 `text_*` 읽기 / 미리 만든 음성 파일).

@@ -26,7 +26,8 @@ THAI = re.compile('[฀-๿]')  # 태국 문자
 
 SHOW_STAGES = True # True면 질문마다 0~3단계에서 뽑은 문서를 터미널에 바로 보여줌
 
-luna = OpenAI(api_key=os.environ['OPENAI_API_KEY'], max_retries=10)  # deploy/.env (config.py가 로드)
+# timeout: 가장 긴 호출(코스 경로, effort medium)이 10~20초. 없으면 기본 600초라 Nginx 504 뒤에도 LLM 을 계속 부름
+luna = OpenAI(api_key=os.environ['OPENAI_API_KEY'], timeout=30, max_retries=2)  # deploy/.env (config.py가 로드)
 usage = Counter()  # 호출별 토큰 합계 (eval이 비용 계산에 씀)
 
 
