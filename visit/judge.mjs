@@ -49,7 +49,7 @@ export function distToPolygon(p, rings) {
 
 /**
  * zones: GeoJSON FeatureCollection (Polygon, properties.id)
- * pois:  [{ id, zoneIds: [], dwellAudioSec?, dwellStampSec? }]
+ * pois:  [{ id, zoneIds: [], pin?, dwellAudioSec?, dwellStampSec? }] — pin: 해설이 여럿 겹칠 때 가장 가까운 곳을 고름
  * saved: { visited: [poiId], lastAudio: { poiId: t(ms) } } — 앱 재시작 시 복원용
  * update({ lat, lng, accuracy, t(ms) }) → [{ type, poiId, t }]
  */
@@ -72,7 +72,7 @@ export function createJudge(zones, pois, opts = {}, saved = {}) {
     const dt = last && t - last.t <= o.maxGap * 1000 ? (t - last.t) / 1000 : 0 // 긴 공백은 체류에 안 셈
     last = { p, t }
 
-    const ev = []
+    const ev = [], aud = [] // aud: 이번 샘플에 해설 조건을 채운 POI (존을 같이 쓰면 여럿)
     const zd = new Map() // 이번 샘플의 존별 거리 캐시
     const dist = (z) => (zd.has(z) ? zd.get(z) : zd.set(z, distToPolygon(p, zoneById.get(z))).get(z))
 
@@ -110,15 +110,19 @@ export function createJudge(zones, pois, opts = {}, saved = {}) {
 
       if (s.state === 'ENTERING' && s.dwell >= audioSec) {
         s.state = 'INSIDE'
-        if (!(t - (lastAudio[poi.id] ?? -Infinity) < o.audioCooldownSec * 1000)) {
-          lastAudio[poi.id] = t
-          ev.push({ type: 'audio', poiId: poi.id, t })
-        }
+        if (!(t - (lastAudio[poi.id] ?? -Infinity) < o.audioCooldownSec * 1000)) aud.push(poi)
       }
       if (s.state === 'INSIDE' && !visited.has(poi.id) && s.stampDwell >= stampSec) {
         visited.add(poi.id)
         ev.push({ type: 'stamp', poiId: poi.id, t })
       }
+    }
+    // 해설은 한 번에 하나: 핀이 가장 가까운 곳 (근정전 마당 = 근정전·조정·내부가 한 존). 나머지는 카드에서 들음
+    if (aud.length) {
+      const near = (q) => (q.pin ? distM(p, q.pin) : Infinity)
+      const poi = aud.reduce((a, b) => (near(b) < near(a) ? b : a))
+      lastAudio[poi.id] = t
+      ev.push({ type: 'audio', poiId: poi.id, t })
     }
     return ev
   }
