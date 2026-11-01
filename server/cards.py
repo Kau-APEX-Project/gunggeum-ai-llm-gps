@@ -2,7 +2,8 @@
 RAG 답변(server/ask.py)과 STT 가 같이 씀. 의존성 없음(표준 라이브러리만). DB 는 server/pg.py 의 Collection 을 넘겨받음.
 
   RAG: link(답변, 답변에 쓴 문서 메타데이터, 언어, gloss_index(전체 메타))  → 이름 매칭 + 외국어는 DB 풀이 매칭, 쓴 문서만 링크
-  STT: link_names(문장, col.get()['metadatas'], 언어)        → 전각·용어 전체에서 이름으로 찾아 링크
+  자막: link_names(번역문, col.get()['metadatas'], 언어, glosses=False) → 전각·용어 전체에서 이름으로만 찾아 링크
+        (BE api/app/live/pipeline.py. 번역은 Amazon Translate + export_terms.py 용어집이라 이름 표기가 카드와 같음)
   카드: card(col, 'b-160')  → {name, name_en, name_th, text, text_en, text_th, photo, ...} (없으면 None)
 """
 import re
@@ -197,21 +198,29 @@ def link(text, metas, language, index=None, context=None):
     return link_glosses(link_names(text, metas, language), metas, language, index, context)
 
 
-def link_names(text, metas, language):
+def link_names(text, metas, language, glosses=True):
     """답변에서 사용한 문서의 이름을 처음 나올 때만 [이름](card:<id>) 로 감쌈. 답변 언어의 표기로 찾음
     ('삼도 / 어도' → 삼도·어도, 'Geunjeongjeon (Throne Hall)' → Geunjeongjeon). 긴 이름부터 맞춰서
     '근정전' 안의 용어 '정전'이나 'Geunjeongjeon' 안의 'Jeongjeon' 은 링크하지 않음.
-    이미 걸린 [..](card:..) 는 건드리지 않고, 그 카드는 다시 걸지 않음"""
+    이미 걸린 [..](card:..) 는 건드리지 않고, 그 카드는 다시 걸지 않음.
+    glosses=False: 괄호 속 풀이로는 안 찾음 — 라이브 자막(BE pipeline)용. 자막은 metas 가 카드 전체라
+    'Gyeonghoeru (Banquet Pavilion)' 의 pavilion 이 정자 카드로 걸림. 번역기 용어집(export_terms.py)이 이름을 고정해 줌"""
     field = {'English': 'name_en', 'ภาษาไทย': 'name_th'}.get(language, 'name')
     labels = {}  # 소문자 이름 → 카드 id (영어 답변이 'ondol'처럼 소문자로 쓰기도 함)
     for m in metas:
+        own = m.get(field) or ''
+        if not glosses and field == 'name_th' and own:
+            # 자막 태국어는 띄어쓰기가 없어 짧은 음역이 낱말 속에 걸림 ('นาที' 나티 = 태국어 '분', 'คัน' 칸 ⊂ 'คันโต').
+            # 용어집이 넣는 전체 표기 'นาที (หน้ากาก…)' 로만 찾음
+            labels.setdefault(own.lower(), set()).add(card_id(m))
+            own = ''
         # 한국어 이름도 봄: 외국어 답변이 '답도'처럼 한글로 남긴 이름. 카드마다 한 번만 거니 'Gyeonghoeru (경회루)'는 앞만
-        for p in re.sub(r'\(.*?\)', '', f"{m.get(field) or ''}/{m.get('name') or ''}").split('/'):  # 괄호 안에도 / 가 있음
+        for p in re.sub(r'\(.*?\)', '', f"{own}/{m.get('name') or ''}").split('/'):  # 괄호 안에도 / 가 있음
             p = p.strip()
             if len(p) > 1:
                 labels.setdefault(p.lower(), set()).add(card_id(m))
         # 외국어 답변은 이름 대신 풀이만 쓰기도 함 ('Obok (Five Blessings)' → 'the Five Blessings'). 짧은 풀이(Zone·Hall)는 오탐이라 뺌
-        if field != 'name':
+        if field != 'name' and glosses:
             for g in re.findall(r'\(([^)]*)\)', m.get(field) or ''):
                 for p in g.split('/'):
                     if len(p := p.strip()) >= 6:
@@ -245,6 +254,12 @@ assert link_names('the ondol (온돌)', [{'type': 'term', 'no': 5, 'name': '온�
 assert link_names('one of the Five Blessings, a zone', [{'type': 'term', 'no': 90, 'name': '오복', 'name_en': 'Obok (Five Blessings)'},
                                                       {'type': 'term', 'no': 8, 'name': '권역', 'name_en': 'Gwonyeok (Zone)'}],
                   'English') == 'one of the [Five Blessings](card:t-90), a zone'
+_G = [{'type': 'building', 'serial': 173, 'name': '경회루', 'name_en': 'Gyeonghoeru (Banquet Pavilion)'},
+      {'type': 'term', 'no': 41, 'name': '정자', 'name_en': 'Jeongja (pavilion)'}]
+assert link_names('Gyeonghoeru (Banquet Pavilion)', _G, 'English', glosses=False) == '[Gyeonghoeru](card:b-173) (Banquet Pavilion)'
+_N = [{'type': 'term', 'no': 86, 'name': '나티', 'name_th': 'นาที (หน้ากากอสูร)'}]
+assert link_names('อีก 10 นาที', _N, 'ภาษาไทย', glosses=False) == 'อีก 10 นาที'  # 태국어 '분'
+assert link_names('มี นาที (หน้ากากอสูร)', _N, 'ภาษาไทย', glosses=False) == 'มี [นาที (หน้ากากอสูร)](card:t-86)'
 _M = [{'type': 'term', 'no': 152, 'name': '즉위식', 'name_en': 'Jeugwisik (Enthronement Ceremony)'},
       {'type': 'building', 'serial': 160, 'name': '근정전', 'name_en': 'Geunjeongjeon (Throne Hall)'},
       {'type': 'term', 'no': 70, 'name': '사신(四神)'}, {'type': 'term', 'no': 122, 'name': '사신(使臣)'}]
