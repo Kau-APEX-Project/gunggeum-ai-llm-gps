@@ -14,9 +14,9 @@ deploy/
 
 | 파일 | 내용 |
 |---|---|
-| `server/ask.py` | 질문 답변 `reply()` = `/api/ask` — 의도(일반 질문·길 묻기·편의시설) → 검색(pgvector)·답변 |
+| `server/ask.py` | 질문 답변 `reply()` = `/api/ask` — 의도(일반 질문·길 묻기·편의시설·코스) + 후속 질문 다시 쓰기(`history`)·지금 위치(`here`) → 검색(pgvector)·답변 |
 | `server/cards.py` | 답변 속 이름 → `[근정전](card:b-160)` 링크, 카드 `card()` = `/api/card` |
-| `server/course.py` | 코스 `Planner.make()` = `/api/course` (① 경로 ② DB 문서로 설명 + 카드). `python course.py` = 확인용 임시 서버 localhost:8001 |
+| `server/course.py` | 코스 `Planner.make()` = `/api/course` (① 경로 — 가장 가까운 곳에서 출발, 코드가 시간 안으로 맞춤 ② DB 문서로 설명 + 카드). `python course.py` = 확인용 임시 서버 localhost:8001 |
 | `server/course-input.json` | 코스 후보·걷기 분 (생성물 — 손으로 고치지 말 것) |
 | `server/pg.py` · `bedrock.py` | Postgres 문서 저장소 · Titan 임베딩 |
 | `server/config.py` · `requirements.txt` | `.env` 로드 (개발용) · 패키지 |

@@ -30,7 +30,7 @@
 | 인증 | 없음. 비용 보호는 Nginx IP 별 속도 제한 (예: `/api/ask`·`/api/course` 분당 10회) |
 | CORS | 같은 도메인이라 운영엔 불필요. 개발 서버는 `*` |
 | 길이 제한 | `question`·`request` 300자 (넘으면 잘라서 씀 — `course.py` 와 같음) |
-| 소요 시간 | `/api/ask` 3~10초, `/api/course` 10~20초 → 앱은 로딩 표시. 서버 타임아웃 60초 |
+| 소요 시간 | `/api/ask` 3~10초 (질문이 코스 요청이면 `/api/course` 와 같음), `/api/course` 15~40초 (측정 평균 15초·최대 38초) → 앱은 로딩 표시. 서버 타임아웃 60초 |
 | 언어 | 답변 언어는 서버가 질문을 보고 정함 (아래 `language`). 앱이 따로 보내지 않음 |
 
 ### `language` 값
@@ -69,6 +69,8 @@
 |---|---|---|---|
 | `question` | string (1~300자) | ✔ | 관람객이 쓴 문장. 한국어·영어·태국어 |
 | `history` | `[{question, answer}]` | | 이전 턴 (최근 3개만 씀). 받은 `answer` 그대로 넣으면 됨. 없으면 단발 질문 |
+| `here` | string \| null | | 지금 있는 곳 POI id = `judge.where()` (전각 존 30m 안일 때만, `pois.json` 의 `id`). "여기 뭐야?"·"지금 위치 설명해" 에 씀. 없거나 모르는 id 면 무시 |
+| `nearest` | string \| null | | 가장 가까운 POI id = `judge.where(Infinity)`. 질문이 코스 요청일 때 출발 권역으로 씀 (없으면 `here`, 그것도 없으면 광화문). `here` 는 길 위에선 null 이라 따로 보냄 |
 
 응답 `200`
 | 필드 | 타입 | 설명 |
@@ -76,20 +78,24 @@
 | `answer` | string | 답변 (위 규칙, `card:` 링크 포함) |
 | `language` | string | 답변 언어 |
 | `action` | object \| null | 폰이 할 일. 일반 질문이면 `null` |
-| `action.type` | `"route"` \| `"amenity"` | |
+| `action.type` | `"route"` \| `"amenity"` \| `"course"` | |
 | `action.to` | string | (`route`) 목적지 POI id = `pois.json` 의 `id` (nameId) |
 | `action.category` | `"restroom"` \| `"bench"` \| `"water"` | (`amenity`) 편의시설 종류 = `pins.geojson` 의 `category` |
+| `action.course` | object | (`course`) `/api/course` 응답의 `course` 와 같음 `{minutes, stops}`. `answer` = 코스 소개 → 코스 칸과 같이 `fitCourse` |
 
 서버 안 흐름 (`ask.reply`):
 ```
-⓪ 맥락 반영 (LLM 없음, 규칙): 지시어(거기·there·ที่นั่น)가 있거나 질문에 이름이 없으면, 앞 답변에 처음 걸린 전각 카드 이름을
-   질문 언어로 붙임. "Who lived there?" → "Who lived there? (Gyotaejeon)". 답변 언어는 원래 질문 기준
-① 의도 (LLM 1번, 짧음): {kind: route|amenity|question, to, amenity}
+⓪ 지금 위치 (LLM 없음, 규칙): 지금 있는 곳을 묻는 말(여기·지금 위치·where am I)이고 here 가 있으면 here 의 이름을 붙임
+① 의도 + 맥락 (LLM 1번, 짧음): {kind: route|amenity|course|question, to, amenity, standalone}
    to 는 DB 전각 문서의 nameId 목록(enum) 안에서만 고름 → 목록 밖 id 는 나올 수 없음
+   history 가 있으면 같은 호출에서 후속 질문을 독립 질문(standalone)으로 다시 씀 — 지시어·생략된 대상(전각·용어·인물)·
+   두 대상 비교·생략된 물음("그럼 근정전은?" → "근정전은 언제 지었어?"). 앞 대화와 무관하면 그대로. 이후 단계는 standalone 으로.
+   답변 언어는 원래 질문 기준
 ② kind 별
    question → 지금 챗봇 그대로: 번역(외국어만) → 검색(벡터+키워드) → 문서 고르기 → 답변      LLM 총 3~4번
    route    → 검색 없이 목적지 문서 b-<serial>-* 전부 + 그 전각 용어를 고정으로 → 짧은 소개 2~3문장  LLM 총 2번
    amenity  → DB 에 문서 없음 → 언어별 한 문장                                               LLM 총 1번
+   course   → /api/course 와 같은 course.Planner (경로 → 설명), action.course 로                LLM 총 3번
 ```
 
 | `kind` | 답변 근거 | 카드 근거 | 길 근거 |
@@ -115,6 +121,8 @@
    "action": {"type": "amenity", "category": "restroom"}}
 ```
 - 섞인 질문("교태전 가는 길이랑 뭐하는 곳인지")은 route 로 보고 짧은 소개만. 길게 원하면 다시 일반 질문.
+- 질문 칸의 코스 요청("40분 코스 짜줘")도 `action.course` 로 코스가 옴. 코스 칸(`/api/course`)과 결과가 같음.
+- `history` 형식 검사(틀린 항목 버림, 최근 3개, question 300자)는 `ask.reply` 가 함 — HTTP 서버는 본문 값을 그대로 넘기면 됨.
 - 대화 기록은 서버에 저장 안 함 — 폰이 `history` 로 보냄. 안 보내면 질문마다 독립 ("거기는?" 못 알아들음).
 - 자연 지점(연못·숲)은 DB 문서가 없어 길 묻기 목적지가 안 됨.
 
@@ -144,6 +152,7 @@
 | 필드 | 타입 | 필수 | 설명 |
 |---|---|---|---|
 | `request` | string (1~300자) | ✔ | 예: "왕비 이야기 위주로 40분", "a quiet 30-minute walk". 시간이 없으면 60분 |
+| `nearest` | string \| null | | 가장 가까운 POI id = `judge.where(Infinity)`. 그 곳이 속한 권역에서 출발·도착하는 코스를 짬. 없으면 `here`(같은 뜻, 30m 안일 때만 오는 값), 둘 다 없거나 모르는 id 면 광화문 |
 
 응답 `200`
 ```json
@@ -152,6 +161,7 @@
   "language": "한국어",
   "course": {
     "minutes": 40,
+    "start": "place:gyotaejeon",
     "stops": [{"id": "place:gyotaejeon", "stayMin": 8}, {"id": "nature:향원지", "stayMin": 3}]
   }
 }
@@ -160,13 +170,16 @@
 |---|---|
 | `answer` | **코스를 왜 이렇게 짰는지 + 순서대로 곳마다 볼 것** (카드 링크). 시간·거리 숫자는 안 씀 |
 | `course.minutes` | 요청에서 읽은 제한 시간(분) |
+| `course.start` | 출발·도착 후보 id (nearest 의 권역 대표, 없으면 `place:gwanghwamun-gate`) |
+| `course.stops` 가 빈 배열 | 시간 안에 다녀올 곳이 없음 — `answer` 는 고정 안내 한 문장 (LLM 설명 없음) |
 | `course.stops[].id` | 전각 = `pois.json` 의 `id` · 자연 지점 = `nature:<이름>` (`servermap/data/places.geojson` 의 `name`) |
 | `course.stops[].stayMin` | 머무는 분 |
-| (순서) | LLM 이 정한 순서 그대로. 출발·도착 = 광화문 기준으로 짬. **실제 길·시간은 서버가 주지 않음** → 폰 `fitCourse` |
+| (순서) | LLM 이 정한 순서 그대로. 출발·도착 = `course.start`. 서버가 후보 걷기 분 행렬로 제한 시간의 90% 안에 들게 끝에서부터 빼고 남은 곳만 줌 (`answer` 도 남은 곳만) → 폰 `fitCourse` 가 실제 길로 다시 계산 |
 
 서버 안 두 단계 (`course.Planner`), LLM 총 2번:
-1. **경로** — 근거: 권역 해설(DB 전각 문서, `group` 으로 묶음) + 후보·걷기 분 행렬(`course-input.json`). LLM 은 후보 id(enum) 중 들를 곳·순서·`stayMin`·넣은 이유(`why`, 내부용)만 정함.
-2. **설명** — 근거: 고른 곳의 DB 문서(`b-<serial>-*` + 그 전각 용어)를 고정으로 넣고 챗봇 규칙(`ask.SYSTEM`)으로 답변. `why` 는 참고로만 넘김 → `link_names` 로 카드 링크.
+1. **경로** — 근거: 권역 해설(DB 전각 문서, `group` 으로 묶음) + 후보·걷기 분 행렬(`course-input.json`) + 출발 곳. LLM 은 후보 id(enum) 중 들를 곳·순서·`stayMin`·넣은 이유(`why`, 내부용)만 정함.
+   → 코드(`course.fit`): 행렬 합이 제한 시간 × 0.9 를 넘으면 끝에서부터 뺌.
+2. **설명** — 근거: 남은 곳의 DB 문서(`b-<serial>-*` + 그 전각 용어)를 고정으로 넣고 챗봇 규칙(`ask.SYSTEM`)으로 답변. 뺀 곳·못 맞춘 요청(시간 부족, 후보 밖 곳, 자료 밖 조건)은 첫 문장에서 밝힘. `why` 는 참고로만 넘김 → `link_names` 로 카드 링크.
 
 ### `GET /api/health`
 `200 {"ok": true}` — 로드밸런서·배포 확인용. DB·LLM 은 부르지 않음.
@@ -245,12 +258,12 @@ judge.saved()                            // { visited: [poiId], lastAudio: {poiI
   화면: nearestAmenities 3곳 핀 + 1등까지 선
 
 [코스] "왕비 이야기 위주로 40분"
-  → POST /api/course                                 (10~20초, 로딩)
+  → POST /api/course {request, nearest: judge.where(Infinity)}   (10~20초, 로딩) — 질문 칸 코스 요청이면 /api/ask 의 action.course
   ← answer + course.stops
   화면: 말풍선 answer · 지도에 stops 핀·순서 번호 · [안내하기] 버튼 (아직 길은 안 그림)
   [안내하기]
     stops 를 pin·approachNodes 로 채움 → fitCourse(g, 내 위치, stops, course.minutes)
-    → 실제 걷기 시간으로 다시 계산, 넘치는 곳은 빼고 "n곳 뺌" 표시
+    → 실제 걷기 시간으로 다시 계산 (서버가 90% 안으로 맞춰 보내서 보통 안 뺌), 넘치는 곳은 빼고 "n곳 뺌" 표시
     안내: 다음 곳까지 coords 표시 → judge 의 stamp.poiId == 다음 곳이면 다음으로 (자연 지점은 근처 도착으로 넘김)
     마지막 곳 → back 경로 (끝점 = 출발점)
 

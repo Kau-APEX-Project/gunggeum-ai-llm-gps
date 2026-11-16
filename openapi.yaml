@@ -15,7 +15,7 @@ paths:
   /ask:
     post:
       operationId: ask
-      summary: 질문 — 설명 · 길 묻기(action route) · 근처 편의시설(action amenity)
+      summary: 질문 — 설명 · 길 묻기(action route) · 근처 편의시설(action amenity) · 코스(action course)
       requestBody:
         required: true
         content:
@@ -25,6 +25,8 @@ paths:
               required: [question]
               properties:
                 question: {type: string, minLength: 1, maxLength: 300, example: "거기 어떻게 가?"}
+                here: {type: [string, 'null'], description: '지금 있는 곳 POI id (judge.where()). "여기 뭐야?" 질문과 코스 요청의 출발에 씀. 없거나 모르면 무시'}
+                nearest: {type: [string, 'null'], description: '가장 가까운 POI id (judge.where(Infinity)). 질문이 코스 요청일 때 출발 권역. 없으면 here'}
                 history:
                   description: 이전 턴 (선택, 최근 3개만 씀). 후속 질문("거기는?")을 이해하려고 폰이 보냄. 형식이 틀린 항목은 무시
                   type: array
@@ -86,6 +88,8 @@ paths:
               required: [request]
               properties:
                 request: {type: string, minLength: 1, maxLength: 300, example: 왕비 이야기 위주로 40분}
+                nearest: {type: [string, 'null'], description: '가장 가까운 POI id (judge.where(Infinity)). 그 권역에서 출발·도착. 없거나 모르면 광화문'}
+                here: {type: [string, 'null'], description: 'nearest 가 없을 때 대신 씀 (judge.where(), 전각 30m 안일 때만 오는 값)'}
       responses:
         '200':
           description: 코스
@@ -138,6 +142,11 @@ components:
               properties:
                 type: {const: amenity}
                 category: {type: string, enum: [restroom, bench, water], description: pins.geojson 의 category}
+            - type: object
+              required: [type, course]
+              properties:
+                type: {const: course}
+                course: {$ref: '#/components/schemas/CourseResponse/properties/course', description: /api/course 의 course 와 같음 (answer 는 코스 소개)}
     Card:
       type: object
       required: [id, type, name, text, photo]
@@ -164,12 +173,13 @@ components:
         language: {$ref: '#/components/schemas/Language'}
         course:
           type: object
-          required: [minutes, stops]
+          required: [minutes, start, stops]
           properties:
             minutes: {type: integer, example: 40, description: 요청에서 읽은 제한 시간 (없으면 60)}
+            start: {type: string, example: 'place:gyotaejeon', description: '출발·도착 후보 id (here 의 권역 대표, 없으면 place:gwanghwamun-gate)'}
             stops:
               type: array
-              description: LLM 이 정한 순서. 광화문 출발·도착 기준
+              description: LLM 이 정한 순서. start 출발·도착, 서버가 제한 시간의 90% 안으로 맞춤. 빈 배열이면 다녀올 곳 없음 (answer 는 고정 안내문)
               items:
                 type: object
                 required: [id, stayMin]
