@@ -69,7 +69,8 @@
 |---|---|---|---|
 | `question` | string (1~300자) | ✔ | 관람객이 쓴 문장. 한국어·영어·태국어 |
 | `history` | `[{question, answer}]` | | 이전 턴 (최근 3개만 씀). 받은 `answer` 그대로 넣으면 됨. 없으면 단발 질문 |
-| `here` | string \| null | | 지금 있는 곳 POI id = `judge.where()` (`pois.json` 의 `id`). "여기 뭐야?"·"지금 위치 설명해" 에 씀. 질문이 코스 요청이면 그 권역에서 출발. 없거나 모르는 id 면 무시 |
+| `here` | string \| null | | 지금 있는 곳 POI id = `judge.where()` (전각 존 30m 안일 때만, `pois.json` 의 `id`). "여기 뭐야?"·"지금 위치 설명해" 에 씀. 없거나 모르는 id 면 무시 |
+| `nearest` | string \| null | | 가장 가까운 POI id = `judge.where(Infinity)`. 질문이 코스 요청일 때 출발 권역으로 씀 (없으면 `here`, 그것도 없으면 광화문). `here` 는 길 위에선 null 이라 따로 보냄 |
 
 응답 `200`
 | 필드 | 타입 | 설명 |
@@ -121,6 +122,7 @@
 ```
 - 섞인 질문("교태전 가는 길이랑 뭐하는 곳인지")은 route 로 보고 짧은 소개만. 길게 원하면 다시 일반 질문.
 - 질문 칸의 코스 요청("40분 코스 짜줘")도 `action.course` 로 코스가 옴. 코스 칸(`/api/course`)과 결과가 같음.
+- `history` 형식 검사(틀린 항목 버림, 최근 3개, question 300자)는 `ask.reply` 가 함 — HTTP 서버는 본문 값을 그대로 넘기면 됨.
 - 대화 기록은 서버에 저장 안 함 — 폰이 `history` 로 보냄. 안 보내면 질문마다 독립 ("거기는?" 못 알아들음).
 - 자연 지점(연못·숲)은 DB 문서가 없어 길 묻기 목적지가 안 됨.
 
@@ -150,7 +152,7 @@
 | 필드 | 타입 | 필수 | 설명 |
 |---|---|---|---|
 | `request` | string (1~300자) | ✔ | 예: "왕비 이야기 위주로 40분", "a quiet 30-minute walk". 시간이 없으면 60분 |
-| `here` | string \| null | | 지금 있는 곳 POI id = `judge.where()`. 그 곳이 속한 권역에서 출발·도착하는 코스를 짬. 없거나 모르는 id 면 광화문 |
+| `nearest` | string \| null | | 가장 가까운 POI id = `judge.where(Infinity)`. 그 곳이 속한 권역에서 출발·도착하는 코스를 짬. 없으면 `here`(같은 뜻, 30m 안일 때만 오는 값), 둘 다 없거나 모르는 id 면 광화문 |
 
 응답 `200`
 ```json
@@ -168,7 +170,8 @@
 |---|---|
 | `answer` | **코스를 왜 이렇게 짰는지 + 순서대로 곳마다 볼 것** (카드 링크). 시간·거리 숫자는 안 씀 |
 | `course.minutes` | 요청에서 읽은 제한 시간(분) |
-| `course.start` | 출발·도착 후보 id (here 의 권역 대표, 없으면 `place:gwanghwamun-gate`) |
+| `course.start` | 출발·도착 후보 id (nearest 의 권역 대표, 없으면 `place:gwanghwamun-gate`) |
+| `course.stops` 가 빈 배열 | 시간 안에 다녀올 곳이 없음 — `answer` 는 고정 안내 한 문장 (LLM 설명 없음) |
 | `course.stops[].id` | 전각 = `pois.json` 의 `id` · 자연 지점 = `nature:<이름>` (`servermap/data/places.geojson` 의 `name`) |
 | `course.stops[].stayMin` | 머무는 분 |
 | (순서) | LLM 이 정한 순서 그대로. 출발·도착 = `course.start`. 서버가 후보 걷기 분 행렬로 제한 시간의 90% 안에 들게 끝에서부터 빼고 남은 곳만 줌 (`answer` 도 남은 곳만) → 폰 `fitCourse` 가 실제 길로 다시 계산 |
@@ -255,7 +258,7 @@ judge.saved()                            // { visited: [poiId], lastAudio: {poiI
   화면: nearestAmenities 3곳 핀 + 1등까지 선
 
 [코스] "왕비 이야기 위주로 40분"
-  → POST /api/course {request, here: judge.where()}   (10~20초, 로딩) — 질문 칸 코스 요청이면 /api/ask 의 action.course
+  → POST /api/course {request, nearest: judge.where(Infinity)}   (10~20초, 로딩) — 질문 칸 코스 요청이면 /api/ask 의 action.course
   ← answer + course.stops
   화면: 말풍선 answer · 지도에 stops 핀·순서 번호 · [안내하기] 버튼 (아직 길은 안 그림)
   [안내하기]

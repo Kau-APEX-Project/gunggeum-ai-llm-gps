@@ -322,7 +322,7 @@ $('qBtn').onclick = async () => {
   if (!q || replay) return
   $('qBtn').disabled = true
   log('', `… 질문: ${q}`)
-  const r = await api('/api/ask', { question: q, history: chat.slice(-3), here: judge.where() })
+  const r = await api('/api/ask', { question: q, history: chat.slice(-3), here: judge.where(), nearest: judge.where(Infinity) })
   if (r) {
     chat.push({ question: q, answer: r.answer })
     log('', `${plain(r.answer)}${r.action ? `\n  action ${JSON.stringify(r.action)}` : ''}`)
@@ -341,7 +341,7 @@ $('askBtn').onclick = async () => {
   if (!req || replay) return
   $('askBtn').disabled = true
   log('', `… LLM 에 요청: ${req}`)
-  const r = await api('/api/course', { request: req, here: judge.where() })
+  const r = await api('/api/course', { request: req, nearest: judge.where(Infinity) })
   if (r) showCourse(r.course, `"${req}" → ${r.course.minutes}분`, r.answer)
   $('askBtn').disabled = false
 }

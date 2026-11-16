@@ -43,6 +43,11 @@ def llm(system, user, max_tokens, schema=None, effort=None):
     return res.output_text
 
 
+def llm_json(*args, **kwargs):
+    """llm(schema=...) 의 답 → dict. 모델이 같은 JSON 을 두 번 이어 붙여 줄 때가 있어 (json.loads 는 'Extra data' 오류) 첫 객체만 읽음"""
+    return json.JSONDecoder().raw_decode(llm(*args, **kwargs).strip())[0]
+
+
 # 해설사처럼 덧붙여 설명하게 함 (좁은 질문도 1~2문장으로 끝내지 않음). 용어 표기는 나중에 용어집 링크로 씀
 SYSTEM = """너는 경복궁 해설사다. 관람객에게 궁궐의 건물과 문화유산을 설명한다.
 
@@ -329,6 +334,9 @@ standalone: <history>(앞 대화)가 있으면 마지막 말을 앞 대화 없�
 - 마지막 말이 스스로 대상을 가지면 "그럼"·"그러면" 같은 이음말만 빼고 그대로 쓴다. 예: (강녕전 대화 뒤) "그럼 왕비는 어디서 지냈어?" → "왕비는 어디서 지냈어?"
 - 앞 질문 문장을 standalone 에 붙이지 않는다. standalone 은 질문 하나다.
 - 앞 대화와 상관없는 말(입장료, 인사, 새 주제)이나 <history>가 없으면 마지막 말을 글자 그대로 쓴다.
+- 마지막 말 끝에 괄호로 붙은 이름은 관람객이 지금 서 있는 곳이다. "여기 뭐야?", "지금 위치 설명해줘", "Where am I?"처럼 지금 있는 곳을 묻는 말은
+  route 가 아니라 question 이고, standalone 은 그 곳이 무엇인지 묻는 질문으로 쓴다. 예: "지금 위치 설명해줘 (근정전)" → "근정전은 어떤 곳이야?"
+  지금 있는 곳 자체를 묻는 말에만 그렇게 한다. 다른 것을 찾는 말은 원래대로 분류한다: "여기 근처 화장실 (근정전)" → amenity, "여기서 40분 코스 짜줘 (근정전)" → course.
 kind·to·amenity 는 standalone 기준으로 정한다.
 
 <places>
@@ -362,7 +370,7 @@ def intent(col, question, history=()):
     # ponytail: 앞 답변은 앞 400자만 (대상 이름은 보통 앞에 나옴). 뒤쪽 이름을 놓치면 늘릴 것
     past = ''.join(f"<turn>\n질문: {h['question']}\n답변: {plain(h['answer'])[:400]}\n</turn>\n" for h in history[-3:])
     user = f'<history>\n{past}</history>\n\n마지막 말: {question}' if past else question
-    it = json.loads(llm(INTENT.format(places=listing), user, 300, schema=schema))
+    it = llm_json(INTENT.format(places=listing), user, 300, schema=schema)
     it['standalone'] = past and it['standalone'].strip() or question  # 앞 대화가 없으면 원문 그대로
     show(f"[-] 의도 {it['kind']}" + (f" · 다시 씀: {it['standalone']}" if it['standalone'] != question else ''))
     return it
@@ -394,27 +402,38 @@ def prepare(col, names, question, here=None):
     return q
 
 
+def clean_history(history):
+    """요청 본문의 history → 최근 3턴 [{question, answer}]. 형식이 틀린 항목은 버림, question 은 300자까지 (폰·BE 가 그대로 넘겨도 되게)"""
+    return [{'question': h['question'][:300], 'answer': h['answer']} for h in (history if isinstance(history, (list, tuple)) else [])
+            if isinstance(h, dict) and isinstance(h.get('question'), str) and isinstance(h.get('answer'), str)][-3:]
+
+
 def answer_in(col, docs, question, language, metas):
     """(카드 링크까지 단 답변, context). 카드는 코드로만 검 (cards.link: 이름 매칭 + DB 풀이·별칭, 넣은 문서의 카드만)"""
     text, context = answer_docs(docs, question, language)
     return link(text, metas, language, glosses(col), context), context
 
 
-def reply(col, names, question, history=(), here=None, planner=None):
+def reply(col, names, question, history=(), here=None, planner=None, nearest=None):
     """(POST /api/ask 응답 {answer, language, action}, 넣은 문서 context). 길·편의시설은 어디로인지만 정하고, 실제 길은 폰(route.mjs)이 계산.
     길 묻기 답변 = 목적지 문서로 짧은 소개 + 카드 링크 (검색·고르기 없이 문서 고정).
     history = 이전 턴 [{question, answer}] (폰이 보냄) → 후속 질문을 독립 질문으로 바꿔서 처리. here = 지금 있는 곳 POI id (폰이 보냄)
-    planner = course.Planner — 코스 요청이면 /api/course 와 같은 코스를 action 으로 돌려줌 (없으면 일반 질문으로)"""
+    planner = course.Planner — 코스 요청이면 /api/course 와 같은 코스를 action 으로 돌려줌 (없으면 일반 질문으로).
+    nearest = 가장 가까운 POI id (폰 judge.where(Infinity)) — 코스 출발에만 씀. here 는 전각 30m 안일 때만 와서 길 위에선 없음 → 광화문 출발이 됨"""
+    history = clean_history(history)
+    here, nearest = (x if isinstance(x, str) else None for x in (here, nearest))
     language = answer_language(question)  # 원래 질문 기준 (다시 쓴 질문 말고)
     it = intent(col, prepare(col, names, question, here), history)
     question = it['standalone']
+    if it['kind'] == 'route' and it['to'] == here:  # 지금 서 있는 곳으로 길 안내는 뜻이 없음 ("지금 위치 설명해줘"가 route 로 분류될 때) → 설명
+        it['kind'] = 'question'
     if it['kind'] == 'amenity' and it['amenity']:
         ko, en, th = AMENITY[it['amenity']]
         text = {'English': f'Showing the nearest {en} on the map.', 'ภาษาไทย': f'แสดง{th}ที่ใกล้ที่สุดบนแผนที่'}.get(
             language, f'가까운 {ko}을 지도에 표시합니다.' if ko == '화장실' else f'가까운 {ko}를 지도에 표시합니다.')
         return {'answer': text, 'language': language, 'action': {'type': 'amenity', 'category': it['amenity']}}, ''
     if it['kind'] == 'course' and planner:
-        c = planner.make(question, language, here)
+        c = planner.make(question, language, nearest or here)
         return {'answer': c['answer'], 'language': language, 'action': {'type': 'course', 'course': c['course']}}, ''
     if it['kind'] == 'route' and it['to']:
         fixed = {}

@@ -4,9 +4,9 @@
    + 권역 해설(DB 전각 문서, group 으로 묶음). LLM 은 후보 id(enum) 중 들를 곳·순서·체류·넣은 이유(why)만 정함.
 2. 설명 (LLM 1번): 고른 곳의 DB 문서(b-<serial>-*)를 고정으로 넣고 챗봇 답변 규칙(ask.SYSTEM)으로 "코스를 왜 이렇게 짰는지 + 곳마다 볼 것"
    → 카드 링크(ask.answer_in → cards.link, LLM 없음). why 는 2단계 재료로만 쓰고 응답엔 안 나감.
-출발·도착 = here(지금 있는 곳)의 권역 후보, 없으면 광화문. 경로 뒤 행렬 합이 제한 시간 × SLACK 을 넘으면 코드가 끝에서부터 빼고(fit),
+출발·도착 = here(폰이 보낸 가장 가까운 곳)의 권역 후보, 없으면 광화문. 경로 뒤 행렬 합이 제한 시간 × SLACK 을 넘으면 코드가 끝에서부터 빼고(fit),
 남은 곳만 설명함 → 폰 fitCourse 가 실제 길로 다시 계산해도 빼는 곳이 없게 (소개글과 지도가 같게).
-실행: 루트에서 .venv\Scripts\python deploy/server/course.py → localhost:8001 (OPENAI_API_KEY·DATABASE_URL 필요). 화면은 루트 sim.bat
+실행: 루트에서 .venv/Scripts/python deploy/server/course.py → localhost:8001 (OPENAI_API_KEY·DATABASE_URL 필요). 화면은 루트 sim.bat
 """
 import json
 import re
@@ -14,7 +14,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
-from ask import add_fixed, answer_in, answer_language, llm, name_keys, places, reply
+from ask import add_fixed, answer_in, answer_language, llm_json, name_keys, places, reply
 from cards import card
 from pg import Collection
 
@@ -22,6 +22,10 @@ INPUT = Path(__file__).parent / 'course-input.json'  # servermap 이 바뀌면 b
 SLACK = 0.9  # ponytail: 행렬(후보 사이 분)과 폰의 실제 길 차이를 10% 여유로 흡수. 그래도 폰이 빼면 줄일 것
 DOC_CHARS = 600  # 경로 단계: 건물 하나당 해설 앞부분만 (권역 안 소속 건물도 고루 들어가게)
 NATURE = ('water', 'wood', 'stream', 'spring')
+# 들를 곳이 하나도 안 남았을 때 (LLM 없이). 문서 0개로 LLM 을 부르면 ask.SYSTEM 4번 규칙('자료에 없습니다')과 부딪힘
+EMPTY = {'English': 'There is nowhere you can visit and return from within this time from where you are. Please ask again with more time.',
+         'ภาษาไทย': 'ภายในเวลานี้ไม่มีจุดที่ไปชมแล้วกลับมาได้ทันจากตำแหน่งปัจจุบัน กรุณาเพิ่มเวลาแล้วขอใหม่อีกครั้ง'}
+EMPTY_KO = '이 시간 안에는 지금 위치에서 다녀올 수 있는 곳이 없습니다. 시간을 늘려 다시 요청해 주세요.'
 
 SYSTEM = """너는 경복궁 해설사다. 관람객 요청에 맞는 테마 코스의 경로를 정한다. 설명 글은 따로 쓰므로 여기서는 쓰지 않는다.
 
@@ -108,15 +112,15 @@ class Planner:
 
     def start_of(self, here):
         """here(지금 있는 곳 POI id) → 그 곳이 속한 권역의 후보 id. 모르면 광화문 (pois 71곳 모두 group 이 후보 이름)"""
-        group = places(self.col).get(here or '', {}).get('group')
+        group = places(self.col).get(here if isinstance(here, str) else '', {}).get('group')
         return next((i for i in self.ids if self.name[i] == group), self.m['start'])
 
     def route(self, request, start=None):
         """1단계: 요청 문장 → {minutes, stops:[{id, stayMin, why}]}. 시간이 없으면 60분. start = 출발·도착 후보 id"""
         start = start or self.m['start']
         # 출발은 요청 옆에만 (self.base 는 요청마다 같아서 프롬프트 캐시가 됨)
-        c = json.loads(llm(SYSTEM, self.base + f'출발: {self.name[start]} ({start})\n관람객 요청: {request}\n이 요청에 맞는 코스를 짜라.',
-                           4000, schema=schema(self.ids), effort='medium'))
+        c = llm_json(SYSTEM, self.base + f'출발: {self.name[start]} ({start})\n관람객 요청: {request}\n이 요청에 맞는 코스를 짜라.',
+                     4000, schema=schema(self.ids), effort='medium')
         print(f'[{request}] {self.name[start]} 출발 {c["minutes"]}분: {len(c["stops"])}곳 · 행렬 기준 {total(self.m, c["stops"], start):.0f}분 — '
               + ' → '.join(self.name[s['id']] for s in c['stops']), flush=True)
         return c
@@ -130,23 +134,21 @@ class Planner:
         lines = '\n'.join(f"{i}. {self.name[s['id']]}{' (자연 지점)' if s['id'].startswith('nature:') else ''} ({s['why']})"
                           for i, s in enumerate(stops, 1))
         cut = f"시간이 모자라 뺀 곳: {', '.join(self.name[s['id']] for s in dropped)}" if dropped else ''
-        if not stops:  # 출발 곳에서 왕복하면 시간 안에 드는 곳이 없음 (향원정 출발 20분 근정전 등)
-            cut += ('\n(들를 곳 없음) 이 시간 안에는 지금 있는 곳에서 다녀올 수 있는 곳이 없다. 첫 문장에서 그렇게 밝히고, '
-                    '시간을 늘리면 코스를 짤 수 있다고 한 문장 덧붙인다. 요청한 곳을 들를 곳처럼 소개하지 않는다.')
         text, _ = answer_in(self.col, list(fixed.values()), DESCRIBE.format(request=request, stops=lines, dropped=cut), language,
                             self.col.get(ids=list(fixed))['metadatas'])
         return text
 
     def make(self, request, language=None, here=None):
         """POST /api/course 응답: {answer, language, course: {minutes, start, stops: [{id, stayMin}]}}.
-        language 없으면 요청 문장으로 정함. here = 지금 있는 곳 POI id → 그 권역에서 출발·도착 (없으면 광화문)"""
+        language 없으면 요청 문장으로 정함. here = 가장 가까운 곳 POI id → 그 권역에서 출발·도착 (없으면 광화문)"""
         start = self.start_of(here)
         c = self.route(request, start)
         stops, dropped = fit(self.m, c['stops'], c['minutes'], start)
         if dropped:
             print(f'  시간 맞춤: {", ".join(self.name[s["id"]] for s in dropped)} 뺌', flush=True)
         language = language or answer_language(request)
-        return {'answer': self.describe(request, stops, language, dropped), 'language': language,
+        answer = self.describe(request, stops, language, dropped) if stops else EMPTY.get(language, EMPTY_KO)  # 0곳이면 고정 문장
+        return {'answer': answer, 'language': language,
                 'course': {'minutes': c['minutes'], 'start': start, 'stops': [{'id': s['id'], 'stayMin': s['stayMin']} for s in stops]}}
 
 
@@ -155,18 +157,9 @@ def serve(port=8001):
     정식 API 서버는 아직 없음. 화면(정적 파일)은 sim.bat 의 http-server 가 띄움 — 지도 타일(pmtiles)이 Range 요청을 써서 파이썬 기본 서버로는 안 됨"""
     col = Collection()
     p, names = Planner(col), name_keys(col)
-    routes = {'/api/course': ('request', lambda s, body: p.make(s, here=here(body))),
-              '/api/ask': ('question', lambda s, body: reply(col, names, s, history(body), here(body), p)[0])}
-
-    def here(body):
-        """본문의 선택 here (지금 있는 곳 POI id). 문자열이 아니면 무시"""
-        return body['here'] if isinstance(body.get('here'), str) else None
-
-    def history(body):
-        """본문의 선택 history → 최근 3턴. 형식이 틀린 항목은 버림"""
-        h = body.get('history')
-        return [{'question': x['question'][:300], 'answer': x['answer']} for x in (h if isinstance(h, list) else [])
-                if isinstance(x, dict) and isinstance(x.get('question'), str) and isinstance(x.get('answer'), str)][-3:]
+    # 형식 검사(history 항목·here·nearest 문자열)는 ask.reply·Planner 안에서 함 → 여기와 BE 는 본문 값을 그대로 넘김
+    routes = {'/api/course': ('request', lambda s, body: p.make(s, here=body.get('nearest') or body.get('here'))),
+              '/api/ask': ('question', lambda s, body: reply(col, names, s, body.get('history'), body.get('here'), p, body.get('nearest'))[0])}
 
     class Handler(BaseHTTPRequestHandler):
         def cors(self, code, body=None):

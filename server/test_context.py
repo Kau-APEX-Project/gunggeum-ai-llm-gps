@@ -73,7 +73,42 @@ p.name = {'place:gwanghwamun-gate': '광화문', 'place:gyotaejeon': '교태전'
 p.ids = list(p.name)
 GYO['group'] = '교태전'
 assert p.start_of('place:gyotaejeon') == 'place:gyotaejeon'  # here 의 권역 = 후보
-assert p.start_of('place:none') == p.start_of(None) == 'place:gwanghwamun-gate'  # 모르면 광화문
+assert p.start_of('place:none') == p.start_of(None) == p.start_of(['x']) == 'place:gwanghwamun-gate'  # 모르면·형식 틀리면 광화문
+
+# 들를 곳이 0곳이면 설명 LLM 을 안 부르고 고정 문장
+p.route = lambda request, start: {'minutes': 5, 'stops': [{'id': 'B', 'stayMin': 10, 'why': ''}]}
+p.m = {**M, 'start': 'A'}
+p.name, p.ids = {'A': '가', 'B': '나'}, ['A', 'B']
+p.describe = lambda *a: (_ for _ in ()).throw(AssertionError('0곳이면 describe 를 부르면 안 됨'))
+r = p.make('5분 코스')
+assert r['course'] == {'minutes': 5, 'start': 'A', 'stops': []} and r['answer'] == course.EMPTY_KO
+assert p.make('5 minute tour')['answer'] == course.EMPTY['English']
+
+# 모델이 JSON 을 두 번 이어 붙여 줘도 첫 객체만 읽음
+ask.llm = lambda *a, **k: '{"kind": "question"}\n{"kind": "question"}'
+assert ask.llm_json('s', 'u', 10) == {'kind': 'question'}
+
+# 요청 본문 검사: 형식 틀린 history 항목은 버림, 최근 3개
+assert ask.clean_history('x') == ask.clean_history(None) == []
+assert ask.clean_history([{'question': 'a' * 400, 'answer': 'b'}, {'question': 1, 'answer': 'b'}, 'x', {'question': 'q'}]) \
+    == [{'question': 'a' * 300, 'answer': 'b'}]
+assert len(ask.clean_history([{'question': 'q', 'answer': 'a'}] * 5)) == 3
+
+# 코스 요청: planner 가 있으면 코스 action (출발 = nearest, 없으면 here), 없으면 일반 질문
+ask.llm = lambda system, user, max_tokens, schema=None, effort=None: json.dumps(
+    {'kind': 'course', 'to': None, 'amenity': None, 'standalone': 'x'}) if schema else '답변'
+
+
+class FakePlanner:
+    def make(self, request, language=None, here=None):
+        return {'answer': '코스 소개', 'language': language, 'course': {'minutes': 40, 'start': here, 'stops': []}}
+
+
+r, _ = ask.reply(col, names, '왕비 위주로 40분 코스 짜줘', here='H', planner=FakePlanner(), nearest='N')
+assert r['action'] == {'type': 'course', 'course': {'minutes': 40, 'start': 'N', 'stops': []}} and r['language'] == '한국어'
+assert ask.reply(col, names, '코스 짜줘', here='H', planner=FakePlanner())[0]['action']['course']['start'] == 'H'  # nearest 없으면 here
+assert ask.reply(col, names, '코스 짜줘', history='bad', here=['x'], planner=FakePlanner())[0]['action']['course']['start'] is None
+assert ask.reply(col, names, '왕비 위주로 40분 코스 짜줘')[0]['action'] is None  # planner 없으면 일반 질문
 
 assert ask.NOISE.sub('', 'ประทับของพระมเหสี เครดิตฟรี') == 'ประทับของพระมเหสี'  # 태국어 답변 끝 잡음
 assert ask.NOISE.sub('', 'ชั้นบนกับชั้นล่าง ทดลองใช้ฟรี') == 'ชั้นบนกับชั้นล่าง'
