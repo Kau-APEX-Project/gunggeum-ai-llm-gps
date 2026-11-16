@@ -25,6 +25,7 @@ paths:
               required: [question]
               properties:
                 question: {type: string, minLength: 1, maxLength: 300, example: "거기 어떻게 가?"}
+                here: {type: [string, 'null'], description: '지금 있는 곳 POI id (judge.where()). "여기 뭐야?" 질문과 코스 요청의 출발에 씀. 없거나 모르면 무시'}
                 history:
                   description: 이전 턴 (선택, 최근 3개만 씀). 후속 질문("거기는?")을 이해하려고 폰이 보냄. 형식이 틀린 항목은 무시
                   type: array
