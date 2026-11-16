@@ -1,7 +1,7 @@
 """경복궁 해설 챗봇: Postgres(pgvector)에서 검색한 문서로 GPT-6 Luna(OpenAI API)가 답한다.
-질문당 LLM 호출: 의도(길·편의시설·질문) → [질문] 번역(영어·태국어만) → 문서 고르기 → 답변 = 최대 4번,
-[길 묻기] 의도 → 답변(목적지 문서 고정) = 2번, [편의시설] 의도 1번. 답변 언어: 한국어·English·ภาษาไทย(태국어).
-LLM 없이 코드로: 후속 질문은 앞 답변의 전각 카드를 붙여 처리(prepare), 카드 링크는 이름·DB 풀이·검수 별칭 매칭(cards.link).
+질문당 LLM 호출: 의도(길·편의시설·코스·질문 + 후속 질문 다시 쓰기) → [질문] 번역(영어·태국어만) → 문서 고르기 → 답변 = 최대 4번,
+[길 묻기] 의도 → 답변(목적지 문서 고정) = 2번, [편의시설] 의도 1번, [코스] 의도 → course.Planner 2번 = 3번. 답변 언어: 한국어·English·ภาษาไทย(태국어).
+LLM 없이 코드로: 지금 위치 질문에 here 이름 붙이기(prepare), 카드 링크는 이름·DB 풀이·검수 별칭 매칭(cards.link).
 
 사용: python deploy/server/ask.py                  대화 모드 (빈 줄 / exit 로 종료)
       python deploy/server/ask.py "강녕전이 뭐야?"   한 번만 묻기  [--debug: 검색된 청크 표시]
@@ -316,9 +316,20 @@ def answer_docs(docs, question, language):
 
 INTENT = """경복궁 관람객의 말을 분류하라.
 - route: 어떤 건물·문의 위치나 가는 길을 묻는다. 예: "교태전 어떻게 가?", "경회루 어디야?", "Where is Gyeonghoeru?", "근정전까지 길 알려줘". to = <places> 의 id.
+- course: 여러 곳을 둘러보는 코스·동선·투어를 짜 달라고 한다. 예: "40분 코스 짜줘", "왕비 이야기 위주로 둘러볼 곳 추천해줘", "Plan a 1-hour tour".
+  한 곳의 위치만 물으면 route 다.
 - amenity: 가까운 화장실(restroom), 벤치·앉을 곳(bench), 식수대·마실 물(water)을 찾는다. amenity = 그 종류.
 - question: 그 밖의 모든 것 (건물 설명·역사·용어 등). 예: "근정전이 뭐야?", "교태전에는 누가 살았어?"
 route 가 아니면 to 는 null, amenity 가 아니면 amenity 는 null.
+
+standalone: <history>(앞 대화)가 있으면 마지막 말을 앞 대화 없이도 뜻이 통하는 질문으로 다시 쓴다. 마지막 말과 같은 언어로 쓴다.
+- 지시어·생략된 대상(건물·용어·인물)은 앞 대화에 나온 이름으로 바꾼다. 예: (교태전 대화 뒤) "거기는 누가 살았어?" → "교태전에는 누가 살았어?"
+- 대상이 둘 이상이면 모두 쓴다. 예: (근정전·교태전 대화 뒤) "둘 중 어디가 더 커?" → "근정전과 교태전 중 어디가 더 커?"
+- 생략된 물음은 앞 질문에서 이어 쓴다. 예: ("교태전은 언제 지었어?" 뒤) "그럼 근정전은?" → "근정전은 언제 지었어?"
+- 마지막 말이 스스로 대상을 가지면 "그럼"·"그러면" 같은 이음말만 빼고 그대로 쓴다. 예: (강녕전 대화 뒤) "그럼 왕비는 어디서 지냈어?" → "왕비는 어디서 지냈어?"
+- 앞 질문 문장을 standalone 에 붙이지 않는다. standalone 은 질문 하나다.
+- 앞 대화와 상관없는 말(입장료, 인사, 새 주제)이나 <history>가 없으면 마지막 말을 글자 그대로 쓴다.
+kind·to·amenity 는 standalone 기준으로 정한다.
 
 <places>
 {places}
@@ -333,15 +344,28 @@ def places(col, _cache={}):
     return _cache[col.name]
 
 
-def intent(col, question):
-    """{kind: route|amenity|question, to: nameId|None, amenity: restroom|bench|water|None}. LLM 이 목록(enum) 안에서만 고름"""
+def plain(text):
+    """카드 링크 '[근정전](card:b-160)' → '근정전'"""
+    return re.sub(r'\[([^\]]*)\]\(card:[^)]*\)', r'\1', text or '')
+
+
+def intent(col, question, history=()):
+    """{kind: route|amenity|course|question, to: nameId|None, amenity: restroom|bench|water|None, standalone: 독립 질문}.
+    LLM 이 목록(enum) 안에서만 고름. history(최근 3턴)가 있으면 같은 호출에서 후속 질문을 독립 질문(standalone)으로 다시 씀"""
     ps = places(col)
     listing = '\n'.join(f"{i}: {m['name']} / {m.get('name_en') or ''} / {m.get('name_th') or ''}" for i, m in ps.items())
-    schema = {'type': 'object', 'additionalProperties': False, 'required': ['kind', 'to', 'amenity'], 'properties': {
-        'kind': {'type': 'string', 'enum': ['route', 'amenity', 'question']},
+    schema = {'type': 'object', 'additionalProperties': False, 'required': ['kind', 'to', 'amenity', 'standalone'], 'properties': {
+        'kind': {'type': 'string', 'enum': ['route', 'amenity', 'course', 'question']},
         'to': {'anyOf': [{'type': 'string', 'enum': list(ps)}, {'type': 'null'}]},
-        'amenity': {'anyOf': [{'type': 'string', 'enum': list(AMENITY)}, {'type': 'null'}]}}}
-    return json.loads(llm(INTENT.format(places=listing), question, 100, schema=schema))
+        'amenity': {'anyOf': [{'type': 'string', 'enum': list(AMENITY)}, {'type': 'null'}]},
+        'standalone': {'type': 'string'}}}
+    # ponytail: 앞 답변은 앞 400자만 (대상 이름은 보통 앞에 나옴). 뒤쪽 이름을 놓치면 늘릴 것
+    past = ''.join(f"<turn>\n질문: {h['question']}\n답변: {plain(h['answer'])[:400]}\n</turn>\n" for h in history[-3:])
+    user = f'<history>\n{past}</history>\n\n마지막 말: {question}' if past else question
+    it = json.loads(llm(INTENT.format(places=listing), user, 300, schema=schema))
+    it['standalone'] = past and it['standalone'].strip() or question  # 앞 대화가 없으면 원문 그대로
+    show(f"[-] 의도 {it['kind']}" + (f" · 다시 씀: {it['standalone']}" if it['standalone'] != question else ''))
+    return it
 
 
 def glosses(col, _cache={}):
@@ -353,44 +377,20 @@ def glosses(col, _cache={}):
     return _cache[col.name]
 
 
-# 후속 질문: LLM 없이 규칙으로 앞 대화의 대상을 붙임
-POINT = re.compile(r'거기|그곳|그 곳|그 건물|그분|여기|그 앞|그 옆|그 뒤|\b(there|it|its|this place|that place|they)\b|ที่นั่น|ที่นี่|ตรงนั้น|ที่นั้น', re.I)
-# ponytail: 스스로 주어를 가진 질문의 사람·역할 낱말 ("그럼 왕비는 어디서?"). 이 말이 있으면 대상을 안 붙임. 새 낱말은 여기 추가
-OWN = re.compile(r'왕비|왕|세자|대비|후궁|화장실|벤치|식수|물 마실|\b(queen|king|prince|princess|dowager|restroom|toilet|bench|water)\b'
-                 r'|ราชินี|มเหสี|กษัตริย์|พระราชา|รัชทายาท|ห้องน้ำ|ม้านั่ง|น้ำดื่ม', re.I)
-
-
-def topic(col, names, history):
-    """앞 대화의 대상 전각 (메타데이터): 가장 최근 답변에 처음 걸린 전각 카드, 없으면 그 질문에서 찾은 전각"""
-    for h in reversed(history[-3:]):
-        if m := re.search(r'card:b-(\d+)', h.get('answer') or ''):
-            if got := col.get(where={'type': 'building', 'serial': m[1]})['metadatas']:
-                return got[0]
-        for n in named(names, h.get('question') or ''):
-            if got := col.get(where={'type': 'building', 'name': n})['metadatas']:
-                return got[0]
-    return None
-
-
-# 지금 있는 곳을 묻는 말 ("지금위치 설명해", "여기 뭐야?", "Where am I?"). 폰이 here 를 보냈으면 앞 대화 대신 그곳을 붙임
+# 지금 있는 곳을 묻는 말 ("지금위치 설명해", "여기 뭐야?", "Where am I?"). 폰이 here 를 보냈으면 그곳 이름을 붙임
 HERE = re.compile(r'여기|이곳|이 곳|(지금|현재|내|제)\s*위치|\b(here|where am i|this place)\b|ที่นี่|ตรงนี้', re.I)
 
 
-def prepare(col, names, question, history=(), here=None):
-    """후속 질문 → 앞 대화의 대상 이름을 질문 언어로 붙인 질문. LLM 호출 없음.
-    'Who lived there?' → 'Who lived there? (Gyotaejeon)', 'สร้างครั้งแรกเมื่อไร' → 'สร้างครั้งแรกเมื่อไร (คยองฮเวรู)'.
-    붙이는 때: 지시어(거기·there·ที่นั่น)가 있거나, 질문에 전각·용어 이름도 사람·역할 낱말도 없을 때 (태국어·한국어는 주어를 뺌).
-    붙인 문장이 그대로 기존 흐름(이름 찾기 → 고정 문서, 번역, 의도)에 들어감. 외국어엔 외국어 이름을 붙여 번역 조건도 그대로.
-    here = 폰이 판정한 지금 있는 곳의 POI id (nameId). 질문이 HERE 이고 이름이 없으면 앞 대화보다 우선"""
+def prepare(col, names, question, here=None):
+    """지금 위치 질문 → here(폰이 판정한 지금 있는 곳의 POI id)의 이름을 질문 언어로 붙인 질문. LLM 호출 없음.
+    '지금위치 설명해' → '지금위치 설명해 (근정전)', 'Where am I?' → 'Where am I? (Geunjeongjeon)'.
+    질문에 이미 이름이 있거나 here 가 모르는 id 면 그대로. 앞 대화(history)는 intent 가 같은 호출에서 다시 씀"""
     m = here and HERE.search(question) and not named(names, question) and places(col).get(here)
-    if not m and (not history or not (POINT.search(question) or not named(names, question) and not OWN.search(question))):
-        return question
-    m = m or topic(col, names, history)
     if not m:
         return question
     field = 'name_th' if THAI.search(question) else 'name' if re.search('[가-힣]', question) else 'name_en'
     q = f"{question} ({re.sub(r'\s*\(.*', '', m.get(field) or m['name']).strip()})"
-    show(f'[-] 맥락 반영: {q}')
+    show(f'[-] 지금 위치: {q}')
     return q
 
 
@@ -400,18 +400,22 @@ def answer_in(col, docs, question, language, metas):
     return link(text, metas, language, glosses(col), context), context
 
 
-def reply(col, names, question, history=(), here=None):
+def reply(col, names, question, history=(), here=None, planner=None):
     """(POST /api/ask 응답 {answer, language, action}, 넣은 문서 context). 길·편의시설은 어디로인지만 정하고, 실제 길은 폰(route.mjs)이 계산.
     길 묻기 답변 = 목적지 문서로 짧은 소개 + 카드 링크 (검색·고르기 없이 문서 고정).
-    history = 이전 턴 [{question, answer}] (폰이 보냄) → 후속 질문을 독립 질문으로 바꿔서 처리. here = 지금 있는 곳 POI id (폰이 보냄)"""
-    language = answer_language(question)
-    question = prepare(col, names, question, history, here)
-    it = intent(col, question)
+    history = 이전 턴 [{question, answer}] (폰이 보냄) → 후속 질문을 독립 질문으로 바꿔서 처리. here = 지금 있는 곳 POI id (폰이 보냄)
+    planner = course.Planner — 코스 요청이면 /api/course 와 같은 코스를 action 으로 돌려줌 (없으면 일반 질문으로)"""
+    language = answer_language(question)  # 원래 질문 기준 (다시 쓴 질문 말고)
+    it = intent(col, prepare(col, names, question, here), history)
+    question = it['standalone']
     if it['kind'] == 'amenity' and it['amenity']:
         ko, en, th = AMENITY[it['amenity']]
         text = {'English': f'Showing the nearest {en} on the map.', 'ภาษาไทย': f'แสดง{th}ที่ใกล้ที่สุดบนแผนที่'}.get(
             language, f'가까운 {ko}을 지도에 표시합니다.' if ko == '화장실' else f'가까운 {ko}를 지도에 표시합니다.')
         return {'answer': text, 'language': language, 'action': {'type': 'amenity', 'category': it['amenity']}}, ''
+    if it['kind'] == 'course' and planner:
+        c = planner.make(question, language)
+        return {'answer': c['answer'], 'language': language, 'action': {'type': 'course', 'course': c['course']}}, ''
     if it['kind'] == 'route' and it['to']:
         fixed = {}
         add_fixed(col, {'type': 'building', 'nameId': it['to']}, fixed)

@@ -110,10 +110,10 @@ class Planner:
                             self.col.get(ids=list(fixed))['metadatas'])
         return text
 
-    def make(self, request):
-        """POST /api/course 응답: {answer, language, course: {minutes, stops: [{id, stayMin}]}}"""
+    def make(self, request, language=None):
+        """POST /api/course 응답: {answer, language, course: {minutes, stops: [{id, stayMin}]}}. language 없으면 요청 문장으로 정함"""
         c = self.route(request)
-        language = answer_language(request)
+        language = language or answer_language(request)
         return {'answer': self.describe(request, c['stops'], language), 'language': language,
                 'course': {'minutes': c['minutes'], 'stops': [{'id': s['id'], 'stayMin': s['stayMin']} for s in c['stops']]}}
 
@@ -125,7 +125,7 @@ def serve(port=8001):
     p, names = Planner(col), name_keys(col)
     routes = {'/api/course': ('request', lambda s, body: p.make(s)),
               '/api/ask': ('question', lambda s, body: reply(col, names, s, history(body),
-                                                             body['here'] if isinstance(body.get('here'), str) else None)[0])}
+                                                             body['here'] if isinstance(body.get('here'), str) else None, p)[0])}
 
     def history(body):
         """본문의 선택 history → 최근 3턴. 형식이 틀린 항목은 버림"""

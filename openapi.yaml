@@ -15,7 +15,7 @@ paths:
   /ask:
     post:
       operationId: ask
-      summary: 질문 — 설명 · 길 묻기(action route) · 근처 편의시설(action amenity)
+      summary: 질문 — 설명 · 길 묻기(action route) · 근처 편의시설(action amenity) · 코스(action course)
       requestBody:
         required: true
         content:
@@ -138,6 +138,11 @@ components:
               properties:
                 type: {const: amenity}
                 category: {type: string, enum: [restroom, bench, water], description: pins.geojson 의 category}
+            - type: object
+              required: [type, course]
+              properties:
+                type: {const: course}
+                course: {$ref: '#/components/schemas/CourseResponse/properties/course', description: /api/course 의 course 와 같음 (answer 는 코스 소개)}
     Card:
       type: object
       required: [id, type, name, text, photo]

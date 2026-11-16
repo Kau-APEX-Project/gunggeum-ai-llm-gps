@@ -77,21 +77,24 @@
 | `answer` | string | 답변 (위 규칙, `card:` 링크 포함) |
 | `language` | string | 답변 언어 |
 | `action` | object \| null | 폰이 할 일. 일반 질문이면 `null` |
-| `action.type` | `"route"` \| `"amenity"` | |
+| `action.type` | `"route"` \| `"amenity"` \| `"course"` | |
 | `action.to` | string | (`route`) 목적지 POI id = `pois.json` 의 `id` (nameId) |
 | `action.category` | `"restroom"` \| `"bench"` \| `"water"` | (`amenity`) 편의시설 종류 = `pins.geojson` 의 `category` |
+| `action.course` | object | (`course`) `/api/course` 응답의 `course` 와 같음 `{minutes, stops}`. `answer` = 코스 소개 → 코스 칸과 같이 `fitCourse` |
 
 서버 안 흐름 (`ask.reply`):
 ```
-⓪ 맥락 반영 (LLM 없음, 규칙): 지시어(거기·there·ที่นั่น)가 있거나 질문에 이름이 없으면, 앞 답변에 처음 걸린 전각 카드 이름을
-   질문 언어로 붙임. "Who lived there?" → "Who lived there? (Gyotaejeon)". 답변 언어는 원래 질문 기준
-   단, 지금 있는 곳을 묻는 말(여기·지금 위치·where am I)이고 here 가 있으면 앞 대화 대신 here 의 이름을 붙임
-① 의도 (LLM 1번, 짧음): {kind: route|amenity|question, to, amenity}
+⓪ 지금 위치 (LLM 없음, 규칙): 지금 있는 곳을 묻는 말(여기·지금 위치·where am I)이고 here 가 있으면 here 의 이름을 붙임
+① 의도 + 맥락 (LLM 1번, 짧음): {kind: route|amenity|course|question, to, amenity, standalone}
    to 는 DB 전각 문서의 nameId 목록(enum) 안에서만 고름 → 목록 밖 id 는 나올 수 없음
+   history 가 있으면 같은 호출에서 후속 질문을 독립 질문(standalone)으로 다시 씀 — 지시어·생략된 대상(전각·용어·인물)·
+   두 대상 비교·생략된 물음("그럼 근정전은?" → "근정전은 언제 지었어?"). 앞 대화와 무관하면 그대로. 이후 단계는 standalone 으로.
+   답변 언어는 원래 질문 기준
 ② kind 별
    question → 지금 챗봇 그대로: 번역(외국어만) → 검색(벡터+키워드) → 문서 고르기 → 답변      LLM 총 3~4번
    route    → 검색 없이 목적지 문서 b-<serial>-* 전부 + 그 전각 용어를 고정으로 → 짧은 소개 2~3문장  LLM 총 2번
    amenity  → DB 에 문서 없음 → 언어별 한 문장                                               LLM 총 1번
+   course   → /api/course 와 같은 course.Planner (경로 → 설명), action.course 로                LLM 총 3번
 ```
 
 | `kind` | 답변 근거 | 카드 근거 | 길 근거 |
@@ -117,6 +120,7 @@
    "action": {"type": "amenity", "category": "restroom"}}
 ```
 - 섞인 질문("교태전 가는 길이랑 뭐하는 곳인지")은 route 로 보고 짧은 소개만. 길게 원하면 다시 일반 질문.
+- 질문 칸의 코스 요청("40분 코스 짜줘")도 `action.course` 로 코스가 옴. 코스 칸(`/api/course`)과 결과가 같음.
 - 대화 기록은 서버에 저장 안 함 — 폰이 `history` 로 보냄. 안 보내면 질문마다 독립 ("거기는?" 못 알아들음).
 - 자연 지점(연못·숲)은 DB 문서가 없어 길 묻기 목적지가 안 됨.
 
