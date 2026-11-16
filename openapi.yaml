@@ -86,6 +86,7 @@ paths:
               required: [request]
               properties:
                 request: {type: string, minLength: 1, maxLength: 300, example: 왕비 이야기 위주로 40분}
+                here: {type: [string, 'null'], description: '지금 있는 곳 POI id (judge.where()). 그 권역에서 출발·도착. 없거나 모르면 광화문'}
       responses:
         '200':
           description: 코스
@@ -169,12 +170,13 @@ components:
         language: {$ref: '#/components/schemas/Language'}
         course:
           type: object
-          required: [minutes, stops]
+          required: [minutes, start, stops]
           properties:
             minutes: {type: integer, example: 40, description: 요청에서 읽은 제한 시간 (없으면 60)}
+            start: {type: string, example: 'place:gyotaejeon', description: '출발·도착 후보 id (here 의 권역 대표, 없으면 place:gwanghwamun-gate)'}
             stops:
               type: array
-              description: LLM 이 정한 순서. 광화문 출발·도착 기준
+              description: LLM 이 정한 순서. start 출발·도착, 서버가 제한 시간의 90% 안으로 맞춤
               items:
                 type: object
                 required: [id, stayMin]

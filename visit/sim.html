@@ -341,7 +341,7 @@ $('askBtn').onclick = async () => {
   if (!req || replay) return
   $('askBtn').disabled = true
   log('', `… LLM 에 요청: ${req}`)
-  const r = await api('/api/course', { request: req })
+  const r = await api('/api/course', { request: req, here: judge.where() })
   if (r) showCourse(r.course, `"${req}" → ${r.course.minutes}분`, r.answer)
   $('askBtn').disabled = false
 }
@@ -353,7 +353,7 @@ function showCourse(llm, title, answer) {
     const p = used.find((x) => x.id === s.id)
     return { ...s, name: name(s.id), pin: p?.pin || naturePin.get(s.id), approachNodes: p?.approachNodes }
   })
-  here = start // 코스는 광화문 출발·도착 기준으로 만들어짐
+  if (!llm.start || llm.start === 'place:gwanghwamun-gate') here = start // 광화문 출발 코스면 광화문으로, 아니면 지금 위치에서 (서버가 here 권역에서 짬)
   const c = fitCourse(g, here, stops, budget)
   const byId = new Map(stops.map((s) => [s.id, s]))
   courseLine = [...c.stops, c.back].flatMap((s) => s.coords)

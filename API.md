@@ -150,6 +150,7 @@
 | 필드 | 타입 | 필수 | 설명 |
 |---|---|---|---|
 | `request` | string (1~300자) | ✔ | 예: "왕비 이야기 위주로 40분", "a quiet 30-minute walk". 시간이 없으면 60분 |
+| `here` | string \| null | | 지금 있는 곳 POI id = `judge.where()`. 그 곳이 속한 권역에서 출발·도착하는 코스를 짬. 없거나 모르는 id 면 광화문 |
 
 응답 `200`
 ```json
@@ -158,6 +159,7 @@
   "language": "한국어",
   "course": {
     "minutes": 40,
+    "start": "place:gyotaejeon",
     "stops": [{"id": "place:gyotaejeon", "stayMin": 8}, {"id": "nature:향원지", "stayMin": 3}]
   }
 }
@@ -166,13 +168,15 @@
 |---|---|
 | `answer` | **코스를 왜 이렇게 짰는지 + 순서대로 곳마다 볼 것** (카드 링크). 시간·거리 숫자는 안 씀 |
 | `course.minutes` | 요청에서 읽은 제한 시간(분) |
+| `course.start` | 출발·도착 후보 id (here 의 권역 대표, 없으면 `place:gwanghwamun-gate`) |
 | `course.stops[].id` | 전각 = `pois.json` 의 `id` · 자연 지점 = `nature:<이름>` (`servermap/data/places.geojson` 의 `name`) |
 | `course.stops[].stayMin` | 머무는 분 |
-| (순서) | LLM 이 정한 순서 그대로. 출발·도착 = 광화문 기준으로 짬. **실제 길·시간은 서버가 주지 않음** → 폰 `fitCourse` |
+| (순서) | LLM 이 정한 순서 그대로. 출발·도착 = `course.start`. 서버가 후보 걷기 분 행렬로 제한 시간의 90% 안에 들게 끝에서부터 빼고 남은 곳만 줌 (`answer` 도 남은 곳만) → 폰 `fitCourse` 가 실제 길로 다시 계산 |
 
 서버 안 두 단계 (`course.Planner`), LLM 총 2번:
-1. **경로** — 근거: 권역 해설(DB 전각 문서, `group` 으로 묶음) + 후보·걷기 분 행렬(`course-input.json`). LLM 은 후보 id(enum) 중 들를 곳·순서·`stayMin`·넣은 이유(`why`, 내부용)만 정함.
-2. **설명** — 근거: 고른 곳의 DB 문서(`b-<serial>-*` + 그 전각 용어)를 고정으로 넣고 챗봇 규칙(`ask.SYSTEM`)으로 답변. `why` 는 참고로만 넘김 → `link_names` 로 카드 링크.
+1. **경로** — 근거: 권역 해설(DB 전각 문서, `group` 으로 묶음) + 후보·걷기 분 행렬(`course-input.json`) + 출발 곳. LLM 은 후보 id(enum) 중 들를 곳·순서·`stayMin`·넣은 이유(`why`, 내부용)만 정함.
+   → 코드(`course.fit`): 행렬 합이 제한 시간 × 0.9 를 넘으면 끝에서부터 뺌.
+2. **설명** — 근거: 남은 곳의 DB 문서(`b-<serial>-*` + 그 전각 용어)를 고정으로 넣고 챗봇 규칙(`ask.SYSTEM`)으로 답변. 뺀 곳·못 맞춘 요청(시간 부족, 후보 밖 곳, 자료 밖 조건)은 첫 문장에서 밝힘. `why` 는 참고로만 넘김 → `link_names` 로 카드 링크.
 
 ### `GET /api/health`
 `200 {"ok": true}` — 로드밸런서·배포 확인용. DB·LLM 은 부르지 않음.
@@ -251,12 +255,12 @@ judge.saved()                            // { visited: [poiId], lastAudio: {poiI
   화면: nearestAmenities 3곳 핀 + 1등까지 선
 
 [코스] "왕비 이야기 위주로 40분"
-  → POST /api/course                                 (10~20초, 로딩)
+  → POST /api/course {request, here: judge.where()}   (10~20초, 로딩) — 질문 칸 코스 요청이면 /api/ask 의 action.course
   ← answer + course.stops
   화면: 말풍선 answer · 지도에 stops 핀·순서 번호 · [안내하기] 버튼 (아직 길은 안 그림)
   [안내하기]
     stops 를 pin·approachNodes 로 채움 → fitCourse(g, 내 위치, stops, course.minutes)
-    → 실제 걷기 시간으로 다시 계산, 넘치는 곳은 빼고 "n곳 뺌" 표시
+    → 실제 걷기 시간으로 다시 계산 (서버가 90% 안으로 맞춰 보내서 보통 안 뺌), 넘치는 곳은 빼고 "n곳 뺌" 표시
     안내: 다음 곳까지 coords 표시 → judge 의 stamp.poiId == 다음 곳이면 다음으로 (자연 지점은 근처 도착으로 넘김)
     마지막 곳 → back 경로 (끝점 = 출발점)
 

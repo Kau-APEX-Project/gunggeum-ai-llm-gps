@@ -59,6 +59,22 @@ ask.glosses = lambda col: None
 r, _ = ask.reply(col, names, 'Who lived there?', h)
 assert got['q'] == 'Who lived in Gyotaejeon?' and r['language'] == 'English'  # 검색은 다시 쓴 질문, 언어는 원문
 
+# 코스 시간 맞춤(course.fit)·출발 권역(start_of): LLM·DB 없이
+import course  # noqa: E402
+
+M = {'start': 'A', 'walkMin': {'A': {'B': 5, 'C': 10}, 'B': {'A': 5, 'C': 5}, 'C': {'A': 10, 'B': 5}}}
+S = [{'id': 'B', 'stayMin': 10}, {'id': 'C', 'stayMin': 10}]  # A→B→C→A = 5+5+10 + 20 = 40분
+assert course.total(M, S) == 40 and course.fit(M, S, 45) == (S, [])  # 45 × 0.9 = 40.5 안
+assert course.fit(M, S, 40) == (S[:1], S[1:])  # 36 밖 → 끝(C)부터 뺌 → A→B→A 20분
+assert course.total(M, S[:1], 'C') == 5 + 5 + 10  # 출발 C: C→B→C
+p = object.__new__(course.Planner)
+p.col, p.m = col, {'start': 'place:gwanghwamun-gate'}
+p.name = {'place:gwanghwamun-gate': '광화문', 'place:gyotaejeon': '교태전'}
+p.ids = list(p.name)
+GYO['group'] = '교태전'
+assert p.start_of('place:gyotaejeon') == 'place:gyotaejeon'  # here 의 권역 = 후보
+assert p.start_of('place:none') == p.start_of(None) == 'place:gwanghwamun-gate'  # 모르면 광화문
+
 assert ask.NOISE.sub('', 'ประทับของพระมเหสี เครดิตฟรี') == 'ประทับของพระมเหสี'  # 태국어 답변 끝 잡음
 assert ask.NOISE.sub('', 'ชั้นบนกับชั้นล่าง ทดลองใช้ฟรี') == 'ชั้นบนกับชั้นล่าง'
 assert ask.NOISE.sub('', 'ฟรีแลนซ์ เป็นอาคาร') == 'ฟรีแลนซ์ เป็นอาคาร'  # 끝 어절만

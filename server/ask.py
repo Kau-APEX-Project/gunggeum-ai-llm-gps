@@ -414,7 +414,7 @@ def reply(col, names, question, history=(), here=None, planner=None):
             language, f'가까운 {ko}을 지도에 표시합니다.' if ko == '화장실' else f'가까운 {ko}를 지도에 표시합니다.')
         return {'answer': text, 'language': language, 'action': {'type': 'amenity', 'category': it['amenity']}}, ''
     if it['kind'] == 'course' and planner:
-        c = planner.make(question, language)
+        c = planner.make(question, language, here)
         return {'answer': c['answer'], 'language': language, 'action': {'type': 'course', 'course': c['course']}}, ''
     if it['kind'] == 'route' and it['to']:
         fixed = {}
