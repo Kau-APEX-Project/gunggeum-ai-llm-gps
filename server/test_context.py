@@ -8,8 +8,15 @@ GYO = {'type': 'building', 'serial': 164, 'name': '교태전', 'name_en': 'Gyota
        'name_th': 'คโยแทจอน (พระตำหนักบรรทมราชินี)'}
 
 
-class Col:  # pg.Collection 흉내: 전각 serial·이름으로만 찾음
+GEUN = {'type': 'building', 'serial': 160, 'name': '근정전', 'name_en': 'Geunjeongjeon (Throne Hall)', 'nameId': 'place:geunjeongjeon-hall'}
+
+
+class Col:  # pg.Collection 흉내: 전각 serial·이름으로만 찾음 (type 만 주면 전각 전부 = places)
+    name = 'test'
+
     def get(self, where=None):
+        if where == {'type': 'building'}:
+            return {'metadatas': [GYO, GEUN]}
         hit = str(where.get('serial')) == '164' or where.get('name') == '교태전'
         return {'metadatas': [GYO] if hit else []}
 
@@ -28,6 +35,13 @@ assert ask.prepare(col, names, '화장실 어디야?', h) == '화장실 어디�
 assert ask.prepare(col, names, '거기는 누가 살았어?', []) == '거기는 누가 살았어?'  # 기록 없음
 assert ask.prepare(col, names, 'Who lived there?', [{'question': '교태전이 뭐야?', 'answer': '왕비의 침전입니다.'}]) \
     == 'Who lived there? (Gyotaejeon)'  # 답변에 카드가 없으면 앞 질문의 이름
+G = 'place:geunjeongjeon-hall'  # 지금 있는 곳 (폰이 보낸 here)
+assert ask.prepare(col, names, '현재 내 위치를 설명해줘', h, G) == '현재 내 위치를 설명해줘 (근정전)'  # 앞 대화(교태전)보다 위치
+assert ask.prepare(col, names, '지금위치 설명해', [], G) == '지금위치 설명해 (근정전)'  # 기록 없어도
+assert ask.prepare(col, names, 'Where am I?', [], G) == 'Where am I? (Geunjeongjeon)'
+assert ask.prepare(col, names, '거기는 누가 살았어?', h, G) == '거기는 누가 살았어? (교태전)'  # 거기 = 앞 대화
+assert ask.prepare(col, names, '여기가 교태전이야?', [], G) == '여기가 교태전이야?'  # 이름을 물으면 위치 안 붙임
+assert ask.prepare(col, names, '현재 내 위치를 설명해줘', h, 'place:none') == '현재 내 위치를 설명해줘 (교태전)'  # 모르는 id
 assert ask.NOISE.sub('', 'ประทับของพระมเหสี เครดิตฟรี') == 'ประทับของพระมเหสี'  # 태국어 답변 끝 잡음
 assert ask.NOISE.sub('', 'ชั้นบนกับชั้นล่าง ทดลองใช้ฟรี') == 'ชั้นบนกับชั้นล่าง'
 assert ask.NOISE.sub('', 'ฟรีแลนซ์ เป็นอาคาร') == 'ฟรีแลนซ์ เป็นอาคาร'  # 끝 어절만

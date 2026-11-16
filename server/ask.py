@@ -372,14 +372,20 @@ def topic(col, names, history):
     return None
 
 
-def prepare(col, names, question, history=()):
+# 지금 있는 곳을 묻는 말 ("지금위치 설명해", "여기 뭐야?", "Where am I?"). 폰이 here 를 보냈으면 앞 대화 대신 그곳을 붙임
+HERE = re.compile(r'여기|이곳|이 곳|(지금|현재|내|제)\s*위치|\b(here|where am i|this place)\b|ที่นี่|ตรงนี้', re.I)
+
+
+def prepare(col, names, question, history=(), here=None):
     """후속 질문 → 앞 대화의 대상 이름을 질문 언어로 붙인 질문. LLM 호출 없음.
     'Who lived there?' → 'Who lived there? (Gyotaejeon)', 'สร้างครั้งแรกเมื่อไร' → 'สร้างครั้งแรกเมื่อไร (คยองฮเวรู)'.
     붙이는 때: 지시어(거기·there·ที่นั่น)가 있거나, 질문에 전각·용어 이름도 사람·역할 낱말도 없을 때 (태국어·한국어는 주어를 뺌).
-    붙인 문장이 그대로 기존 흐름(이름 찾기 → 고정 문서, 번역, 의도)에 들어감. 외국어엔 외국어 이름을 붙여 번역 조건도 그대로"""
-    if not history or not (POINT.search(question) or not named(names, question) and not OWN.search(question)):
+    붙인 문장이 그대로 기존 흐름(이름 찾기 → 고정 문서, 번역, 의도)에 들어감. 외국어엔 외국어 이름을 붙여 번역 조건도 그대로.
+    here = 폰이 판정한 지금 있는 곳의 POI id (nameId). 질문이 HERE 이고 이름이 없으면 앞 대화보다 우선"""
+    m = here and HERE.search(question) and not named(names, question) and places(col).get(here)
+    if not m and (not history or not (POINT.search(question) or not named(names, question) and not OWN.search(question))):
         return question
-    m = topic(col, names, history)
+    m = m or topic(col, names, history)
     if not m:
         return question
     field = 'name_th' if THAI.search(question) else 'name' if re.search('[가-힣]', question) else 'name_en'
@@ -394,12 +400,12 @@ def answer_in(col, docs, question, language, metas):
     return link(text, metas, language, glosses(col), context), context
 
 
-def reply(col, names, question, history=()):
+def reply(col, names, question, history=(), here=None):
     """(POST /api/ask 응답 {answer, language, action}, 넣은 문서 context). 길·편의시설은 어디로인지만 정하고, 실제 길은 폰(route.mjs)이 계산.
     길 묻기 답변 = 목적지 문서로 짧은 소개 + 카드 링크 (검색·고르기 없이 문서 고정).
-    history = 이전 턴 [{question, answer}] (폰이 보냄) → 후속 질문을 독립 질문으로 바꿔서 처리"""
+    history = 이전 턴 [{question, answer}] (폰이 보냄) → 후속 질문을 독립 질문으로 바꿔서 처리. here = 지금 있는 곳 POI id (폰이 보냄)"""
     language = answer_language(question)
-    question = prepare(col, names, question, history)
+    question = prepare(col, names, question, history, here)
     it = intent(col, question)
     if it['kind'] == 'amenity' and it['amenity']:
         ko, en, th = AMENITY[it['amenity']]

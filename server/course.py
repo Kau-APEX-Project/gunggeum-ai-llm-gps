@@ -124,7 +124,8 @@ def serve(port=8001):
     col = Collection()
     p, names = Planner(col), name_keys(col)
     routes = {'/api/course': ('request', lambda s, body: p.make(s)),
-              '/api/ask': ('question', lambda s, body: reply(col, names, s, history(body))[0])}
+              '/api/ask': ('question', lambda s, body: reply(col, names, s, history(body),
+                                                             body['here'] if isinstance(body.get('here'), str) else None)[0])}
 
     def history(body):
         """본문의 선택 history → 최근 3턴. 형식이 틀린 항목은 버림"""

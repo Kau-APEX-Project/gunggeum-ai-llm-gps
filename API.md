@@ -69,6 +69,7 @@
 |---|---|---|---|
 | `question` | string (1~300자) | ✔ | 관람객이 쓴 문장. 한국어·영어·태국어 |
 | `history` | `[{question, answer}]` | | 이전 턴 (최근 3개만 씀). 받은 `answer` 그대로 넣으면 됨. 없으면 단발 질문 |
+| `here` | string \| null | | 지금 있는 곳 POI id = `judge.where()` (`pois.json` 의 `id`). "여기 뭐야?"·"지금 위치 설명해" 에 씀. 없거나 모르는 id 면 무시 |
 
 응답 `200`
 | 필드 | 타입 | 설명 |
@@ -84,6 +85,7 @@
 ```
 ⓪ 맥락 반영 (LLM 없음, 규칙): 지시어(거기·there·ที่นั่น)가 있거나 질문에 이름이 없으면, 앞 답변에 처음 걸린 전각 카드 이름을
    질문 언어로 붙임. "Who lived there?" → "Who lived there? (Gyotaejeon)". 답변 언어는 원래 질문 기준
+   단, 지금 있는 곳을 묻는 말(여기·지금 위치·where am I)이고 here 가 있으면 앞 대화 대신 here 의 이름을 붙임
 ① 의도 (LLM 1번, 짧음): {kind: route|amenity|question, to, amenity}
    to 는 DB 전각 문서의 nameId 목록(enum) 안에서만 고름 → 목록 밖 id 는 나올 수 없음
 ② kind 별

@@ -132,5 +132,17 @@ export function createJudge(zones, pois, opts = {}, saved = {}) {
     saved: () => ({ visited: [...visited], lastAudio: { ...lastAudio } }),
     // 화면 표시용 현재 상태
     peek: () => [...st.values()].map(({ poi, state, dwell, stampDwell }) => ({ id: poi.id, state, dwell, stampDwell, visited: visited.has(poi.id) })),
+    // 질문 "여기 뭐야?"용 지금 있는 곳 (POST /api/ask 의 here): 마지막 유효 샘플에서 존이 near m 안인 POI 중
+    // 존이 가장 가까운 곳, 같으면 핀이 가까운 곳. 없으면 null
+    where: (near = 30) => {
+      if (!last) return null
+      let best = null
+      for (const { poi } of st.values()) {
+        const d = Math.min(...poi.zoneIds.map((z) => distToPolygon(last.p, zoneById.get(z))))
+        const pd = poi.pin ? distM(last.p, poi.pin) : Infinity
+        if (d <= near && (!best || d < best.d || (d === best.d && pd < best.pd))) best = { id: poi.id, d, pd }
+      }
+      return best?.id ?? null
+    },
   }
 }

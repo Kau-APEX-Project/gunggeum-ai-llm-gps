@@ -322,7 +322,7 @@ $('qBtn').onclick = async () => {
   if (!q || replay) return
   $('qBtn').disabled = true
   log('', `… 질문: ${q}`)
-  const r = await api('/api/ask', { question: q, history: chat.slice(-3) })
+  const r = await api('/api/ask', { question: q, history: chat.slice(-3), here: judge.where() })
   if (r) {
     chat.push({ question: q, answer: r.answer })
     log('', `${plain(r.answer)}${r.action ? `\n  action ${JSON.stringify(r.action)}` : ''}`)
