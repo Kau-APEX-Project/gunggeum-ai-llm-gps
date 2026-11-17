@@ -41,15 +41,18 @@ SYSTEM = """너는 경복궁 해설사다. 관람객 요청에 맞는 테마 코
    자연 지점은 문서가 없으니 이름과 가까운 권역(natureNear) 문서에 나온 내용만 쓴다.
 """
 
+# 지시문이 한국어라 언어를 끝에 다시 적음 (없으면 태국어 요청도 한국어로 소개함: 리포트_1117 30건 중 6건)
 DESCRIBE = """관람객 요청: {request}
-아래 순서로 코스를 짰다 (괄호 = 넣은 이유, 참고용).
+관람객의 요청을 보고 네가 아래 순서로 코스를 짰다. 장소·순서·곳 수는 관람객이 고른 것이 아니다 (괄호 = 넣은 이유, 한국어 참고용).
 {stops}
 
 {dropped}
 이 코스를 관람객에게 소개하라. 먼저 1~2문장으로 이 요청에 맞춰 코스를 왜 이렇게 짰는지 말하고, 이어서 순서대로 곳마다 무엇을 볼 수 있는지 1~2문장씩 쓴다.
 요청을 다 맞추지 못했으면(시간이 모자라 일부만 넣음, 요청한 곳이 코스 후보에 없음, 자료에 없는 조건) 첫 문장에서 그 점을 분명히 밝힌다.
+관람객이 말하지 않은 것을 요청했다고 쓰지 않는다. "요청하신 네 곳을 모두 포함했습니다", "요청한 순서대로", "follows the order you requested" 같은 말을 쓰지 않는다.
 위 순서에 없는 곳을 들를 곳처럼 쓰지 않는다.
-걷는 시간·거리·분은 화면이 실제 길로 다시 계산하므로 쓰지 않는다. 자연 지점(연못·숲 등)은 문서가 없으니 이름만 짧게 언급한다."""
+걷는 시간·거리·분은 화면이 실제 길로 다시 계산하므로 쓰지 않는다. 자연 지점(연못·숲 등)은 문서가 없으니 이름만 짧게 언급한다.
+소개 글 전체를 {language}로 쓴다. 괄호 안 넣은 이유가 한국어여도 그대로 옮기지 말고 {language}로 쓴다."""
 
 
 def materials():
@@ -134,7 +137,7 @@ class Planner:
         lines = '\n'.join(f"{i}. {self.name[s['id']]}{' (자연 지점)' if s['id'].startswith('nature:') else ''} ({s['why']})"
                           for i, s in enumerate(stops, 1))
         cut = f"시간이 모자라 뺀 곳: {', '.join(self.name[s['id']] for s in dropped)}" if dropped else ''
-        text, _ = answer_in(self.col, list(fixed.values()), DESCRIBE.format(request=request, stops=lines, dropped=cut), language,
+        text, _ = answer_in(self.col, list(fixed.values()), DESCRIBE.format(request=request, stops=lines, dropped=cut, language=language), language,
                             self.col.get(ids=list(fixed))['metadatas'])
         return text
 
