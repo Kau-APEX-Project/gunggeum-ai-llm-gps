@@ -408,9 +408,39 @@ def clean_history(history):
             if isinstance(h, dict) and isinstance(h.get('question'), str) and isinstance(h.get('answer'), str)][-3:]
 
 
+# DB 전각 메타가 없는 이름 (코스 자연 지점 + 궁 이름): {한글: (영문, 태국어)}. course-input.json 은 생성물이라 여기 둠
+# 경회지·대은암천 외에는 DB text_en·text_th 에 쓰인 표기 그대로. 경회지·대은암천은 DB 에 없어 음역 (검수 필요)
+OTHER_NAMES = {
+    '경복궁': ('Gyeongbokgung (Palace)', 'คยองบกกุง (พระราชวัง)'),
+    '향원지': ('Hyangwonji (Pond)', 'ฮยังวอนจี (สระน้ำ)'),
+    '경회지': ('Gyeonghoeji (Pond)', 'คยองฮเวจี (สระน้ำ)'),
+    '녹산': ('Noksan (Wooded Hill)', 'นกซัน (เนินป่า)'),
+    '열상진원샘': ('Yeolsangjinwon (Spring)', 'ยอลซังจินวอน (บ่อน้ำ)'),
+    '대은암천': ('Daeeunamcheon (Stream)', 'แทอึนอัมชอน (ลำธาร)'),
+}
+
+
+def foreign_name(col, ko, language, nid=None):
+    """한글 이름의 영문·태국어 공식 표기 전체 ('ซาจองจอน (ท้องพระโรงทรงงาน)'). 모르면 None"""
+    m = places(col).get(nid or '') or next((m for m in places(col).values() if m['name'] == ko), None)
+    i = language == 'ภาษาไทย'
+    return (m and m.get('name_th' if i else 'name_en')) or (OTHER_NAMES[ko][i] if ko in OTHER_NAMES else None)
+
+
+def name_rows(col, context, question=''):
+    """넣은 문서·질문에 이름만 나오고 머리([한글 | 영문 | 태국어])는 없는 건물·자연 지점 → 그 머리 줄.
+    코스는 대표 전각 문서만 넣어서 만춘전·천추전 같은 곁채는 태국어 명칭을 몰라 한글로 남음 (gunggeum-ai-llm-gps#6)
+    용어집 끝 '관련 전각:' 목록은 본문이 아니라서 뺌 (안 빼면 거의 모든 건물이 걸려 64줄)"""
+    body = re.sub(r'관련 전각:[^\n]*', '', context) + '\n' + question
+    names = [(m['name'], m.get('name_en') or '', m.get('name_th') or '') for m in places(col).values()]
+    return [f'[{ko} | {en} | {th}]' for ko, en, th in names + [(k, *v) for k, v in OTHER_NAMES.items()]
+            if ko in body and f'[{ko} |' not in context]
+
+
 def answer_in(col, docs, question, language, metas):
     """(카드 링크까지 단 답변, context). 카드는 코드로만 검 (cards.link: 이름 매칭 + DB 풀이·별칭, 넣은 문서의 카드만)"""
-    text, context = answer_docs(docs, question, language)
+    rows = name_rows(col, '\n\n'.join(docs), question) if language != '한국어' else []
+    text, context = answer_docs(docs + (['건물 이름 표기:\n' + '\n'.join(rows)] if rows else []), question, language)
     return link(text, metas, language, glosses(col), context), context
 
 

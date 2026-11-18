@@ -110,6 +110,20 @@ assert ask.reply(col, names, '코스 짜줘', here='H', planner=FakePlanner())[0
 assert ask.reply(col, names, '코스 짜줘', history='bad', here=['x'], planner=FakePlanner())[0]['action']['course']['start'] is None
 assert ask.reply(col, names, '왕비 위주로 40분 코스 짜줘')[0]['action'] is None  # planner 없으면 일반 질문
 
+# 외국어 답변: 본문에 이름만 나온 건물은 머리 줄(공식 영문·태국어)을 붙임, 머리가 이미 있으면 안 붙임
+assert ask.name_rows(col, '[근정전 | Geunjeongjeon] 뒤쪽에 교태전이 있다') == [
+    '[교태전 | Gyotaejeon (Queen’s Bedchamber) | คโยแทจอน (พระตำหนักบรรทมราชินี)]']
+assert ask.name_rows(col, '[교태전 | Gyotaejeon] 교태전은') == []
+assert ask.name_rows(col, '답도: 계단 가운데 돌\n관련 전각: 164 교태전') == []  # 용어집 끝 목록은 본문 아님
+assert ask.name_rows(col, '', '1. ฮยังวอนจี (향원지)') == ['[향원지 | Hyangwonji (Pond) | ฮยังวอนจี (สระน้ำ)]']  # 코스 지시문의 자연 지점
+assert ask.foreign_name(col, '교태전', 'ภาษาไทย') == 'คโยแทจอน (พระตำหนักบรรทมราชินี)'
+assert ask.foreign_name(col, '녹산', 'English') == 'Noksan (Wooded Hill)' and ask.foreign_name(col, '없는곳', 'English') is None
+sent = []
+ask.answer_docs = lambda docs, q, lang: (sent.append(docs), ('답', ''))[1]
+ask.answer_in(col, ['교태전'], 'q', 'ภาษาไทย', [])
+ask.answer_in(col, ['교태전'], 'q', '한국어', [])
+assert len(sent[0]) == 2 and 'คโยแทจอน' in sent[0][1] and sent[1] == ['교태전']  # 한국어는 그대로
+
 assert ask.NOISE.sub('', 'ประทับของพระมเหสี เครดิตฟรี') == 'ประทับของพระมเหสี'  # 태국어 답변 끝 잡음
 assert ask.NOISE.sub('', 'ชั้นบนกับชั้นล่าง ทดลองใช้ฟรี') == 'ชั้นบนกับชั้นล่าง'
 assert ask.NOISE.sub('', 'ฟรีแลนซ์ เป็นอาคาร') == 'ฟรีแลนซ์ เป็นอาคาร'  # 끝 어절만
