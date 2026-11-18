@@ -120,9 +120,10 @@ assert ask.foreign_name(col, '교태전', 'ภาษาไทย') == 'คโย
 assert ask.foreign_name(col, '녹산', 'English') == 'Noksan (Wooded Hill)' and ask.foreign_name(col, '없는곳', 'English') is None
 sent = []
 ask.answer_docs = lambda docs, q, lang: (sent.append(docs), ('답', ''))[1]
-ask.answer_in(col, ['교태전'], 'q', 'ภาษาไทย', [])
-ask.answer_in(col, ['교태전'], 'q', '한국어', [])
-assert len(sent[0]) == 2 and 'คโยแทจอน' in sent[0][1] and sent[1] == ['교태전']  # 한국어는 그대로
+ask.answer_in(col, ['교태전'], 'q', 'ภาษาไทย', [{'text_th': 'โอมุน'}, {'text_th': 'โอมุน'}, {'text_en': 'Omun'}])
+ask.answer_in(col, ['교태전'], 'q', '한국어', [{'text_th': 'โอมุน'}])
+assert len(sent[0]) == 3 and 'คโยแทจอน' in sent[0][1] and sent[0][2].endswith(':\nโอมุน')  # 번역은 그 언어만, 한 번씩
+assert sent[1] == ['교태전']  # 한국어는 그대로
 
 assert ask.NOISE.sub('', 'ประทับของพระมเหสี เครดิตฟรี') == 'ประทับของพระมเหสี'  # 태국어 답변 끝 잡음
 assert ask.NOISE.sub('', 'ชั้นบนกับชั้นล่าง ทดลองใช้ฟรี') == 'ชั้นบนกับชั้นล่าง'
