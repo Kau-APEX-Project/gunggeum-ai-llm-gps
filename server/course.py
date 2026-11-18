@@ -14,7 +14,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
-from ask import add_fixed, answer_in, answer_language, llm_json, name_keys, places, reply
+from ask import OTHER_NAMES, add_fixed, answer_in, answer_language, foreign_name, llm_json, name_keys, places, reply
 from cards import card
 from pg import Collection
 
@@ -134,12 +134,26 @@ class Planner:
         for s in stops:  # 자연 지점(nature:)은 DB 문서가 없어 안 들어감
             add_fixed(self.col, {'type': 'building', 'nameId': s['id']}, fixed)
         # ponytail: 대표 전각 문서만 (권역 소속 건물 전부 넣으면 수만 자). 소속 건물 얘기가 빠지면 group 으로 넓힐 것
-        lines = '\n'.join(f"{i}. {self.name[s['id']]}{' (자연 지점)' if s['id'].startswith('nature:') else ''} ({s['why']})"
+        lines = '\n'.join(f"{i}. {self.shown(s['id'], language)}{' (자연 지점)' if s['id'].startswith('nature:') else ''} ({self.names_in(s['why'], language)})"
                           for i, s in enumerate(stops, 1))
-        cut = f"시간이 모자라 뺀 곳: {', '.join(self.name[s['id']] for s in dropped)}" if dropped else ''
+        cut = f"시간이 모자라 뺀 곳: {', '.join(self.shown(s['id'], language) for s in dropped)}" if dropped else ''
         text, _ = answer_in(self.col, list(fixed.values()), DESCRIBE.format(request=request, stops=lines, dropped=cut, language=language), language,
                             self.col.get(ids=list(fixed))['metadatas'])
         return text
+
+    def shown(self, sid, language):
+        """소개 지시문의 곳 이름: 외국어면 'คอนชองกุง (건청궁)' 처럼 그 언어 이름 + 괄호 한글 (한글만 주면 그대로 옮겨 씀, #6)"""
+        ko = self.name[sid]
+        full = language != '한국어' and foreign_name(self.col, ko, language, sid)
+        return f"{full.split(' (')[0]} ({ko})" if full else ko
+
+    def names_in(self, text, language):
+        """넣은 이유(why) 안 한글 이름 → 그 언어 이름. 태국어 요청이어도 경로 LLM 이 'มี 만춘전 กับ 천추전' 처럼 한글 이름을 섞어 쓰고,
+        소개 LLM 이 그걸 그대로 옮김 (리포트_1118 3차 K06_th)"""
+        if language == '한국어':
+            return text
+        kos = sorted({m['name'] for m in places(self.col).values()} | set(OTHER_NAMES), key=len, reverse=True)  # 근정전 조정 먼저
+        return re.sub('|'.join(map(re.escape, kos)), lambda x: (foreign_name(self.col, x[0], language) or x[0]).split(' (')[0], text)
 
     def make(self, request, language=None, here=None):
         """POST /api/course 응답: {answer, language, course: {minutes, start, stops: [{id, stayMin}]}}.
