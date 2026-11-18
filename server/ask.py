@@ -439,8 +439,14 @@ def name_rows(col, context, question=''):
 
 def answer_in(col, docs, question, language, metas):
     """(카드 링크까지 단 답변, context). 카드는 코드로만 검 (cards.link: 이름 매칭 + DB 풀이·별칭, 넣은 문서의 카드만)"""
-    rows = name_rows(col, '\n\n'.join(docs), question) if language != '한국어' else []
-    text, context = answer_docs(docs + (['건물 이름 표기:\n' + '\n'.join(rows)] if rows else []), question, language)
+    extra = []
+    if language != '한국어':
+        rows = name_rows(col, '\n\n'.join(docs), question)
+        extra += ['건물 이름 표기:\n' + '\n'.join(rows)] if rows else []
+        # 넣은 문서의 DB 번역 (검수본). 한국어만 주면 '오문'→'โอ문', '취향교'→'เช취ฮยาง' 처럼 음역하다 한글이 섞임 (#8)
+        tr = [t for t in dict.fromkeys(m.get('text_th' if language == 'ภาษาไทย' else 'text_en') for m in metas) if t]
+        extra += [f'위 문서의 {language} 번역 (내용은 같음. 이름·용어는 이 번역의 표기를 쓴다):\n' + '\n\n'.join(tr)] if tr else []
+    text, context = answer_docs(docs + extra, question, language)
     return link(text, metas, language, glosses(col), context), context
 
 
